@@ -40,7 +40,7 @@ Primeros pasos con Node.js en VS Code
 
 
 Usando Chrome, chrome://version/
-![Descripción de la imagen](../x-assets/images/chrome.version.png)
+![Descripción de la imagen](../x-assets/chrome.version.png)
 
 ## Proyecto 1: Uso de herramientas de REPL / linea de comandos
 Los estudiantes deben crear un programa en JavaScript que realice las operaciones matemáticas básicas (suma, resta, multiplicación y división) utilizando dos números hard-coded (predefinidos). El programa deberá mostrar el resultado de cada operación en la consola.
