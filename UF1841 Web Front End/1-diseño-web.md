@@ -14,3 +14,16 @@ Se enfoca en la viabilidad técnica del desarrollo web, asegurando que el diseñ
 
 Ejemplo: Un sistema de gestión interna basado en componentes reutilizables de React, optimizado para actualizaciones rápidas y bajo consumo de recursos.
 En un buen diseño web, estos tres enfoques deben combinarse para lograr una experiencia de usuario óptima, cumplir con los objetivos del negocio y garantizar una implementación eficiente.
+
+
+# Actividad: Comparar las siguientes páginas webs y comentar
+- Air BNB
+- Lings Cars
+- Stripe
+- Medium (medium.com)
+- https://www2.pnwx.com/
+- https://thebiguglywebsite.com/
+- https://arngren.net/
+- Craigs List
+- Amazon
+- https://www.berkshirehathaway.com/
