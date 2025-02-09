@@ -27,3 +27,9 @@ En un buen diseño web, estos tres enfoques deben combinarse para lograr una exp
 - Craigs List
 - Amazon
 - https://www.berkshirehathaway.com/
+
+# Proceso de Diseño Web
+[Download PDF](../x-assets/proceso-diseno-pagina-web.pdf)
+
+## Ejemplos:
+- https://duck.design/effective-website-design-process/
