@@ -29,7 +29,57 @@ En un buen diseño web, estos tres enfoques deben combinarse para lograr una exp
 - https://www.berkshirehathaway.com/
 
 # Proceso de Diseño Web
-[Download PDF](../x-assets/proceso-diseno-pagina-web.pdf)
+[Download PDF](../x-assets/UF1841/proceso-diseno-pagina-web.pdf)
 
 ## Ejemplos:
 - https://duck.design/effective-website-design-process/
+
+# Digitial Marketing en el proceso de diseño de una aplicación web
+## USP (Unique Selling Proposition o Unique Selling Point)
+El USP es lo que hace que un producto o servicio sea único y diferente de la competencia. Se trata de un beneficio clave que atrae a los clientes y los convence de elegir tu producto en lugar de otro.
+
+🔹 Ejemplo:
+
+Domino’s Pizza: “Pizza caliente y fresca en 30 minutos o es gratis.”
+Colgate Total: “Protección completa para tu boca durante 12 horas.”
+En estos ejemplos, el valor diferencial está en la rapidez de entrega o en la duración de la protección dental.
+
+## Onliness Statement
+El Onliness Statement es un concepto desarrollado por Marty Neumeier en su libro Zag. Es una declaración que define lo que hace que una marca sea única, sin comparación directa con otras.
+
+![Onliness Statement](../x-assets/UF1841/onliness.statement.png)
+
+
+
+Se construye con la siguiente estructura:
+
+Nuestra [marca] es la única [categoría] que [beneficio principal o característica única].
+
+🔹 Ejemplo:
+
+Tesla: "Tesla es la única marca de automóviles que ofrece vehículos eléctricos de lujo con una red global de carga rápida y tecnología de conducción autónoma avanzada."
+GoPro: "GoPro es la única cámara de acción que combina resistencia extrema, calidad de video profesional y una comunidad global de creadores de contenido extremo."
+Mientras que el USP destaca una característica clave, el Onliness Statement define la identidad única de la marca dentro de su categoría.
+
+# Wireframes
+Un wireframe es un esquema visual o boceto de una página web o aplicación que muestra la estructura y disposición de los elementos sin enfocarse en el diseño final, colores o imágenes. Su propósito es representar de manera clara y sencilla cómo se organizará el contenido y la funcionalidad de una interfaz.
+
+## ¿Para qué se usa?
+- Planificación del diseño – Ayuda a definir la estructura y jerarquía de la información antes de entrar en detalles visuales.
+- Facilitar la comunicación – Sirve como referencia para diseñadores, desarrolladores y clientes, asegurando que todos estén alineados en cuanto a la estructura.
+- Optimización de la usabilidad – Permite detectar problemas en la experiencia del usuario (UX) antes de invertir tiempo y recursos en el desarrollo final.
+- Ahorro de tiempo y costos – Evita cambios costosos en fases avanzadas del desarrollo al validar la estructura desde el inicio.
+
+Los wireframes pueden ser creados a mano o con herramientas como Figma, Adobe XD, Balsamiq, Sketch o incluso en papel.
+
+# Actividad FIGMA wireframe
+Vas a copiar una página ewb que te guste, y diseñar un wireframe usando FIGMA.
+
+![Wireframe](../x-assets/UF1841/figma.wireframe.png)
+
+Presentar tu wireframe a la clase, considerando el USP o Onliness statement.
+
+# Referencias
+- Simon Sinek: Purpose Driven Organisation
+- [Marty Neumeier](https://www.martyneumeier.com/the-onlyness-test) 
+- Figma
