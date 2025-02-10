@@ -83,3 +83,4 @@ Presentar tu wireframe a la clase, considerando el USP o Onliness statement.
 - Simon Sinek: Purpose Driven Organisation
 - [Marty Neumeier](https://www.martyneumeier.com/the-onlyness-test) 
 - Figma
+- [Design Thinking](https://designthinking.ideo.com/)
