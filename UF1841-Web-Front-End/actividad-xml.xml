@@ -1,0 +1,39 @@
+Colocar el siguiente contenido en el archivo `actividad-xml.xml`:
+
+- <!-- Fin del catálogo -->
+- <!-- Este es un comentario al principio del documento XML -->
+- <?xml version="1.0" encoding="UTF-8"?>
+- <!-- Ejemplo de codificación de caracteres escapados -->
+- categoria="programación" idioma="es"
+
+
+
+<catalogo>
+    <!-- Comentario dentro de un elemento -->
+    <libro >
+        <titulo>Introducción a XML</titulo>
+        <autor>Juan Pérez</autor>
+        <anio>2025</anio>
+        <editorial>Editorial Técnica</editorial>
+        <descripcion>Este libro es una guía completa sobre XML.</descripcion>
+        <comentario>El signo mayor &gt; se usa para comparar valores.</comentario>
+    </libro>
+
+    <libro categoria="diseño web" idioma="en">
+        <titulo>Fundamentos de HTML y CSS</titulo>
+        <autor>María López</autor>
+        <anio>2024</anio>
+        <editorial>Ediciones Creativas</editorial>
+        <descripcion>Un enfoque práctico para diseñadores web.</descripcion>
+        <comentario>El símbolo menor &lt; se utiliza en etiquetas HTML.</comentario>
+    </libro>
+
+    <libro categoria="base de datos" idioma="es">
+        <titulo>SQL para Principiantes</titulo>
+        <autor>Carlos Gómez</autor>
+        <anio>2023</anio>
+        <editorial>Grupo Editorial</editorial>
+        <descripcion>Aprende SQL desde cero con ejemplos prácticos.</descripcion>
+    </libro>
+
+</catalogo>

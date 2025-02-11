@@ -79,5 +79,47 @@ Leer esta guía para la creación de readme.md archivos.
 
 Extender Stackedit.io o github con código Javascript:
 
-## Actividad:
+## Actividades:
+
+- Usar actividad-xml.xml para complementar las partes que faltan
 - Llevar a cabo este [Tutorial de Markdown](https://commonmark.org/help/tutorial/)
+
+## Recurso adicional
+```json
+{
+  "catalogo": {
+    "libros": [
+      {
+        "categoria": "programación",
+        "idioma": "es",
+        "titulo": "Introducción a XML",
+        "autor": "Juan Pérez",
+        "anio": 2025,
+        "editorial": "Editorial Técnica",
+        "descripcion": "Este libro es una guía completa sobre XML.",
+        "comentario": "El signo mayor &gt; se usa para comparar valores."
+      },
+      {
+        "categoria": "diseño web",
+        "idioma": "en",
+        "titulo": "Fundamentos de HTML y CSS",
+        "autor": "María López",
+        "anio": 2024,
+        "editorial": "Ediciones Creativas",
+        "descripcion": "Un enfoque práctico para diseñadores web.",
+        "comentario": "El símbolo menor &lt; se utiliza en etiquetas HTML."
+      },
+      {
+        "categoria": "base de datos",
+        "idioma": "es",
+        "titulo": "SQL para Principiantes",
+        "autor": "Carlos Gómez",
+        "anio": 2023,
+        "editorial": "Grupo Editorial",
+        "descripcion": "Aprende SQL desde cero con ejemplos prácticos."
+      }
+    ]
+  }
+}
+
+```

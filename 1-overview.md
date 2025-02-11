@@ -1,3 +1,61 @@
+# Full Stack Developer
+
+![cliente-servidor](/x-assets/fullstack.png)
+
+# Actividad 1:
+
+Colocar los siguientes acciones en uno de las categorías:
+🖥️ Desarrollo Frontend
+⚙️ Desarrollo Backend
+📱 Desarrollo de Apps Móviles
+🗄️ Bases de Datos y DevOps
+🛠️ GitHub y Metodologías Ágiles
+
+
+- Crear un botón interactivo usando React.js
+- Diseñar una página de inicio de sesión con HTML, CSS y JavaScript
+- Construir una barra de navegación responsive con Material UI (MUI)
+- Organizar una sesión de planificación de sprint en Agile
+- Crear una pantalla de inicio usando React Native
+- Escribir una función en Python (FastAPI) que devuelva datos en JSON
+- Configurar una pipeline de CI/CD para una aplicación web
+- Implementar un modo oscuro en una aplicación web
+- Mejorar la accesibilidad web (roles ARIA, texto alternativo, navegación con teclado)
+- Diseñar un esquema de base de datos relacional para una plataforma de blogs
+- Usar AWS Lambda para procesar datos de usuarios
+- Animar elementos de la interfaz con transiciones CSS y JavaScript
+- Crear un nuevo repositorio y hacer push del código en GitHub
+- Enviar un correo electrónico cuando un usuario envíe un formulario de contacto
+- Escribir una consulta en SQL para obtener todos los usuarios de una tabla
+- Escribir un archivo README claro para un proyecto
+
+
+# Actividad 2:
+Con un compañero, dar un rating de 1 (poco) a 5 (mucho) de tus habilidades blandas
+
+🤝 Habilidades Blandas (Soft Skills) de un Full Stack Developer
+
+1. Resolución de Problemas → Capacidad de encontrar soluciones eficientes a errores y problemas técnicos.
+
+2. Aprendizaje Continuo → Mantenerse actualizado con nuevas tecnologías y frameworks.
+
+3. Trabajo en Equipo → Colaborar con diseñadores, otros desarrolladores y equipos de negocio.
+
+4. Comunicación Efectiva → Explicar ideas técnicas de forma clara a colegas no técnicos.
+
+5. Gestión del Tiempo → Organizar tareas para cumplir deadlines en sprints ágiles.
+
+6. Pensamiento Crítico → Evaluar diferentes enfoques antes de tomar decisiones técnicas.
+
+7. Adaptabilidad → Capacidad de cambiar y aprender nuevas tecnologías según las necesidades del proyecto.
+
+8. Empatía y Atención al Usuario → Diseñar soluciones pensando en la experiencia del usuario final.
+
+9. Atención al Detalle → Minimizar errores en código y mejorar la calidad del software.
+
+10. Capacidad de Documentación → Escribir documentación clara en Confluence, Notion o README en GitHub.
+
+
 # Aplicaciones Web (Dinámicas)
 
 Un sitio dinámico es aquél en que algun contenido de la respuesta está generado dinámicamente sólo cuando se necesita. En un sitio web dinámico las páginas HTML se crean normalmente insertando datos desde una base en variables dentro de plantillas HTML (esta es una forma mucho más eficiente de almacenar gran cantidad de contenido que la que usan los sitios web estáticos). Un sitio dinámico puede devolver datos diferentes para un URL basados en la información proporcionada por el usuario o sus preferencias almacenadas y puede realizar otras operaciones como parte de la devolución de respuesta (ej, enviar notificaciones).
