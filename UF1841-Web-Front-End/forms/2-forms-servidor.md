@@ -133,3 +133,23 @@ Crear un servidor básico en Node.js que reciba los datos de un formulario (como
 - Mostrar los datos recibidos en la página de confirmación:
     
     Después de recibir y procesar los datos, el servidor debe responder con una página HTML que muestre el nombre y el correo electrónico del usuario registrado, junto con un mensaje de bienvenida.
+
+# Alternativas
+Eso es un tema avanzado, no para este clase ahora
+Se puede usar AJAX y/ addEventListener para llevar a cabo lo mismo, sin tener un servidor.
+
+```javascript
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
+    // Capture form data
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+
+    // Display captured data
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = `<p><strong>Nombre:</strong> ${nombre}</p><p><strong>Apellido:</strong> ${apellido}</p>`;
+
+    // Optionally, store the data or process it further (e.g., send to a third-party service)
+});
+```
