@@ -49,8 +49,6 @@ El Onliness Statement es un concepto desarrollado por Marty Neumeier en su libro
 
 ![Onliness Statement](../x-assets/UF1841/onliness.statement.png)
 
-
-
 Se construye con la siguiente estructura:
 
 Nuestra [marca] es la única [categoría] que [beneficio principal o característica única].
@@ -78,6 +76,9 @@ Vas a copiar una página ewb que te guste, y diseñar un wireframe usando FIGMA.
 ![Wireframe](../x-assets/UF1841/figma.wireframe.png)
 
 Presentar tu wireframe a la clase, considerando el USP o Onliness statement.
+
+# Actividad adicional
+Buscar una actividad interesante de [Design Thinking Toolbox](https://en.dt-toolbook.com/tools) y comentarlo a tu compañero.
 
 # Referencias
 - Simon Sinek: Purpose Driven Organisation
