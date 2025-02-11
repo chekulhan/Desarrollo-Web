@@ -2,7 +2,7 @@
 
 La palabra clave debugger en JavaScript se utiliza para activar el depurador (debugger) en el código, lo que permite hacer una pausa en la ejecución del programa y examinar el estado del programa en ese momento. Es una herramienta útil para depurar y analizar el flujo de ejecución del código.
 
-![debugger](../x-assets/UF1842/debugger.png)
+![debugger](../../x-assets/UF1842/debugger.png)
 
 ## ¿Cómo funciona?
 Cuando se encuentra la palabra clave debugger en el código, la ejecución del script se detiene (si el depurador del navegador o del entorno está activo). Esto permite inspeccionar las variables, el estado de la aplicación, y el flujo de ejecución en ese momento. Una vez que se detiene en el punto donde se encuentra el debugger, puedes usar las herramientas de desarrollo del navegador (por ejemplo, las DevTools de Chrome) para examinar el código.
