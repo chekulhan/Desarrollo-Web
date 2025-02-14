@@ -1,0 +1,78 @@
+# Certificado de Profesionalidad: Desarrollo de Aplicaciones con Tecnologías Web
+
+## **Módulo 1: Programación Web en el Entorno Cliente** (180 horas)
+
+### **Contenido**:
+- **UF1841: Elaboración de documentos web mediante lenguajes de marcas** (60 horas)
+  - Diseño web, estructura de sitios, lenguajes de marcado (HTML, XHTML), hojas de estilo (CSS).
+  - Tecnologías: HTML5, CSS, Figma, Node
+
+- **UF1842: Desarrollo y reutilización de componentes software y multimedia mediante lenguajes de guión** (90 horas)
+  - Programación con lenguajes de guión, integración de multimedia, interactividad.
+  - Tecnologías: Javascript, Node, ReactJS, Mui, Express
+
+- **UF1843: Aplicación de técnicas de usabilidad y accesibilidad en el entorno cliente** (30 horas)
+  - Pautas de accesibilidad y usabilidad, validación y optimización para la experiencia del usuario.
+  - Tecnologías: HTML5, CSS, Chrome
+
+### **Evaluación**:
+- Creación de documentos web con lenguajes de marcas.
+- Desarrollo de scripts y componentes multimedia.
+- Aplicación de técnicas de usabilidad y accesibilidad en interfaces.
+
+
+
+## **Módulo 2: Programación Web en el Entorno Servidor** (240 horas)
+
+### **Contenido**:
+- **UF1844: Desarrollo de aplicaciones web en el entorno servidor** (90 horas)
+  - Programación orientada a objetos, desarrollo de componentes en servidor.
+  - Tecnologías: Javascript, Node, Express
+
+- **UF1845: Acceso a datos en aplicaciones web del entorno servidor** (90 horas)
+  - Gestión de bases de datos, consultas SQL, integración con XML y otros lenguajes de marcas.
+  - Tecnologías: NoSQL, Oracle SQL, ...
+
+- **UF1846: Desarrollo de aplicaciones web distribuidas** (60 horas)
+  - Uso de servicios distribuidos, APIs, arquitecturas orientadas a servicios.
+  - Tecnologías: Python, REST APIs, JSON, ...
+
+### **Evaluación**:
+- Desarrollo de componentes backend en entornos web.
+- Integración de bases de datos y manipulación de datos.
+- Implementación de servicios distribuidos y APIs.
+
+---
+
+## **Módulo 3: Implantación de Aplicaciones Web en Entornos Internet, Intranet y Extranet** (90 horas)
+
+### **Contenido**:
+- Infraestructura de Internet y redes.
+- Instalación y configuración de aplicaciones web.
+- Seguridad y control de accesos.
+- Métodos de verificación y pruebas de calidad.
+- Tecnologías: Docker, Github, 
+
+### **Evaluación**:
+- Instalación y distribución de aplicaciones web.
+- Elaboración y mantenimiento de documentación técnica.
+- Aplicación de pruebas funcionales y de rendimiento.
+
+---
+
+## **Módulo 4: Prácticas Profesionales No Laborales** (80 horas)
+
+- Aplicación de los conocimientos adquiridos en un entorno real de trabajo.
+
+### **Evaluación**:
+- Integración de conocimientos en el desarrollo de proyectos web.
+- Uso de herramientas y metodologías de desarrollo profesional.
+
+---
+
+## **Duración total del certificado**: **590 horas**
+
+## **Metodologia**
+- Bootcamp (demostración, actividades prácticos, repaso, pequeños proyectos)
+- Repaso de actividades (diarias)
+- Actitudes (trabajo en equipo, resolución de problemas)

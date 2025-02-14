@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submit Example</title>
+</head>
+<body>
+
+
+    <button id="myButton">Click Me!</button>
+    <p id="output"></p>
+
+    <script>
+        const button = document.getElementById('myButton');
+
+        function handleClick() {
+            
+            document.getElementById('output').textContent='Button Clicked!';
+
+        }
+
+        button.addEventListener('click', handleClick);
+
+    </script>
+</body>
+</html>

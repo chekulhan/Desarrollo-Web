@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book>
+        <title>Introduction to XML &lt; </title>
+        <author>John Doe</author>
+        <year>2025</year>
+        <publisher>Tech Books</publisher>
+    </book>
+    <book>
+        <title>Learning HTML and CSS</title>
+        <author>Jane Smith</author>
+        <year>2023</year>
+        <publisher>Web Dev Press</publisher>
+    </book>
+    <book>
+        <title>Mastering JavaScript</title>
+        <author>James Brown</author>
+        <year>2022</year>
+        <publisher>Code World</publisher>
+    </book>
+</library>

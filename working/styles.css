@@ -1,0 +1,37 @@
+/* Agrega un icono antes del título */
+h1::before {
+    content: "📖 ";
+    color: blue;
+    font-size: 1rem;
+}
+
+/* Agrega un icono después del título */
+h1::after {
+    content: " ✍️";
+    color: red;
+    font-size: 1.2em;
+}
+
+/* Estiliza la primera letra del párrafo */
+p::first-letter {
+    font-size: 2em;
+    font-weight: bold;
+    color: green;
+}
+
+/* Cambia el color del texto seleccionado */
+::selection {
+    background-color: yellow;
+    color: black;
+}
+
+/* Estiliza el placeholder del input */
+input::placeholder {
+    color: blue;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+input::spelling-error {
+    color: red;
+  }
