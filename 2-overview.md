@@ -4,13 +4,15 @@
 
 # Actividad 1:
 
-Colocar los siguientes acciones en uno de las categorías:
-🖥️ Desarrollo Frontend
-⚙️ Desarrollo Backend
-📱 Desarrollo de Apps Móviles
-🗄️ Bases de Datos y DevOps
-🛠️ GitHub y Metodologías Ágiles
+Full Stack Developer:
 
+- 🖥️ Desarrollo Frontend
+- ⚙️ Desarrollo Backend
+- 📱 Desarrollo de Apps Móviles
+- 🗄️ Bases de Datos y DevOps
+- 🛠️ GitHub y Metodologías Ágiles
+
+Colocar los siguientes acciones en uno de las categorías:
 
 - Crear un botón interactivo usando React.js
 - Diseñar una página de inicio de sesión con HTML, CSS y JavaScript
@@ -31,7 +33,7 @@ Colocar los siguientes acciones en uno de las categorías:
 
 
 # Actividad 2:
-Con un compañero, dar un rating de 1 (poco) a 5 (mucho) de tus habilidades blandas
+Con un compañero, dar un rating de 1 (poco) a 5 (mucho) de tus habilidades blandas. Intenta dar unos ejemplos reales.
 
 🤝 Habilidades Blandas (Soft Skills) de un Full Stack Developer
 

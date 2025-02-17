@@ -5,15 +5,15 @@
 ### **Contenido**:
 - **UF1841: Elaboración de documentos web mediante lenguajes de marcas** (60 horas)
   - Diseño web, estructura de sitios, lenguajes de marcado (HTML, XHTML), hojas de estilo (CSS).
-  - Tecnologías: HTML5, CSS, Figma, Node
+  - Tecnologías: HTML5, CSS, Figma, Node (Javascript)
 
 - **UF1842: Desarrollo y reutilización de componentes software y multimedia mediante lenguajes de guión** (90 horas)
   - Programación con lenguajes de guión, integración de multimedia, interactividad.
-  - Tecnologías: Javascript, Node, ReactJS, Mui, Express
+  - Tecnologías: Node (Javascript), ReactJS, Mui, Express
 
 - **UF1843: Aplicación de técnicas de usabilidad y accesibilidad en el entorno cliente** (30 horas)
   - Pautas de accesibilidad y usabilidad, validación y optimización para la experiencia del usuario.
-  - Tecnologías: HTML5, CSS, Chrome
+  - Tecnologías: HTML5, CSS, Chrome, ReactJS, Mui, Express
 
 ### **Evaluación**:
 - Creación de documentos web con lenguajes de marcas.
@@ -72,7 +72,25 @@
 
 ## **Duración total del certificado**: **590 horas**
 
+
+
 ## **Metodologia**
 - Bootcamp (demostración, actividades prácticos, repaso, pequeños proyectos)
-- Repaso de actividades (diarias)
-- Actitudes (trabajo en equipo, resolución de problemas)
+- Repaso de actividades (diarias), ejemplos de alumnos
+- Correo de repaso cada semana
+
+## **Herramientas de clase**
+- Google Drive y correo
+- Libro (como referencia)
+- Aplicaciones (github, VSCode, ...)
+
+## **Evaluación**
+- Exámen al final de cada módulo
+- Actitudes (trabajo en equipo, resolución de problemas, creatividad, comunicación, atención al detalle, adaptabilidad)
+- Cada uno trabaja a su ritmo, cumplir los minimos
+- Buscar y ir más alla del programa de estudio
+
+## **Objetivos**
+- Preparado para la vida real (memorizar, habilidades blandas (soft skills), uso de herramientas de IA para ser más productivo y eficaz)
+- Ser expertos
+- Comunidad / amigos => apoyo, compartir
