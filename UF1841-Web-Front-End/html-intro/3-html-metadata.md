@@ -16,9 +16,12 @@ Algunos ejemplos de etiquetas Open Graph son:
 <meta property="og:description" content="Descripción breve del contenido">
 <meta property="og:image" content="URL de la imagen">
 <meta property="og:type" content="Tipo de contenido, como 'article'">
-````
+```
 
 Estas etiquetas mejoran la presentación del contenido cuando se comparte en redes sociales, lo que puede aumentar la visibilidad y el compromiso con el contenido.
 
 [Meta Tags para redes sociales](https://metatags.io/) 
 
+# Emmet
+
+[Emmet Cheat Sheet](https://docs.emmet.io/cheat-sheet/)
