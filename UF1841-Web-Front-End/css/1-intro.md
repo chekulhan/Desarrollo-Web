@@ -99,5 +99,13 @@ CSS (Cascading Style Sheets) es un lenguaje que permite dar estilo y formato a l
 
 ![CSS](../../x-assets/UF1841/css.devtools.png)
 
+
+# Actividad 1:
+Con tus conocimientos hasta ahora de HTML y CSS, puedes emular esta página:
+
+![BBC](../../x-assets/UF1841/bbc.ejemplo.png)
+
+
+
 # Recursos
 (Adobe Color Wheel)[https://color.adobe.com/]

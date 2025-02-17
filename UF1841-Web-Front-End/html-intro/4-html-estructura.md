@@ -26,7 +26,7 @@ Representa el pie de página de un documento o sección. Usualmente contiene inf
 
 ![HTML Estructura](../../x-assets/UF1841/html.estructura.png)
 
-Actividad:
+**Actividad 1:**
 
 ![HTML Estructura Actividad](../../x-assets/UF1841/html.estructura.actividad.png)
 
