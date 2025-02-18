@@ -92,6 +92,7 @@ span {
 }
 ```
 
+
 # Resumen de CSS
 CSS (Cascading Style Sheets) es un lenguaje que permite dar estilo y formato a los documentos web. Creado en 1996 por Håkon Wium Lie y Bert Bos, CSS permite separar el contenido de la estructura visual, mejorando la accesibilidad y la flexibilidad en el diseño. A lo largo del tiempo, CSS ha evolucionado con nuevas propiedades y características, permitiendo a los desarrolladores crear páginas web más dinámicas, interactivas y atractivas.
 
