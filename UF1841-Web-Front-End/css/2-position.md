@@ -2,6 +2,8 @@
 
 ![Position](../../x-assets/UF1841/css.position.png)
 
+https://developer.mozilla.org/en-US/docs/Web/CSS/position
+
 Resumen de los Valores de position:
 **static**: Es el valor predeterminado. El elemento se coloca en el flujo normal del documento.
 **relative**: El elemento se coloca según el flujo normal, pero puedes moverlo con top, right, bottom, left.
