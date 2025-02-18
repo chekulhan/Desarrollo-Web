@@ -99,9 +99,37 @@ CSS (Cascading Style Sheets) es un lenguaje que permite dar estilo y formato a l
 
 ![CSS](../../x-assets/UF1841/css.devtools.png)
 
-
 # Actividad 1:
-Con tus conocimientos hasta ahora de HTML y CSS, puedes emular esta página:
+## Galeria de photos
+
+Aplicar CSS propiedades a una aplicacion de galeria de fotos. Usar las fotos de https://picsum.photos/.
+
+```html
+<h1>Galería de Fotos</h1>
+    <div class="gallery">
+        <div class="photo">
+            <img src="https://picsum.photos/id/229/200/300" alt="Foto 1">
+        </div>
+        <div class="photo">
+            <img src="https://picsum.photos/id/230/200/300" alt="Foto 2">
+        </div>
+        <div class="photo">
+            <img src="https://picsum.photos/id/231/200/300" alt="Foto 3">
+        </div>
+        <div class="photo">
+            <img src="https://picsum.photos/id/231/200/300" alt="Foto 4">
+        </div>
+        <div class="photo">
+            <img src="https://picsum.photos/id/237/200/300" alt="Foto 5">
+        </div>
+        <div class="photo">
+            <img src="https://picsum.photos/id/236/200/300" alt="Foto 6">
+        </div>
+    </div>
+```
+
+# Actividad 2:
+Con tus conocimientos hasta ahora de HTML y CSS, repasar para emular esta página:
 
 ![BBC](../../x-assets/UF1841/bbc.ejemplo.png)
 
