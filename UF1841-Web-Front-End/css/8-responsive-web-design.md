@@ -1,5 +1,6 @@
 # **Unidades Absolutas y Relativas en CSS**  
 
+
 CSS proporciona diferentes tipos de unidades para definir tamaños, márgenes, rellenos y otras propiedades. Estas unidades se dividen en dos categorías: **absolutas** y **relativas**.
 
 
@@ -81,3 +82,11 @@ p {
 ## 🛠 **¿Cuándo Usar Cada Una?**  
 ✅ **Usa unidades absolutas** cuando necesites un **control preciso** (por ejemplo, en diseños de impresión o elementos de UI fijos).  
 ✅ **Usa unidades relativas** para un **diseño responsivo** y mejor adaptabilidad en diferentes pantallas.  
+
+
+TO DO
+# Responsive
+https://developer.mozilla.org/es/docs/Learn_web_development/Core/CSS_layout/Responsive_Design
+
+# Media Queries
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Media_queries

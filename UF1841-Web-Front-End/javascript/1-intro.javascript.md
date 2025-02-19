@@ -121,3 +121,12 @@ nuevoElemento.remove(); // Lo elimina
 ```
 
 🛠 Prueba: Añade y elimina elementos dinámicamente.
+
+# Window
+
+```
+window.location;
+window.navigator.userAgent;
+window.alert("hola");
+var y = window.prompt("Hola", "x");
+```
