@@ -30,3 +30,38 @@ Este ejercicio les ayudará a comprender mejor el uso de Flexbox para crear un d
 
 ## Grid
 ![Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+
+CSS Grid Layout was introduced in March **2017** as part of CSS3 and became a W3C recommendation.
+
+
+```css
+    .grid-container {
+        display: grid; /* Activamos Grid */
+        grid-template-columns: 100px 100px; /* 2 columnas de 100px cada una */
+        grid-template-rows: 100px 100px; /* 2 filas de 100px cada una */
+        gap: 10px; /* Espacio entre cajas */
+        background-color: lightgray;
+        padding: 10px;
+    }
+
+    .grid-item {
+        background-color: steelblue;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+```
+
+
+```html
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+    </div>
+```
+
