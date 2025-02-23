@@ -31,7 +31,7 @@ const server = createServer((req, res) => {
             const formData = querystring.parse(body);  
             console.log('Form data:', formData.username);
         
-            res.writeHead(302, { 'Location': '/login' });
+            res.writeHead(302, { 'Location': '/login' });  // redirect
             res.end('Data received!');
         });
     } else {
