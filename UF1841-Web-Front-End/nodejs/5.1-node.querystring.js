@@ -5,11 +5,17 @@ const server = http.createServer((req, res) => {
     if (req.method === 'GET') {
         // Parse the URL
         const parsedUrl = url.parse(req.url, true); // The second argument `true` parses the query string
+        console.log(parsedUrl);
         const queryData = parsedUrl.query; // Access the query object
+
 
         // Example: Get specific query parameters
         const name = queryData.name; // Assuming the URL is ?name=John
         const age = queryData.age;   // Assuming the URL is ?age=30
+
+
+        console.log(`Name: ${name}, Age: ${age}`);
+        // Tenemos ahora acceso a los parámetros de la URL!!!!
 
         // Respond with the query data
         res.writeHead(200, { 'Content-Type': 'text/plain' });
