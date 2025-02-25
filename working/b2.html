@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+</head>
+<body>
+    <form id="numberForm" onsubmit="return validateForm()">
+        <!-- Age -->
+        <label for="age">Age (between 18 and 100):</label>
+        <input type="number" id="age" name="age" required>
+
+        <!-- Error message -->
+        <div id="error-message" class="error"></div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            var age = document.getElementById("age").value;
+            var errorMessage = document.getElementById("error-message");
+            errorMessage.innerHTML = ""; // Clear previous error messages
+
+            // Validate age
+            if (age < 18 || age > 100) {
+                errorMessage.innerHTML = "Por favor, introduce una edad válida entre 18 y 100.";
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>

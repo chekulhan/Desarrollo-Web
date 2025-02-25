@@ -8,5 +8,26 @@
 </head>
 <body>
     <h1>Hello</h1>
+    <details>
+        <summary>More Information</summary>
+        <p>This is additional information that can be expanded.</p>
+      </details>
+      <input list="browsers" name="browser" id="browser">
+        <datalist id="browsers">
+        <option value="Chrome">
+        <option value="Firefox">
+        <option value="Safari">
+        <option value="Edge">
+        <option value="Opera">
+        </datalist>
+
+        <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+            <input type="number" id="a" value="0">
+            +
+            <input type="number" id="b" value="0">
+            = 
+            <output name="result" for="a b">0</output>
+          </form>
+          <p>The event will be held on <time datetime="2025-02-14">February 14, 2025</time>.</p>
 </body>
 </html>

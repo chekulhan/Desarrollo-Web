@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileReader Ejemplo con Función</title>
+    <style>
+        #fileContent {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            white-space: pre-wrap; /* Preserve whitespace */
+        }
+    </style>
+</head>
+<body>
+    <h1>Leer un archivo de texto</h1>
+    <input type="file" id="fileInput" accept=".txt" required onchange="readFile()">
+    <div id="fileContent"></div>
+
+    <script>
+        function readFile() {
+            const fileInput = document.getElementById('fileInput');
+            const fileContent = document.getElementById('fileContent');
+            const file = fileInput.files[0]; // Get the selected file
+
+            if (file) {
+
+
+                const reader = new FileReader(); // Create a new FileReader object
+
+                reader.onload = function(e) {
+                    console.log(e);
+                    fileContent.textContent = e.target.result; // Set the file content to the div
+                };
+
+                reader.readAsText(file); // Read the file as text
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Layout Page</title>
+    <style>
+       
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Fixed Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+        }
+
+        /* Scrollable Content */
+        .content {
+            position: absolute;
+            top: 60px; /* Below the header */
+            bottom: 60px; /* Above the bottom bar */
+            left: 0;
+            right: 0;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        /* Fixed Bottom Bar */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ddd;
+            padding: 10px;
+        }
+
+        .bottom-bar input {
+            width: 80%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .bottom-bar button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .bottom-bar button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">Fixed Header</div>
+
+    <div class="content">
+        <p>This is a scrollable content area. Add more text here to test the scrolling behavior.</p>
+        <p>More content...</p>
+        <p>More content...</p>
+        <p>More content...</p>
+        <p>More content...</p>
+        <p>More content...</p>
+        <p>More content...</p>
+        <p>More content...</p>
+        <p>More content...</p>
+        <p>More content...</p>
+        <p>More content...</p>
+    </div>
+
+    <div class="bottom-bar">
+        <input type="text" placeholder="Enter text...">
+        <button>Send</button>
+    </div>
+
+</body>
+</html>
