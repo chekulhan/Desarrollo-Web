@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog Control Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        dialog {
+            padding: 20px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<h1>Dialog Control Example</h1>
+<button id="openDialog">Open Dialog</button>
+
+<dialog id="myDialog">
+    <form method="dialog">
+        <h2>Confirm Action</h2>
+        <p>Are you sure you want to proceed?</p>
+        <button id="confirmButton">Confirm</button>
+        <button id="cancelButton">Cancel</button>
+    </form>
+</dialog>
+
+<script>
+    const openDialogButton = document.getElementById('openDialog');
+    const myDialog = document.getElementById('myDialog');
+    const confirmButton = document.getElementById('confirmButton');
+    const cancelButton = document.getElementById('cancelButton');
+
+    // Open the dialog when the button is clicked
+    openDialogButton.addEventListener('click', () => {
+        myDialog.showModal(); // Show the dialog as a modal
+    });
+
+    // Close the dialog and handle confirm action
+    confirmButton.addEventListener('click', () => {
+        console.log("Action confirmed!");
+        myDialog.close(); // Close the dialog
+    });
+
+    // Close the dialog when cancel is clicked
+    cancelButton.addEventListener('click', () => {
+        console.log("Action canceled.");
+        myDialog.close(); // Close the dialog
+    });
+</script>
+
+</body>
+</html>
