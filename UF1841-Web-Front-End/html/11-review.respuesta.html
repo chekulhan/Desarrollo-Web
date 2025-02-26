@@ -37,6 +37,15 @@
 <body>
 
     <h1>Bienvenido a la Actividad de Revisión</h1>
+    <p>Gestionar las tareas a través de un Kanban Board (github projects)</p>
+    <li>
+        <li>Javascript: Mostrar tu nombre</li>
+        <li>Flex container - cambiar el ordén al reves</li>
+        <li>TABLE - indicare cada segunda fila con un color diferente y la última en amarillo</li>
+        <li>Al enviar (submit) un formulario, mostrar los datos al usuario (alert) - usar event.preventDefault(); si hace falta</li>
+    </li>
+
+    <br>
 
     <button id="nameButton">Dime tu nombre</button>
     <div id="nameDisplay"></div>
@@ -107,6 +116,17 @@
         <button type="submit">Enviar</button>
     </form>
 
+    <hr>
+
+    <div id="progressContainer">
+        <button id="btnReveal">Reveal Secret</button>
+        <p id="loading" style="display:none;">Loading... ⏳</p>
+        <progress id="progressBar" value="0" max="100"></progress>
+    </div>
+
+    <p id="message" style="display:none;">🎉 Surprise! JavaScript is awesome! 🎉</p>
+
+
     <script>
         // Tarea 1: Preguntar el nombre
         document.getElementById('nameButton').onclick = function() {
@@ -121,6 +141,39 @@
             const selectValue = document.getElementById('selectInput').value;
             alert(`Número: ${numberValue}, Opción seleccionada: ${selectValue}`);
         };
+
+        // Tarea 5:
+        document.getElementById("btnReveal").addEventListener("click", function(e) {
+            e.target.disabled = true;
+            let loading = document.getElementById("loading");
+            let message = document.getElementById("message");
+            let progress = document.getElementById("progressBar");
+            
+            loading.style.display='block';
+
+
+            let p = 0;
+
+            let interval = setInterval(() => {
+                p += 5;
+                progress.value = p;
+                if (p >= 100) {
+                    clearInterval(interval); // accepta un interval ID
+                }
+            }, 250);
+
+
+            setTimeout(() => {
+                message.style.display='block';
+                loading.style.display='none';
+                e.target.disabled = false;
+            }, 5000);
+
+
+        });
+
+
+
     </script>
 </body>
 </html>
