@@ -16,9 +16,9 @@
     <canvas id="drawingCanvas" width="600" height="400"></canvas>
 
     <script>
-/*         const canvas = document.getElementById('myCanvas');
+        const canvas = document.getElementById('myCanvas');
         const ctx = canvas.getContext('2d');
-
+/* 
         // Function to draw a box
         function drawBox(x, y) {
             ctx.fillStyle = 'blue'; // Box color
@@ -75,6 +75,13 @@
         canvas.addEventListener("mousedown", startDrawing);
         canvas.addEventListener("mouseup", stopDrawing);
         canvas.addEventListener("mousemove", draw); */
+
+
+        // Draw circle
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+
+
 
         // ACTIVITY respuesta
         /*
