@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Empleo - Comentarios</title>
+   
+    <style>
+        .dialog {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+        }
+
+        .dialog-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 400px;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="openFeedbackDialog">Enviar Comentarios</button>
+
+    <div id="feedbackDialog" class="dialog">
+        <div class="dialog-content">
+            <span class="close-button">&times;</span>
+            <h2>Comentarios</h2>
+            <textarea id="feedback" placeholder="Escribe tus comentarios aquí..." required></textarea><br>
+            <button id="submitFeedback">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+
+        document.getElementById('openFeedbackDialog').addEventListener('click', function() {
+            document.getElementById('feedbackDialog').style.display = 'block';
+        });
+
+        document.querySelector('.close-button').addEventListener('click', function() {
+            document.getElementById('feedbackDialog').style.display = 'none';
+        });
+
+        document.getElementById('submitFeedback').addEventListener('click', function() {
+            const feedback = document.getElementById('feedback').value;
+
+            if (feedback.trim() === "") {
+                alert("Por favor, escribe tus comentarios antes de enviar.");
+            } else {
+                alert("Gracias por tus comentarios: \n" + feedback);
+                document.getElementById('feedbackDialog').style.display = 'none';
+                document.getElementById('feedback').value = ""; // Clear the textarea
+            }
+        });
+
+
+    </script>
+</body>
+</html>
