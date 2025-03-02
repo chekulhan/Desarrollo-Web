@@ -18,6 +18,8 @@ JavaScript es un tema muy amplio, con muchas características, estilos y técnic
 - Entender las mejores prácticas para nombrar variables. Si no se menciona explícitamente, todos los ejemplos deben mostrar buenas prácticas de nombrado de variables en acción.
 - Los diferentes tipos de valores que pueden almacenarse en variables: cadenas de texto, números, booleanos, arreglos y objetos.
 
+### Conversión de tipos de datos
+![Conversions](../../x-assets/UF1842/js.conversion.png)
 
 ## 2 Matemáticas
 
@@ -188,3 +190,6 @@ JavaScript es un tema muy amplio, con muchas características, estilos y técnic
 
 # Recursos
 https://developer.mozilla.org/en-US/curriculum/core/javascript-fundamentals/
+
+
+

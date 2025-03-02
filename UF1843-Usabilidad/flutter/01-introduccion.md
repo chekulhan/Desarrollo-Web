@@ -1,0 +1,1 @@
+https://flutter.dev/multi-platform/web
