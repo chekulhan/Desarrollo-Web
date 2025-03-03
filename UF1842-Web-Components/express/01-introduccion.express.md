@@ -56,3 +56,27 @@ app.listen(3000, () => {
 
 
 ```
+
+## Nodemon
+
+```bash
+npm install --save-dev nodemon
+```
+
+Agregar la configuración de nodemon al 'dev' de package.json:
+
+```json
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+```
+
+Ahora, se puede ejecutar el servidor con:
+```bash
+npm run dev
+```
+
+**How devDependencies work:**
+- dependencies: These are packages that your app needs to run in production. For example, Express, MongoDB, etc.
+- devDependencies: These are packages you need only for development purposes. For example, nodemon, testing libraries, build tools, etc. These dependencies are not installed in the production environment when you run npm install --production.
