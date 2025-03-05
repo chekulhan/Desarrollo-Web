@@ -81,9 +81,24 @@ npm run dev
 - dependencies: These are packages that your app needs to run in production. For example, Express, MongoDB, etc.
 - devDependencies: These are packages you need only for development purposes. For example, nodemon, testing libraries, build tools, etc. These dependencies are not installed in the production environment when you run npm install --production.
 
-# Actividad
+# Actividades
+## Tarea 1
 Crear una route para tu aplicación /faq. Al acceder a la página, enviará HTML directamente al nevegador con información en formato FAQ. Por ejemplo:
 
 ```javascript
  res.send('<html><head>...<body><h1>FAQ</h1><p><strong>¿Qué es ...</strong></p></body>');
  ```
+
+## Tarea 2 (repaso)
+
+Incorporar figlet en un **nuevo** proyecto de Node. 
+1. Usarlo con CommonJS
+2. ¿Funciona con ES Modules?
+
+https://www.npmjs.com/package/figlet
+
+3. Borrar la carpeta node_modules y instalarlo de nuevo, con:
+
+```bash
+npm install
+```
