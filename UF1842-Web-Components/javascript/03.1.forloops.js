@@ -17,6 +17,25 @@ let encontrado = false;
 
 
 
+const numbers = [1, 2, 3, 4, 5];
+// Cuando llegues a 3, terminar de imprimor los valroes y salir del bucle
+
+
+
+// usuarios en un Array
+const users = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 30 },
+    { name: "Charlie", age: 22 }
+];
+
+// ¿funciona?
+for (let users of users) {
+    console.log(`User: ${user.name}, Age: ${user.age}`);
+}
+
+
+
 
 
 // RESPUESTAS:
@@ -46,3 +65,13 @@ console.log(encontrado ? "✅ Invitado encontrado" : "❌ No está en la lista")
 for (let i = 10; i <= 100; i += 10) {
     console.log(`Número: ${i}`);
 }
+
+
+
+
+for (let number of numbers) {
+    if (number === 3) {
+      break;  // Breaks out of the loop when the number is 3
+    }
+    console.log(number);
+  }

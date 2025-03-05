@@ -177,7 +177,17 @@ const saludar = function(name) {
 };
 
 
+let str = "Hello";
+let arr = str.split('')
+// ¿Qué tipo de dato es arr?
+// Cambiar 'Hello' a HellA'
 
+
+let arr = ["a", "b", "c"];
+let str = arr.join(''); 
+
+// ¿Cual es el valor de str?
+// y si hacemos let str = arr.join(','); 
 
 
 // -------- Respuestas -------
