@@ -35,7 +35,21 @@ for (let users of users) {
 }
 
 
+/*
 
+En una pagina web tienes un lista de elementos:
+
+<div class="item">Item 1</div>
+<div class="item">Item 2</div>
+<div class="item">Item 3</div>
+<div class="item">Item 4</div>
+
+Aplicar un bucle para cambiar el estilo de todos los textos en la lista a color azul
+
+PISTA:
+let items = document.getElementsByClassName('item');
+
+*/
 
 
 // RESPUESTAS:
@@ -74,4 +88,18 @@ for (let number of numbers) {
       break;  // Breaks out of the loop when the number is 3
     }
     console.log(number);
+  }
+
+
+
+
+
+
+  let items = document.getElementsByClassName('item');
+
+  // Loop through all the elements
+  for (let i = 0; i < items.length; i++) {
+      // Perform an action on each element
+      items[i].style.color = 'blue';  // Change the text color of each element to blue
+      console.log(`Item ${i + 1} has text: ${items[i].innerText}`);
   }
