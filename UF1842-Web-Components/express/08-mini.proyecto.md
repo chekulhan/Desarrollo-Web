@@ -55,17 +55,27 @@ const userStories = [
   }, ...
 ```
 
+- ¿Seria posible guardar unas tareas en localStorage antes de mandarselas al servidor?
+
+
 ## Requisitos Mínimos del Proyecto
 **Usar Express y EJS:**
 - Debes crear una aplicación web utilizando Express como servidor backend.
 - Utiliza EJS para el renderizado de las vistas (y parciales).
 - Incluir ejemplos de estructuras de control como if y for en las plantillas EJS.
+- Incluir el proyecto en el del empleo hecho en la unidad UF1841.
+
 
 **Incluir Validación en Cliente y Servidor:**
 
 - Implementa validación en el lado del cliente usando JavaScript (por ejemplo, con eventos submit en formularios).
 - Implementa validación en el servidor utilizando Express (puedes usar un middleware como express-validator o validación manual en las rutas).
 - La validación debe incluir, al menos, verificar campos obligatorios, formato de datos, y lógica simple como validar si un campo es un número o una cadena de texto.
+
+**Creatividad:**
+
+- Aprovechar el CSS y HTML para que sea interesante e impresionate.
+- Agregar más valor al proyecto. Por ejemplo, guia o ayuda para el usuario, login (pasar datos con queryString), logout, ...
 
 **Usar GitHub para Entregar el Proyecto:**
 
