@@ -2,7 +2,7 @@
 
 // Imprimir los números en orden inverso (del 5 al 1)
 
-//  Imprimir de 10 a 100 en incrementos de 10
+// Imprimir de 10 a 100 en incrementos de 10
 
 // Imprimir todos los nombres excepto Carlos
 let nombres = ["Ana", "Carlos", "Elena", "Luis"];
@@ -33,6 +33,20 @@ const users = [
 for (let users of users) {
     console.log(`User: ${user.name}, Age: ${user.age}`);
 }
+
+
+
+//
+const names = ["Alice", "Bob", "Charlie", "David"];
+
+names.forEach((name, index) => {
+    // imprimir el nombre y su posicion (index)
+
+});
+
+
+// Mostrar el resultado de la suma de todos los numeros (50), usando for y/o foreach
+const numbers = [5, 10, 15, 20];
 
 
 /*
@@ -103,3 +117,8 @@ for (let number of numbers) {
       items[i].style.color = 'blue';  // Change the text color of each element to blue
       console.log(`Item ${i + 1} has text: ${items[i].innerText}`);
   }
+
+
+numbers.forEach(num =>{
+    sum += num;
+});

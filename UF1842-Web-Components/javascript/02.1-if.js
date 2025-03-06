@@ -20,6 +20,13 @@ if (numero % 2 ...
 let horaActual = 15; // Simulación de la hora en formato 24h
 
 
+// ternarios, forma compacts para escribir una condicion IF
+// 1==1 ? "igual": "no igual";
+
+let temperatura = 30;
+// Si la temperatura es mayor a 25, mostrar un mensaje que hace calor. Si no, otro mensaje
+
+// convertir la actividad de mod % en un ternario
 
 /*
 Dado un número del 0 al 100, asigna una calificación según la siguiente escala:
@@ -151,5 +158,16 @@ if (nota >= 90) {
 </body>
 </html>
 
+
+
+let resultado = numero % 2 === 0 ? "Es par" : "Es impar";
+
+let temperatura = 30;
+const mensaje = temperatura > 25 ? 'Hace calor' : 'Hace buen tiempo';
+
+// Mas complejo:
+let temperatura = 25;
+let clima = temperatura > 30 ? "Hace calor" : temperatura < 15 ? "Hace frío" : "Clima templado";
+console.log(clima);
 
 */
