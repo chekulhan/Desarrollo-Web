@@ -18,7 +18,8 @@ PARA poder organizar, priorizar y seguir el progreso de las tareas del proyecto 
 - Crear un formulario para registrar una historia de usuario.
 - Validar que los campos sean correctos en el cliente y en el servidor.
 - Mostrar un mensaje adecuado según la validación realizada (si la validación es exitosa o falla).
-- Usar la estructura de historia de usuario con nombre, descripción, prioridad y estado.
+- Mostrar las tareas organizados y ordenados a la pantalla
+- Usar la estructura de historia de usuario con nombre, descripción, prioridad y estado, como minimo
 - Implementar la lógica para agregar nuevas historias de usuario en el servidor sin una base de datos (usando un array en memoria).
 
 *Habrá que simular algunas de las tareas, ya que no tenemos una base de datos*
