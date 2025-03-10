@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Historia de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            min-width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        fieldset {
+            border: 2px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #555;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        textarea, select, input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            background: #28a745;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+    </style>
+    <script>
+        function validarFormulario() {
+            let userStory = document.getElementById("historiaUsuario").value.trim();
+
+            // Verificar si empieza con "Como", contiene "quiero" y "para que"
+            if (!userStory.startsWith("Como") || !userStory.includes("quiero") || !userStory.includes("para que")) {
+                alert("La historia de usuario debe seguir el formato: 'Como ..., quiero ..., para que ...'");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Enviar Historia de Usuario</h2>
+        
+        <form action="/enviar-historia" method="POST" onsubmit="return validarFormulario();">
+            <fieldset>
+                <legend>Detalles de la Historia</legend>
+
+                <label for="historiaUsuario">Historia de Usuario:</label>
+                <textarea id="historiaUsuario" name="historiaUsuario" rows="4" required placeholder="Usar formato COMO..QUIERO...PARA"></textarea>
+
+                <label for="prioridad">Prioridad:</label>
+                <select id="prioridad" name="prioridad" required>
+                    <option value="Alta">Alta</option>
+                    <option value="Media">Media</option>
+                    <option value="Baja">Baja</option>
+                </select>
+
+                <label for="fechaCaptura">Fecha de Captura:</label>
+                <input type="date" id="fechaCaptura" name="fechaCaptura" required>
+
+                <label for="responsable">Responsable:</label>
+                <input type="text" id="responsable" name="responsable" required placeholder="Nombre del responsable">
+
+                <button type="submit">Enviar</button>
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+</html>

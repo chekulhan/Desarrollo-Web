@@ -2,7 +2,7 @@
 El objetivo de este proyecto es permitir que los usuarios gestionen sus historias de usuario (historias ágiles o user stories), asignen prioridades y validen tanto en el cliente como en el servidor que los campos están correctamente llenados. 
 
 COMO un developer del equipo,
-QUIERO registrar una nueva historia de usuario con los siguientes datos: nombre, descripción, prioridad,
+QUIERO registrar una nueva historia de usuario con los siguientes datos: nombre, descripción, prioridad, fecha, ...
 PARA poder organizar, priorizar y seguir el progreso de las tareas del proyecto de manera estructurada.
 
 
@@ -83,3 +83,11 @@ const userStories = [
 Asegúrate de subir el código fuente, configuraciones y demás archivos del proyecto.
 - Incluir un README
 
+**Pistas**
+Formulario para captar datos del historia de usuario:
+
+![Input Form](../../x-assets/UF1842/express.project.form.png)
+
+Página con TABLE para mostrar datos del las historias de usuarios:
+
+![Input Form](../../x-assets/UF1842/express.project.view.png)
