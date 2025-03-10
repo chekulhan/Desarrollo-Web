@@ -49,7 +49,61 @@ names.forEach((name, index) => {
 const numbers = [5, 10, 15, 20];
 
 
+
+
+// Usando for loops in HTML:
 /*
+ACTIVIDAD 1:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Loop Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 8px;
+      background-color: #f4f4f4;
+      margin-bottom: 5px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Numeros 1 a 10</h1>
+  <ul id="number-list"></ul>
+
+  <script>
+    // Obtener el contenedor donde se colocarán los números
+    const numberList = document.getElementById("number-list");
+
+    // Usar un for loop de 1 a 10:
+      // dentro de cada bucle, hacer:
+        const listItem = document.createElement("li");   // crear el elemento <li>
+        listItem.textContent = i;  // asignar un valor
+        numberList.appendChild(listItem);  // Agregar el elemento a la lista
+   
+  </script>
+
+</body>
+</html>
+*/
+
+
+/*
+
+ACTIVIDAD 2:
 
 En una pagina web tienes un lista de elementos:
 
