@@ -58,10 +58,36 @@ En una pagina web tienes un lista de elementos:
 <div class="item">Item 3</div>
 <div class="item">Item 4</div>
 
-Aplicar un bucle para cambiar el estilo de todos los textos en la lista a color azul
+Aplicar un bucle para cambiar el estilo de todos los textos en la lista a color azul. 
+Añadir un boton para ejecutarlo.
 
 PISTA:
 let items = document.getElementsByClassName('item');
+
+AVANZADO 1:
+<h1>Ordenar la lista de items</h1>
+
+  <ul id="item-list">
+    <!-- Popular la lista de items aqui -->
+  </ul>
+
+  <button id="sort-btn">Sort Alphabetically</button>
+
+  <script>
+    // Initial array of elements
+    let items = ["Banana", "Apple", "Orange", "Mango", "Grapes"];
+
+    // Crear una function para mostrar los items
+
+    // Crear una function para ordenar los items
+
+    // Agregar un listener o una funcion para ejecutar la funcion de ordenar y mostrarlos de nuevo.
+ <script>
+
+
+AVANZADO 2: Solo cambiar el Item 2 y Item 4 al color azul
+PISTA Convertir HTMLCollection a un array, para acceder al método filter
+let itemsArray = Array.from(items);
 
 */
 
@@ -109,16 +135,93 @@ for (let number of numbers) {
 
 
 
-  let items = document.getElementsByClassName('item');
+let items = document.getElementsByClassName('item');
 
-  // Loop through all the elements
-  for (let i = 0; i < items.length; i++) {
-      // Perform an action on each element
-      items[i].style.color = 'blue';  // Change the text color of each element to blue
-      console.log(`Item ${i + 1} has text: ${items[i].innerText}`);
-  }
+// Loop through all the elements
+for (let i = 0; i < items.length; i++) {
+    // Perform an action on each element
+    items[i].style.color = 'blue';  // Change the text color of each element to blue
+    console.log(`Item ${i + 1} has text: ${items[i].innerText}`);
+}
 
 
 numbers.forEach(num =>{
     sum += num;
 });
+
+
+/*
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Text Color with Filter</title>
+  <style>
+    .item {
+      font-size: 20px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="item">Item 1</div>
+  <div class="item">Item 2</div>
+  <div class="item">Item 3</div>
+  <div class="item">Item 4</div>
+
+  <button id="changeColorBtn">Change Some Items to Blue</button>
+
+  <script>
+    // Get all elements with the class 'item'
+    let items = document.getElementsByClassName('item');
+
+    // Convert HTMLCollection to an array
+    let itemsArray = Array.from(items);
+
+    // Button click event to change color of specific items
+    document.getElementById('changeColorBtn').addEventListener('click', function() {
+      // Use filter to find items containing 'Item 1' or 'Item 3'
+      let filteredItems = itemsArray.filter(item => item.innerText.includes('Item 1') || item.innerText.includes('Item 3'));
+
+      // Change the color of the filtered items
+      filteredItems.forEach(item => {
+        item.style.color = 'blue';
+      });
+    });
+  </script>
+</body>
+</html>
+*/
+
+
+/*
+<script>
+    // Initial array of elements
+    let items = ["Banana", "Apple", "Orange", "Mango", "Grapes"];
+
+    // Function to display the items in the list
+    function displayItems() {
+      const itemList = document.getElementById("item-list");
+      itemList.innerHTML = '';  // Clear the list
+
+      items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        itemList.appendChild(li);
+      });
+    }
+
+    // Display items initially
+    displayItems();
+
+    // Function to sort the items and update the list
+    function sortItems() {
+      items.sort();  // Sort the array alphabetically
+      displayItems();  // Update the list on the page
+    }
+
+    // Attach the event listener to the button
+    document.getElementById("sort-btn").addEventListener("click", sortItems);
+  </script>
+*/

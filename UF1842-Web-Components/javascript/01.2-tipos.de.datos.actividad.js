@@ -130,6 +130,10 @@ let persona = {
 // Director:
 // Año: 
 
+// agregar una propiedad 'genero' al objeto película 
+// borrar esta propiedad 'genero' al objeto película 
+// Modificar el año de la película
+// Mostrar las claves y sus valores usando un bucle for..in
 
 
 // Arrays
@@ -138,6 +142,12 @@ let coches = ["Toyota", "Ferrari", "Mercedes"];
 coches[1] = "Tesla"; 
 coches.push("Chevrolet");
 
+// Mostrar 'Mercedes'
+// Cambiar el primer elemento a 'BMW'
+// Eliminar el último elemento usando pop()
+// Buscar el índice de 'BMW' usando IndexOf(...) - si no existe un valor, ¿que resultado consigues?
+// Verificar si existe 'Toyota' en el array usando .includes(...). ¿Qué valor devuelve?
+// ¿Qué hace coches.sort(); y coches.reverse();?
 
 
 
@@ -188,6 +198,27 @@ let str = arr.join('');
 
 // ¿Cual es el valor de str?
 // y si hacemos let str = arr.join(','); 
+
+
+
+//Arrays de objetos
+const peliculas = [
+  {
+      titulo: "Inception",
+      director: "Christopher Nolan",
+      año: 2010
+  },
+  {
+      titulo: "Interstellar",
+      director: "Christopher Nolan",
+      año: 2014
+  }
+];
+
+console.log(peliculas);
+
+// mostrar los titulos de las peliculas
+// agregar unna nueva pelicula al array
 
 
 // -------- Respuestas -------
@@ -241,10 +272,6 @@ imprimirPelicula(pelicula);
 
 
 
-
-
-
-
 let mixedArray = [42, "Hello", true, { name: "Alice" }, [1, 2, 3], null];
 
 for (let item of mixedArray) {
@@ -256,3 +283,7 @@ for (let item of mixedArray) {
 
 
 
+
+
+// Eliminar una película por índice (ej. eliminar "Inception" que está en el índice 0)
+peliculas.splice(0, 1); // Elimina 1 elemento en el índice 0
