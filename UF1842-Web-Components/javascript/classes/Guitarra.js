@@ -24,22 +24,22 @@ class Guitarra {
 
 
 class GuitarraElectrica extends Guitarra {
-    
-    constructor(marca, modelo, cuerdas, precioDeFabrica, tipoAmplificacion, efectos) {
+
+    constructor(marca, modelo, cuerdas, precioDeFabrica, distorsion) {
         super(marca, modelo, cuerdas, precioDeFabrica);
-        this.tipoAmplificacion = tipoAmplificacion;  // Ej: "transistores" o "válvulas"
-        this.efectos = efectos; // Lista de efectos como ["Distorsión", "Reverb"]
+        this.distorsion = distorsion; 
+        this.amplificador = true;  
     }
 
     conectarAmplificador() {
-        console.log(`${this.marca} ${this.modelo} está conectada a un amplificador de tipo ${this.tipoAmplificacion}.`);
+        console.log(`${this.marca} ${this.modelo} está conectada a un amplificador ${this.amplificador}.`);
     }
 
-    usarEfecto(efecto) {
-        if (this.efectos.includes(efecto)) {
-            console.log(`Activando el efecto ${efecto} en la ${this.marca} ${this.modelo}.`);
+    usarEfecto() {
+        if (this.distorsion) {
+            console.log(`Activando distorsión`);
         } else {
-            console.log(`El efecto ${efecto} no está disponible en esta guitarra.`);
+            console.log(`La distorsión no está disponible en esta guitarra.`);
         }
     }
 }
