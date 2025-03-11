@@ -90,6 +90,96 @@ if (nota >= 90) {
 }
 
 
+// Switch - demo
+let dia = "Lunes";
+
+switch (dia) {
+  case "Lunes":
+    console.log("Comienzo de la semana!");
+    break;
+  case "Martes":
+    console.log("Segund dia de la semana.");
+    break;
+  case "Sabado":
+  case "Domingo":
+    console.log("!Fin the semana!");
+    break;
+  default:
+    console.log("No es un dia válido.");
+}
+
+// Actividad 1:
+let isLoggedIn = true;
+
+// Mostrar un mensaje de bienvenida si el usuario está loggedin. Si no, mostrar un mensaje que le invite a iniciar sesion.
+
+
+// Actividad 2: Correjir el siguiente error
+let fruta = "manzana";
+
+switch (fruta) {
+    case "manzana", "pera":
+      console.log("Es una fruta normal.");
+      break;
+    case "banana", "mango":
+      console.log("Es una fruta tropical.");
+      break;
+  }
+  
+
+// Actividad 3: Completar este código con un switch
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora con Switch</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        input, select, button { margin: 10px; padding: 8px; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+    <h2>Calculadora</h2>
+    <label for="num1">Número 1:</label>
+    <input type="number" id="num1">
+
+    <label for="operation">Operación:</label>
+    <select id="operation">
+        <option value="sumar">Sumar</option>
+        <option value="restar">Restar</option>
+        <option value="multiplicar">Multiplicar</option>
+        <option value="dividir">Dividir</option>
+    </select>
+
+    <label for="num2">Número 2:</label>
+    <input type="number" id="num2">
+
+    <button onclick="calcular()">Calcular</button>
+
+    <h3>Resultado: <span id="resultado">-</span></h3>
+
+    <script>
+        function calcular() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let operacion = document.getElementById("operation").value;
+            let resultado;
+
+            // emplear un switch para hacer la operación matemática y calcular la variable 'resultado'
+
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
 
 
 /*
@@ -169,5 +259,71 @@ const mensaje = temperatura > 25 ? 'Hace calor' : 'Hace buen tiempo';
 let temperatura = 25;
 let clima = temperatura > 30 ? "Hace calor" : temperatura < 15 ? "Hace frío" : "Clima templado";
 console.log(clima);
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora con Switch</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        input, select, button { margin: 10px; padding: 8px; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+    <h2>Calculadora</h2>
+    <label for="num1">Número 1:</label>
+    <input type="number" id="num1">
+
+    <label for="operation">Operación:</label>
+    <select id="operation">
+        <option value="sumar">Sumar</option>
+        <option value="restar">Restar</option>
+        <option value="multiplicar">Multiplicar</option>
+        <option value="dividir">Dividir</option>
+    </select>
+
+    <label for="num2">Número 2:</label>
+    <input type="number" id="num2">
+
+    <button onclick="calcular()">Calcular</button>
+
+    <h3>Resultado: <span id="resultado">-</span></h3>
+
+    <script>
+        function calcular() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let operacion = document.getElementById("operation").value;
+            let resultado;
+
+            switch (operacion) {
+                case "sumar":
+                    resultado = num1 + num2;
+                    break;
+                case "restar":
+                    resultado = num1 - num2;
+                    break;
+                case "multiplicar":
+                    resultado = num1 * num2;
+                    break;
+                case "dividir":
+                    resultado = num2 !== 0 ? num1 / num2 : "Error: División por 0";
+                    break;
+                default:
+                    resultado = "Operación no válida";
+            }
+
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+
+</body>
+</html>
 
 */

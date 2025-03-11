@@ -221,6 +221,26 @@ console.log(peliculas);
 // agregar unna nueva pelicula al array
 
 
+// Errores típicos de Javascript (known bugs)
+0.1 + 0.2 === 0.3 // ¿Qué esperas?
+// Solucion
+0.1 + 0.2.toFixed(2);
+Math.round((0.1 + 0.2) * 100) / 100;
+
+// JavaScript utiliza números de coma flotante de 64 bits, lo que puede generar errores de precisión en las operaciones aritméticas.
+// Esto se debe a que los números decimales en JavaScript se representan siguiendo el estándar IEEE 754, que no siempre puede almacenar valores con precisión absoluta. Como resultado, algunas operaciones matemáticas pueden producir resultados inesperados.
+
+// Javascript representa null como object => incorrecto
+console.log(typeof null);
+
+// ¿Qué esperas?
+console.log("5" - 1); 
+console.log("5" + 1);
+
+// Solucion
+console.log(Number("5") - 1); 
+console.log(Number("5") + 1);
+
 // -------- Respuestas -------
 
 
