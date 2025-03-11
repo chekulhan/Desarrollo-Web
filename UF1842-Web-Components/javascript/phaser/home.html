@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phaser Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+</head>
+<body>
+    <script type="module">
+
+
+        // Game configuration
+        const config = {
+            type: Phaser.AUTO,  // Automatically choose WebGL or Canvas
+            width: 800,
+            height: 600,
+            physics: {
+                default: 'arcade',  // Enable physics
+                arcade: {
+                    gravity: { y: 0 },  // No gravity for top-down movement
+                    debug: false
+                }
+            },
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            }
+        };
+
+        // Create a new Phaser game instance
+        const game = new Phaser.Game(config);
+
+        // Preload function to load assets (images, sounds, etc.)
+        function preload() {
+            this.load.image('sky', 'https://labs.phaser.io/assets/skies/space3.png'); 
+            this.load.image('star', 'https://labs.phaser.io/assets/sprites/star.png');  // Star sprite
+            this.load.image('character', 'https://labs.phaser.io/assets/sprites/phaser-dude.png'); // Character sprite
+
+        }
+
+
+        // Create function for the initial setup
+        function create() {
+            this.add.image(400, 300, 'sky');  // Add background image to the scene
+
+            // Add a sprite to the scene at a specific position
+            this.star = this.add.sprite(400, 300, 'star');
+
+            // Set the sprite's anchor point to its center (default is top-left)
+            this.star.setOrigin(0.5, 0.5);
+
+            // Enable physics for the player
+            this.player = this.physics.add.sprite(400, 500, 'character');
+            this.player.setCollideWorldBounds(true); // Prevents player from leaving bounds
+
+            // Capture keyboard input
+            this.cursors = this.input.keyboard.createCursorKeys();
+
+        }
+
+        // Update function for game logic (called every frame)
+        function update() {
+            // Add game update logic here (e.g., movement, interaction)
+            // Make the sprite move left and right
+            this.star.x += 1;
+
+            // Reset the sprite's position when it goes off the screen
+            if (this.star.x > 800) {
+                this.star.x = 0;
+            }
+
+
+            // Reset velocity before applying new movement
+            this.player.setVelocity(0);
+
+            if (this.cursors.left.isDown) {
+                this.player.setVelocityX(-160); // Move left
+            } else if (this.cursors.right.isDown) {
+                this.player.setVelocityX(160); // Move right
+            }
+
+            if (this.cursors.up.isDown) {
+                this.player.setVelocityY(-160); // Move up
+            } else if (this.cursors.down.isDown) {
+                this.player.setVelocityY(160); // Move down
+            }
+
+            
+        }
+    </script>
+</body>
+</html>

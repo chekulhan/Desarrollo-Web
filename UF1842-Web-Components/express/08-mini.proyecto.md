@@ -91,3 +91,19 @@ Formulario para captar datos del historia de usuario:
 Página con TABLE para mostrar datos del las historias de usuarios:
 
 ![Input Form](../../x-assets/UF1842/express.project.view.png)
+
+```javascript
+import jsonData from './data/data.json' assert { type: 'json' };
+
+// o importarlo dinámicamente
+  try {
+        // Dynamically import JSON from the 'data' directory
+        const jsonData = await import('./data/data.json', {
+            assert: { type: 'json' }
+        });
+
+        res.json(jsonData); // Send JSON data as a response
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to load JSON file' });
+    }
+```
