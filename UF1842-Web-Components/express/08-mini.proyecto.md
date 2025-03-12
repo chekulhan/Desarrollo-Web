@@ -32,8 +32,8 @@ PARA poder organizar, priorizar y seguir el progreso de las tareas del proyecto 
 - ¿Has utilizado las funciones de filter sobre un array?
 
 ```javascript
-// Lógica para filtrar tareas pendientes
-const pendingTasks = tasks.filter(task => !task.completed);
+// Lógica para filtrar historias según ...
+const pendingHistorias = historias.filter(historia => !historia.prioridad);
 ```
 
 ```javascript
@@ -44,14 +44,12 @@ const userStories = [
     nombre: "juan",
     descripcion: "Como un developer, quiero registrar una historia de usuario para organizar las tareas del proyecto.",
     prioridad: 1,
-    estado: "Pendiente"
   },
   {
     id: 2,
     nombre: "maria",
     descripcion: "Como un manager, quiero ver todas las tareas pendientes para asignarlas a los miembros del equipo.",
     prioridad: 2,
-    estado: "Pendiente"
   }, ...
 ```
 
