@@ -93,7 +93,7 @@ Página con TABLE para mostrar datos del las historias de usuarios:
 ![Input Form](../../x-assets/UF1842/express.project.view.png)
 
 ```javascript
-import jsonData from './data/data.json' assert { type: 'json' };
+import jsonData from './data/data.json' with { type: 'json' };
 
 // o importarlo dinámicamente
   try {

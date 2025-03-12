@@ -4,6 +4,17 @@ function sumar(a, b) {
     return a + b; 
 }
 
+
+function sumar(a, b) {
+    // Hay que forzar que los páramétros son tipos number
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        throw new Error('Both parameters must be numbers.');
+    }
+
+    return a + b;
+}
+
+
 // Recordar que si Pass-by-Reference un Objeto, se modifica su valor original
 function cambiarNombre(obj) {
     obj.nombre = "Jon"; // Modificar el objeto original
