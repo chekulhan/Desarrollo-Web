@@ -1,0 +1,141 @@
+# La Programacion Asíncróna
+
+## Callback hell! Callbacks anidados
+El patrón de "error-first" es una convención utilizada en programación asincrónica en JavaScript, especialmente común en Node.js. Este patrón establece que la primera posición de los parámetros en una función de callback se reserva para manejar cualquier error que pueda ocurrir durante la ejecución de una operación asincrónica.
+DEMO: Mostrar fetchData primero, y lego agregar otra funcion
+
+```javascript
+function fetchData(callback) {
+    setTimeout(() => {
+      console.log("Fetching data...");
+      callback(null, "Data loaded");  // error o data
+    }, 1000);
+  }
+
+function mostrarData(callback) {
+    setTimeout(() => {
+      console.log("Mostrar data...");
+      callback(null, "Datos mostrados");
+    }, 2000);
+  }
+
+// MAIN
+fetchData(function(error, data) {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(data);
+      mostrarData(function(error, data) {
+        if (error) {
+          console.error(error);
+        } else {
+          console.log(data);
+        }
+      });
+    }
+  });
+
+```
+### ACTIVIDAD: Agregar una funcion callback para terminar con los datos
+
+## Promises
+**La llegada de las Promesas en ES6 (2015)**
+En 2015, con la llegada de ECMAScript 6 (ES6), se introdujeron las Promesas, 
+una estructura más sencilla y flexible para manejar operaciones asincrónicas. Esto hizo que muchos desarrolladores comenzaran a usar Promesas para reemplazar los callbacks en sus aplicaciones JavaScript.
+
+Un Promise (promesa) en JavaScript es un objeto que representa la eventual finalización (o fallo) de una operación asincrónica. Permite manejar el código asincrónico de una forma más sencilla y proporciona una manera más estructurada de tratar los resultados y errores, en comparación con el uso de callbacks.
+
+Un Promise tiene tres estados:
+
+- Pending (Pendiente): El estado inicial, antes de que se complete la operación.
+- Fulfilled (Cumplido): La operación se completó con éxito.
+- Rejected (Rechazado): La operación falló.
+
+Para crear un Promise, se usa el constructor new Promise(). Este constructor recibe una función (llamada executor) que tiene dos parámetros: resolve y reject.
+
+- resolve(valor): Se llama cuando la operación es exitosa y devuelve un valor.
+- reject(razón): Se llama cuando la operación falla y proporciona una razón del fallo (generalmente un mensaje de error).
+
+```javascript
+// Creando una promesa simple
+let miPromesa = new Promise((resolve, reject) => {
+  let exito = true;  // Simulando éxito o fallo
+  
+  if (exito) {
+    resolve("¡La operación fue exitosa!");  // Cumplido
+  } else {
+    reject("¡La operación falló!");  // Rechazado
+  }
+});
+
+// Manejo de la promesa
+miPromesa
+  .then((mensaje) => {
+    console.log(mensaje);  // Esto se ejecuta si la promesa se cumple (resuelta)
+  })
+  .catch((mensaje) => {
+    console.log(mensaje);  // Esto se ejecuta si la promesa se rechaza
+  });
+
+```
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Own Promise</title>
+</head>
+<body>
+
+  <h1>Authenticate User</h1>
+  <button id="checkAuthButton">Check Authentication</button>
+  
+  <div id="statusContainer"></div>
+
+  <script>
+    // Simulating an asynchronous function that returns a promise
+    function checkAuthentication() {
+      return new Promise((resolve, reject) => {
+        const isAuthenticated = Math.random() > 0.5;  // Randomly simulate authentication status
+
+        setTimeout(() => {
+          if (isAuthenticated) {
+            resolve("User is authenticated!");  // Resolve the promise if authenticated
+          } else {
+            reject("Authentication failed!");  // Reject the promise if not authenticated
+          }
+        }, 2000);  // Simulate a delay of 2 seconds
+      });
+    }
+
+    // Event listener for the "Check Authentication" button
+    document.getElementById('checkAuthButton').addEventListener('click', () => {
+      // Using the checkAuthentication function that returns a promise
+      checkAuthentication()
+        .then((message) => {
+          document.getElementById('statusContainer').innerHTML = `
+            <p style="color: green;">${message}</p>
+          `;
+        })
+        .catch((message) => {
+          document.getElementById('statusContainer').innerHTML = `
+            <p style="color: red;">${message}</p>
+          `;
+        });
+    });
+  </script>
+
+</body>
+</html>
+
+```
+
+## FETCH API
+La Fetch API fue introducida para proporcionar una forma más moderna y poderosa de realizar solicitudes HTTP en comparación con el tradicional XMLHttpRequest. 
+Su objetivo era simplificar y mejorar la forma en que los desarrolladores interactúan con los servidores desde el navegador, especialmente en el contexto de aplicaciones web modernas.
+
+TO DO!
+
