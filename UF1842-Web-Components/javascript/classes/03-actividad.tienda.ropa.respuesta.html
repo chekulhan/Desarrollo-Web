@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .lista-ropa { padding: 10px; border: 1px solid #ccc; margin: 5px; }
+    </style>
+    
+</head>
+<body>
+    <h2>Tienda de Ropa</h2>
+    <button onclick="agregarRopa()">Agregar Ropa</button>
+    <div id="lista-ropa"></div>
+
+    <br>
+    <hr>
+
+    <h2>Mejoras:</h2>
+    <ul>
+        <li>Mostrar el precio de cada clase (atributo) </li>
+        <li>Mostrar la marca (atributo) </li>
+        <li>Agregar un método para determinar si la ropa es aconsejable para verano o invierno. Por ejemplo, esRopaDeTemporada('verano')</li>
+        <li>Agregar otro tipo de ropa, como jersey (class) </li>
+        <li>Agregar un tipo de materiales (atributo tipo Array). Por ejemplo, const camiseta = new Camiseta("M", "Azul", "Corta", ["Algodón", "Poliéster"]); </li>
+        <li> Agregar un imagen (atributo y método). Por ejemplo: <br>
+        <code>
+        if (this.imagen) {
+            return <img src="${this.imagen}" alt="${this.nombre}" style="width: 100px; height: auto;">;
+        } else {
+            return <p>Sin imagen</p>;
+        }
+        </code> 
+        </li>
+    </ul>
+
+    <script type="module">
+        import { Camiseta, Pantalon } from './Ropa.js';
+
+
+        const ropaList = document.getElementById("lista-ropa");
+
+        function agregarRopa() {
+            //debugger;
+            const camiseta_azul = new Camiseta("M", "Blue", "Largo");
+            const camiseta_rosa = new Camiseta("S", "Rosa", "Corto");
+            const pantalon = new Pantalon("L", "Black", "Slim Fit");
+
+            const items = [camiseta_azul, camiseta_rosa, pantalon];
+
+            ropaList.innerHTML = ""; // Clear the list before adding items
+            items.forEach(item => {
+                const div = document.createElement("div");
+                div.className = "lista-ropa";
+                div.textContent = item.describir();
+                ropaList.appendChild(div);
+            });
+        }
+
+        // Make function available in the global scope
+        window.agregarRopa = agregarRopa;
+    </script>
+</body>
+</html>
