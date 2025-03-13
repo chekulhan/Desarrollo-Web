@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de Costos de Transporte</title>
+</head>
+<body>
+    <h1>🚲🛹 Calculador de Costos de Transporte</h1>
+
+    <% if (error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <form action="/calcular-costos" method="POST">
+        <label>Distancia (km): <input type="number" name="distancia" required></label><br>
+        <label>Peso del objeto (kg): <input type="number" name="peso" required></label><br>
+        <label>Tipo de vehículo:
+            <select name="tipoVehiculo" required>
+                <option value="bicicleta">Bicicleta</option>
+                <option value="patineta">Patineta</option>
+            </select>
+        </label><br>
+        <button type="submit">Calcular Costo</button>
+    </form>
+</body>
+</html>
