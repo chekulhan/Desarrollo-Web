@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Example</title>
+</head>
+<body>
+    <h2>Cookie Demo</h2>
+    <label for="cookieValue">Enter Cookie Value:</label>
+    <input type="text" id="cookieValue">
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="getCookie()">Get Cookie</button>
+    <button onclick="deleteCookie()">Delete Cookie</button>
+
+    <p id="output"></p>
+
+    <script>
+        function setCookie() {
+            let value = document.getElementById("cookieValue").value;
+            document.cookie = `userData=${value}; path=/; max-age=3600`; // Expires in 1 hour
+            alert("Cookie has been set!");
+        }
+
+        function getCookie() {
+            let cookies = document.cookie.split("; "); // Split into key-value pairs
+            let userData = cookies.find(row => row.startsWith("userData="));
+            let output = userData ? userData.split("=")[1] : "No cookie found";
+            document.getElementById("output").textContent = "Cookie Value: " + output;
+        }
+
+        function deleteCookie() {
+            document.cookie = "userData=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            alert("Cookie has been deleted!");
+        }
+
+
+
+
+    </script>
+</body>
+</html>
