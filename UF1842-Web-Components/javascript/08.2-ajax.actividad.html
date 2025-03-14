@@ -14,12 +14,15 @@
 
     <button id="cargarUsuarios">Buscar Usuario</button>
     <div id="contenido"></div>
+    <div id="waiting" style="display: none;">Waiting....</div>
 
     <script>
         document.getElementById('cargarUsuarios').addEventListener('click', function() {
             const xhr = new XMLHttpRequest();
             
             const userId = document.getElementById("userId").value;
+            const waiting = document.getElementById("waiting");
+            waiting.style.display = 'block';
 
             // URL de la API pública de JSONPlaceholder
             const url = `https://jsonplaceholder.typicode.com/users/${userId}`;
@@ -29,6 +32,9 @@
             
             // Configura la función de respuesta
             xhr.onload = function() {
+
+                
+
                 if (xhr.status === 200) {
                     const data = JSON.parse(xhr.responseText); // Convierte la respuesta a JSON
 
@@ -39,6 +45,8 @@
                             <p><strong>Dirección:</strong> ${data.address.street}, ${data.address.city}</p>
                         </div>
                         `;
+
+                    waiting.style.display = 'none';
                     // Inserta el contenido HTML generado en el div de contenido
                     document.getElementById('contenido').innerHTML = htmlContenido;
                 } else {
