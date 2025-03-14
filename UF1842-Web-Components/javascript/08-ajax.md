@@ -56,3 +56,4 @@ Aunque XMLHttpRequest es ampliamente compatible con muchos navegadores, en aplic
 No manejo de streams o datos binarios:
 
 XMLHttpRequest tiene un soporte limitado para trabajar con datos binarios o streams de forma eficiente. Aunque se pueden enviar datos binarios mediante XMLHttpRequest, no es tan sencillo como con el objeto fetch, que maneja de manera más adecuada los flujos de datos y permite trabajar con streams de manera eficiente.
+
