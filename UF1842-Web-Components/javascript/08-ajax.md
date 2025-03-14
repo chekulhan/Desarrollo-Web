@@ -1,4 +1,7 @@
 # AJAX
+
+https://www.youtube.com/watch?v=qJT2FY1jjjE  (ver en partes, la primera parte de AJAX)
+
 **AJAX (Asynchronous JavaScript and XML)** es una técnica de desarrollo web que permite crear aplicaciones más interactivas y dinámicas, sin tener que recargar la página web por completo. La creación de AJAX no fue el trabajo de una sola persona o una sola tecnología, sino que fue el resultado de la combinación de varias tecnologías que ya existían. A continuación, te explico el origen y la evolución de AJAX:
 
 1. Las Tecnologías Involucradas:
