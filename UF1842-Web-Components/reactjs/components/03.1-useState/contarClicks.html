@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Increment Button Example</title>
+</head>
+<body>
+
+  <h1>Click the button to increment the value</h1>
+  <p>Value: <span id="value">0</span></p>
+  <button id="incrementButton" onclick="incrementValue()">Increment</button>
+
+  <script>
+    // Initial value
+    let value = 0;
+
+    // Function to increment the value
+    function incrementValue() {
+      value += 1;
+      document.getElementById("value").textContent = value; // Update the displayed value
+    }
+  </script>
+
+</body>
+</html>
