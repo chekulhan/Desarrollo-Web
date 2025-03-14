@@ -5,7 +5,7 @@ const ContarClicks = () => {
 
     const handleClicks = () => {
 
-        setClicks(clicks + 1); // Se puede mejorar con callback() en futuro
+        setClicks(clicks + 1); // Se deberia mejorar con el uso de callback() - prevCount => prevCount + 1
         console.log('Clicking');
     }
 

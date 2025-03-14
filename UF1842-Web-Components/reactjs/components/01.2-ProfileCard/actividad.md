@@ -20,3 +20,39 @@ y por lo tanto el App.js, donde lo colocas el componente functional, aparecerá 
     profileImage="https://picsum.photos/200/300?random=2"
 />
 ```
+
+
+**Avanzado:**
+Convertir los perfiles en un ARRAY, y mostrar los resultados con un map.
+
+```
+const profiles = [{nombre:"Maria Fernandez",
+    edad:45,
+    bio:"Entusiasta de deportes, especialmente yoga y pilates. Le encanta hacer senderismo.",
+    profileImage: "https://picsum.photos/200/300?random=2" },
+
+    {nombre:"Juan",
+      edad:45,
+      bio:"Entusiasta de deportes, especialmente yoga y pilates. Le encanta hacer senderismo.",
+      profileImage: "https://picsum.photos/200/300?random=3" }
+  ]
+
+```
+
+
+**Respuesta:**
+
+
+```javascript
+
+  {profiles.map((profile, index) => (
+      <ProfileCard key={index} 
+      nombre={profile.nombre}
+      edad={profile.edad}
+      bio={profile.bio}
+      profileImage={profile.profileImage}
+    />
+    ))}
+
+```
+
