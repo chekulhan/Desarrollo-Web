@@ -1,16 +1,20 @@
 
+# Routes
+Para más informacion: https://blog.webdevsimplified.com/2022-07/react-router/
 
 ```bash
-
 npm install react-router-dom
 
 ```
 
-En App.js, configurar el sistema de Routes:
+*Usando version 6*
+
+En Index.js, configurar el sistema de Routes:
 
 `<BrowserRouter>`: Este componente envuelve toda la aplicación y habilita el enrutamiento utilizando la API de historial de HTML5. Aplicar a index.js
 
-`<Route>`: Este componente se usa para definir una ruta en una URL específica. Cuando la URL coincide con el path de la ruta, se renderiza el componente correspondiente.
+En App.js
+`<Routes>` y `<Route>`: Este componente se usa para definir una ruta en una URL específica. Cuando la URL coincide con el path de la ruta, se renderiza el componente correspondiente.
 path="/": Esto coincide con la URL raíz (/).
 exact: Asegura que la ruta coincida exactamente con la URL.
 
@@ -61,11 +65,14 @@ export default App;
 
 ```
 
+**Navbar y Links:**
+
+```jsx
+<Link to="/about">About Us</Link>
+```
 
 
-
-
-Redirect y routas dinámicas:
+**Redirect y routas dinámicas:**
 
 ```javascript
 
