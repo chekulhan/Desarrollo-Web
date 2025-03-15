@@ -14,9 +14,7 @@ Desventajas del Streaming:
 Dependencia de la Conexión: Si la conexión a Internet es lenta o inestable, la calidad de la transmisión puede disminuir, e incluso puede producirse interrupciones (buffering).
 Mayor Uso de Datos: Los servicios de streaming pueden consumir muchos datos, lo cual es relevante si el usuario tiene un plan de datos limitado.
 Ejemplo de Streaming en React (con un video):
-jsx
-Copiar
-Editar
+```jsx
 const StreamingContent = () => {
   return (
     <div>
@@ -28,6 +26,7 @@ const StreamingContent = () => {
     </div>
   );
 };
+```
 En este ejemplo, el video se transmite de manera continua desde la fuente (en lugar de ser descargado completamente) y se reproduce a medida que los datos van llegando.
 
 2. Carga Progresiva (Progressive Download):
@@ -45,9 +44,8 @@ Desventajas de la Carga Progresiva:
 Requiere Descarga Completa: Aunque el usuario puede comenzar a ver el archivo antes de que se haya descargado por completo, al final necesitará descargar todo el archivo.
 Uso de Espacio: Dado que el archivo se guarda en el dispositivo, puede consumir almacenamiento en el dispositivo del usuario.
 Ejemplo de Carga Progresiva en React (con un video):
-jsx
-Copiar
-Editar
+```jsx
+
 const ProgressiveDownloadContent = () => {
   return (
     <div>
@@ -59,4 +57,6 @@ const ProgressiveDownloadContent = () => {
     </div>
   );
 };
+```
+
 En este caso, el video se descarga progresivamente mientras el usuario lo reproduce, pero la diferencia clave es que el archivo completo se almacena en el dispositivo.
