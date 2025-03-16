@@ -1,0 +1,28 @@
+.game-container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.game-area {
+  position: relative;
+  width: 400px; /* Fixed width for the game area */
+  height: 400px; /* Fixed height for the game area */
+  margin: 20px auto;
+  border: 2px solid #000;
+  background-color: #f4f4f4;
+  overflow: hidden; /* Ensure objects stay within bounds */
+}
+
+.moving-object {
+  position: absolute; /* Position the object relative to the game-area */
+  width: 50px; /* Size of the moving object */
+  height: 50px; /* Size of the moving object */
+  background-color: pink; /* Blue color */
+  border-radius: 50%; /* Circular shape */
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+
+.moving-object:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
