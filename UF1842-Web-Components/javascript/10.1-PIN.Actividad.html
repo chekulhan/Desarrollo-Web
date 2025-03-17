@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprobar Validez del PIN</title>
+</head>
+<body>
+  <h1>Comprobar si el PIN es válido</h1>
+  
+  <label for="pinInput">Introduce tu PIN:</label>
+  <input type="text" id="pinInput" placeholder="Ejemplo: 1234">
+  
+  <button onclick="checkPin()">Comprobar</button>
+  
+  <p id="result"></p>
+
+  <script>
+    // Function to validate PIN
+    function validatePin(pin) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // Comprobar la longitud es exactamente 4
+          
+          // Usar isNaN para comprobar que es númerico
+          
+          // Comprobar que el PIN empieza con el numero 0
+          
+          // Si todo va bien, devolver el estado de 'resolve'
+          
+
+        }, 2000); // Simulate a 2-second delay (like an API call)
+      });
+    }
+
+    // Function to handle button click and validate the PIN
+    function checkPin() {
+      const pin = document.getElementById("pinInput").value;
+      const resultElement = document.getElementById("result");
+
+      if (pin) {
+        validatePin(pin)
+          // TO DO: Incluir el codigo para usar el reject y resolve
+          // .then(), .catch() 
+
+      } else {
+        resultElement.textContent = "Por favor, introduce un PIN.";
+        resultElement.style.color = "orange"; // Orange text for validation message
+      }
+    }
+  </script>
+</body>
+</html>

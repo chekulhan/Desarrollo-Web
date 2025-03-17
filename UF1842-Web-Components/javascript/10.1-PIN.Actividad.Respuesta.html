@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprobar Validez del PIN</title>
+</head>
+<body>
+  <h1>Comprobar si el PIN es válido</h1>
+  
+  <label for="pinInput">Introduce tu PIN:</label>
+  <input type="text" id="pinInput" placeholder="Ejemplo: 1234">
+  
+  <button onclick="checkPin()">Comprobar</button>
+  
+  <p id="result"></p>
+
+  <script>
+    // Function to validate PIN
+    function validatePin(pin) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // Check if PIN is exactly 4 digits long
+          if (pin.length !== 4) {
+            reject("El PIN debe tener 4 dígitos.");
+          }
+          // Check if PIN contains only digits (no letters, symbols, etc.)
+          else if (isNaN(pin)) {
+            reject("El PIN debe ser un número válido.");
+          }
+          // Check if PIN starts with a 0
+          else if (pin[0] === "0") {
+            reject("El PIN no puede empezar con 0.");
+          }
+          // If all conditions are met
+          else {
+            resolve("El PIN es válido.");
+          }
+        }, 2000); // Simulate a 2-second delay (like an API call)
+      });
+    }
+
+    // Function to handle button click and validate the PIN
+    function checkPin() {
+      const pin = document.getElementById("pinInput").value;
+      const resultElement = document.getElementById("result");
+
+      if (pin) {
+        validatePin(pin)
+          .then((message) => {
+            resultElement.textContent = message;
+            resultElement.style.color = "green"; // Green text for valid PIN
+          })
+          .catch((error) => {
+            resultElement.textContent = error;
+            resultElement.style.color = "red"; // Red text for invalid PIN
+          });
+      } else {
+        resultElement.textContent = "Por favor, introduce un PIN.";
+        resultElement.style.color = "orange"; // Orange text for validation message
+      }
+    }
+  </script>
+</body>
+</html>

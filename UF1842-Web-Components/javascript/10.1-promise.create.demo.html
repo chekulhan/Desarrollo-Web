@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Comprobar si el correo existe en la base de datos</h1>
+    
+    <label for="emailInput">Introduce tu correo electrónico:</label>
+    <input type="text" id="emailInput" placeholder="ejemplo@dominio.com" value="user@example.com">
+    
+    <button onclick="checkEmail()">Comprobar</button>
+    
+    <p id="result"></p>
+
+
+    <script>
+      // SHOW FIRST as demo
+      
+    let miPromesa = new Promise((resolve, reject) => {
+        let exito = true;  // Simulating success or failure
+        
+        if (exito) {
+          resolve("¡La operación fue exitosa!");  // Resolved successfully
+        } else {
+          reject("¡La operación falló!");  // Rejected
+        }
+      });
+      
+      // Using the promise
+      miPromesa
+        .then((mensaje) => {
+          console.log(mensaje);  // If resolved, this will run
+        })
+        .catch((mensaje) => {
+          console.log(mensaje);  // If rejected, this will run
+        });
+
+    </script>
+
+
+    <script>
+
+      function checkEmailInDatabase(email) {
+        return new Promise((resolve, reject) => {
+          // Simulating database check with a delay
+          setTimeout(() => {
+            const emailDatabase = ["user@example.com", "admin@domain.com", "test@mail.com"];
+
+            if (emailDatabase.includes(email)) {
+              resolve(`El correo ${email} existe en la base de datos.`);
+            } else {
+              reject(`El correo ${email} no se encuentra en la base de datos.`);
+            }
+          }, 2000); // Simulate a 2 second delay (like an API call)
+        });
+      }
+
+      function checkEmail() {
+        const email = document.getElementById("emailInput").value;
+        const resultElement = document.getElementById("result");
+
+        if (email) {
+          checkEmailInDatabase(email)
+            .then((message) => {
+              resultElement.textContent = message;
+              resultElement.style.color = "green"; // Green text for success
+            })
+            .catch((error) => {
+              resultElement.textContent = error;
+              resultElement.style.color = "red"; // Red text for failure
+            });
+        } else {
+          resultElement.textContent = "Por favor, introduce un correo electrónico.";
+          resultElement.style.color = "orange"; // Orange text for validation message
+        }
+    }
+
+
+    </script>
+
+</body>
+</html>
