@@ -177,3 +177,23 @@ export default ProtectedRoute;
 
 ## Actividad
 - Agregar las páginas (pages) al menu.
+
+
+
+## Routes dinámicas
+Las rutas dinámicas en React Router permiten definir parámetros variables dentro de la URL, los cuales pueden ser utilizados para mostrar contenido específico en una página. Esto se logra usando dos puntos (:) seguidos del nombre del parámetro, como :id, en el path de la ruta. Por ejemplo, una ruta como /user/:id permitirá acceder a cualquier URL como /user/1, /user/abc, etc., y pasar el valor del parámetro id a un componente para que lo utilice, como mostrar los detalles de un usuario según su id. Esta característica es útil para crear aplicaciones con contenido dinámico, como perfiles de usuario o detalles de productos.
+
+```jsx
+
+<Route path="/user/:id" element={<UserPage />} />
+```
+
+y acceder a la variable dinámica en la página:
+```jsx
+  import { useParams } from 'react-router-dom';
+
+
+
+  const { id } = useParams();
+  
+```
