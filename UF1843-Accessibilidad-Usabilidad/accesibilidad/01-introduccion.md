@@ -3,6 +3,11 @@
 
 [Definición](https://www.w3.org/WAI/)
 
+
+TO DO: https://www.youtube.com/watch?v=2oiBKSjOOFE
+
+
+
 ## Actividades de introduccion
 - [Pedir una cita](https://www.dgtcitaprevia.es/cita-previa-dgt-murcia/)
 - [Comprar un product](http://www.pnwx.com)
@@ -23,6 +28,7 @@ Pronunciar
 - "A eleven y"
 - "A-one-one-y"
 - "A once i"
+
 
 
 La Web está diseñada fundamentalmente para funcionar para todas las personas, independientemente de su hardware, software, idioma, ubicación o capacidad. Cuando la Web cumple este objetivo, es accesible para personas con diversas capacidades auditivas, motoras, visuales y cognitivas.
@@ -54,6 +60,46 @@ La accesibilidad web también beneficia a las personas sin discapacidad, por eje
 personas con “discapacidades temporales”, como un brazo roto o la pérdida de gafas
 - Personas con “limitaciones situacionales”, como por ejemplo, en condiciones de luz solar intensa o en un entorno donde no pueden escuchar audio.
 - Personas que utilizan una conexión a Internet lenta o que tienen un ancho de banda limitado o costoso.
+
+![Tipos](../../x-assets/UF1843/lizbrown.png)
+
+## Principios fundamentales
+Los principios fundamentales de las Pautas de Accesibilidad para el Contenido Web (WCAG) se basan en cuatro conceptos clave, que sirven como la base para hacer que los sitios web sean accesibles para personas con diversas discapacidades. Estos principios son:
+
+1. Perceptible (Perceivable)
+El contenido debe ser presentado de tal manera que los usuarios puedan percibirlo a través de uno o más de sus sentidos (vista, audición, etc.). Si un contenido no es percibido, no puede ser comprendido o utilizado.
+
+Ejemplos de pautas bajo este principio:
+
+- Texto alternativo: Las imágenes deben tener un texto alternativo adecuado (alt) para que las personas con discapacidad visual puedan entenderlas a través de un lector de pantalla.
+- Contraste: El texto debe tener suficiente contraste con el fondo para garantizar que las personas con baja visión puedan leerlo.
+- Subtítulos y transcripciones: Videos deben tener subtítulos o transcripciones para las personas con discapacidad auditiva.
+
+2. Operable (Operable)
+El contenido debe ser operable, es decir, los usuarios deben poder interactuar con él de manera efectiva. Esto implica que los usuarios puedan acceder y controlar los elementos interactivos de la página, como enlaces, formularios y botones.
+
+Ejemplos de pautas bajo este principio:
+
+- Navegación con teclado: Los usuarios deben poder navegar por todo el contenido utilizando solo el teclado (sin necesidad de mouse).
+- Tiempo suficiente: Los usuarios deben tener suficiente tiempo para leer y operar el contenido, como en formularios o tareas que requieran tiempo.
+- Evitar contenido que se mueva rápidamente: Se debe evitar el uso de elementos que se muevan demasiado rápido o de manera inesperada (por ejemplo, animaciones que causen mareos).
+
+3. Comprensible (Understandable)
+El contenido debe ser comprensible tanto en su presentación como en su funcionamiento. Los usuarios deben ser capaces de comprender el contenido de la página y cómo interactuar con él.
+
+Ejemplos de pautas bajo este principio:
+
+- Lenguaje claro: El lenguaje debe ser claro y sencillo para que sea comprensible para todos los usuarios, incluidos los que tienen discapacidades cognitivas.
+- Predecibilidad: Los elementos interactivos deben comportarse de manera predecible. Por ejemplo, los botones deben hacer lo que el usuario espera que hagan.
+- Ayuda para formularios: Los formularios deben tener etiquetas claras y instrucciones para facilitar su uso, especialmente para personas con discapacidades cognitivas.
+
+4. Robusto (Robust)
+El contenido debe ser lo suficientemente robusto para que pueda ser interpretado de manera fiable por una amplia variedad de tecnologías, incluidas las futuras tecnologías asistivas.
+
+Ejemplos de pautas bajo este principio:
+
+- Compatibilidad con tecnologías asistivas: El contenido debe ser compatible con diversas tecnologías asistivas como lectores de pantalla, braille, etc.
+- Uso de estándares web: El contenido debe seguir estándares web bien establecidos (por ejemplo, HTML, CSS, ARIA) para asegurar la máxima compatibilidad con diferentes dispositivos y tecnologías asistivas.
 
 ![Accesibilidad Ejemplos](../../x-assets/UF1843/accesibilidad.ej.png)
 
