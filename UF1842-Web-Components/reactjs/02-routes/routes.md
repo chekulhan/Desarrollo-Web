@@ -197,3 +197,27 @@ y acceder a la variable dinámica en la página:
   const { id } = useParams();
   
 ```
+
+**useNavigate**
+
+Onclick event for buttons
+
+```jsx
+import { useNavigate } from "react-router-dom";
+
+const MyComponent = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+    navigate("/new-route");
+  };
+
+  return (
+    <button onClick={handleNavigation}>
+      Go to New Route
+    </button>
+  );
+};
+
+
+```
