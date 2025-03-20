@@ -177,6 +177,11 @@ export default ProtectedRoute;
 
 ## Actividad
 - Agregar las páginas (pages) al menu.
+- Agregar una página de admin si el autenticacion es falso (isLoggedIn == false):
+
+```jsx
+  <Route path="/admin" element={<ProtectedRoute element={<AdminPage />} />} />
+```
 
 
 
@@ -219,5 +224,25 @@ const MyComponent = () => {
   );
 };
 
+
+```
+
+
+
+
+**Respuestas**
+Protected Route (middleware)
+
+```jsx
+import React from "react";
+import { Navigate } from "react-router-dom";
+
+const ProtectedRoute = ({ element }) => {
+  const isAuthenticated = true;  // Cambiar para simular autenticacion
+
+  return isAuthenticated ? element : <Navigate to="/login" replace />;
+};
+
+export default ProtectedRoute;
 
 ```
