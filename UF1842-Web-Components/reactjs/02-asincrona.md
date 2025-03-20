@@ -1,4 +1,4 @@
-# Progmación Asíncronas en React
+# Programación Asíncrona en React
 
 1. Actualización del estado (useState y setState)
 Las actualizaciones del estado son asíncronas, lo que significa que React puede agruparlas y procesarlas después de la renderización.
