@@ -4,7 +4,9 @@
 [Definición](https://www.w3.org/WAI/)
 
 
-TO DO: https://www.youtube.com/watch?v=2oiBKSjOOFE
+TO DO:
+- https://www.youtube.com/watch?v=2oiBKSjOOFE
+-  Chrome tools accessibility console.
 
 
 
