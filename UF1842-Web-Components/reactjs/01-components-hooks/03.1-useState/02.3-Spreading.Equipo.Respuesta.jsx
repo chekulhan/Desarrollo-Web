@@ -10,7 +10,7 @@ export default function Equipo() {
   };
 
   const eliminarJugador = (nombre) => {
-    setJugadores(jugadores.filter(jugador => jugador !== nombre)); /
+    setJugadores(jugadores.filter(jugador => jugador !== nombre)); 
   };
 
   return (
