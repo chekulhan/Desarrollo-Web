@@ -175,3 +175,39 @@ export default SanitizeInputDOMPurify;
 
 
 ```
+
+
+# SQL Inyeccion vs XSS
+La diferencia principal entre inyección SQL (SQL Injection) y Cross-Site Scripting (XSS) radica en el objetivo y el impacto del ataque:
+
+1. Inyección SQL (SQLi)
+
+Objetivo: Ataca la base de datos del servidor.
+
+Cómo funciona: El atacante inserta código SQL malicioso en una consulta para manipular la base de datos.
+
+Consecuencias: Robo de datos, manipulación o eliminación de información, acceso no autorizado.
+
+Ejemplo:
+```sql
+SELECT * FROM users WHERE username = 'admin' OR '1'='1' -- ' AND password = 'password';
+```
+Esto podría permitir el acceso sin conocer la contraseña real.
+
+2. Cross-Site Scripting (XSS)
+
+Objetivo: Ataca a los usuarios del sitio web inyectando scripts maliciosos.
+
+Cómo funciona: Se introduce código JavaScript en una página web para ejecutar acciones en el navegador de la víctima.
+
+Consecuencias: Robo de cookies, secuestro de sesiones, redirección a sitios maliciosos.
+
+Ejemplo:
+```javascriot
+<script>alert('Hacked!');</script>
+```
+Si un campo de entrada no está sanitizado, esto puede ejecutarse en el navegador de otros usuarios.
+
+Diferencias clave
+
+Ambos ataques se pueden prevenir validando y sanitizando correctamente las entradas del usuario.
