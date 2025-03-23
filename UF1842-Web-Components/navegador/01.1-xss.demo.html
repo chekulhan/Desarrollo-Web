@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS</title>
+</head>
+<body>
+    <input type="text" id="input" name="input" />
+
+    <button onclick="xss();">XSS Ejemplo</button>
+
+    <div id="resultado"></div>
+
+    <script>
+
+        
+        function xss() {
+            const valor = document.getElementById("input").value;
+
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = valor;
+
+            // simular un evento peligroso - introducir en el campo de texto: 
+            // alert('hola');
+            // document.body.style.backgroundColor = "red";
+            eval(valor);
+
+            /* remedios: 
+            1. Aplicar:
+                .textContent en lugar de  innerHTML
+
+            2. Sanear los datos
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>"'`=\/]/g, function(match) {
+                  switch (match) {
+                    case '&': return '&amp;';
+                    case '<': return '&lt;';
+                    case '>': return '&gt;';
+                    case '"': return '&quot;';
+                    case "'": return '&#39;';
+                    case '`': return '&#96;';
+                    case '=': return '&#61;';
+                    case '/': return '&#47;';
+                    default: return match;
+                  }
+                });
+              }
+
+              3. CSP - Content Security Policy
+                <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+
+
+            */
+        }
+
+    </script>
+
+</body>
+</html>
