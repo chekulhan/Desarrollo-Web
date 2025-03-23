@@ -203,11 +203,11 @@ Cómo funciona: Se introduce código JavaScript en una página web para ejecutar
 Consecuencias: Robo de cookies, secuestro de sesiones, redirección a sitios maliciosos.
 
 Ejemplo:
-```javascriot
+```javascript
 <script>alert('Hacked!');</script>
 ```
 Si un campo de entrada no está sanitizado, esto puede ejecutarse en el navegador de otros usuarios.
 
-Diferencias clave
+**Diferencias clave**
 
 Ambos ataques se pueden prevenir validando y sanitizando correctamente las entradas del usuario.
