@@ -144,13 +144,23 @@ Impacto: Los criterios de nivel AAA son muy específicos y cubren situaciones mu
 - [Easy checks](https://www.w3.org/WAI/test-evaluate/easy-checks/)
 - [Tips, Pistas](https://www.w3.org/WAI/tips/)
 
-## Demo
+## Demo - accesibilidad101.demo.html
 ![Chrome Dev Accesibilidad](../../x-assets/UF1843/chrome.dev.accesibilidad.png)
+
+![Chrome Dev Accesibilidad](../../x-assets/UF1843/chrome.dev.tools.png)
+
+**Contraste de colores**
+![Chrome Dev Contraste](../../x-assets/UF1843/chrome.dev.color.contrast.png)
+
+**Vision deficiencias**
+![Rendering](../../x-assets/UF1843/chrome.dev.rendering.png)
+
 
 ## Actividades
 
 ## Actividad : DOM Accesibilidad Arbol
-TO DO
+
+
 
 ## Actividad - hardware y software
 ![Hardware](../../x-assets/UF1843/hardware.png)
@@ -211,3 +221,5 @@ https://www.google.com/intl/es_es/chrome/demos/speech.html
 [Accesibilidad Cheat Sheets](https://learntheweb.courses/topics/accessibility-cheat-sheet/)
 
 [Ejemplos](https://www.dbswebsite.com/blog/ada-compliance-starts-with-accessible-design/)
+
+https://www.youtube.com/watch?v=2oiBKSjOOFE&t=91s

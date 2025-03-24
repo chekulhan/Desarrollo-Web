@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .button-like {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            user-select: none;
+            transition: background 0.3s;
+        }
+        .button-like:hover {
+            background-color: #0056b3;
+        }
+        .button-like:active {
+            background-color: #004494;
+        }
+
+        button {
+            margin: 1rem;
+        }
+
+        
+    </style>
+
+</head> 
+<body>
+   <!--
+    DEMO 1: 
+        Con un form y un input, sin boton
+
+
+    Visual:
+    DEMO 1.1 label for => click en label
+    <label for="nombre">Nombre</label>
+
+    DEMO 1.2
+    agregar  - autofocus atributo a input
+
+    DEMO 2: aria-label sin tag lablel
+    2. aria-label="nombre"
+    3. Mostrar accesibilidad opciones de google dev tools
+
+
+    DEMO 3: Agregar aria-live atributo
+    <div id="display" aria-live="polite"></div>
+
+    aria-live="polite" (uso en casi todos los casos) -> notificar screen reader en un momento adecuado
+    aria-live="assertive"  -> interrumpir todo
+
+    DEMO 4: Contraste de colores - color ratio
+    Agregar un color al id="display" a través de element tag en STYLE panel y
+    ver los ratios de colores y AA y AAA
+
+        element.style {
+            color: #6103b9;
+        }
+
+    body background-color: black; es un contraste bastante fuerte (tema oscuro) => optar por un gris
+
+
+    DEMO 5: 3 dots:more tools:rendering => Emulate vision deficiencies
+     No solo usar verde y rojo para indicar exito o error
+
+    DEMO 6: 
+    <img alt=""
+
+    DEMO 7: HTML Semantica (**IMPORTANTE**)
+    main, aside, nav, section, header, footer, h1, h2 
+    usar botones: no usar un onclick en un div
+    
+    <a href="#">Haz clic</a> para ver los productos  => usar texto adecuado, por ejemplo:
+    <a href="#">Ver productos</a> para ver los productos => usar texto adecuado, por ejemplo:
+    
+
+
+    DEMO 8: Navegar con el teclado: 
+    TAB INDEX buttons 
+    No usar tabindex positivo. Usar 0 o -1 (skip)
+    Usar para elementos no focusable, como div
+
+    SKIP LINK: https://webaim.org/ con tab - como? https://webaim.org/techniques/skipnav/
+
+    AUDIO
+    DEMO 9: Transcripts: 
+        ejemplo - https://www.abc.net.au/btn/classroom/btn-episode-7-2025/105063810
+
+
+
+    MOTOR
+    - espacios entre botonos para facilitar en click - usar mobile view
+        Por ejemplo, style espacio entre botones
+        button {
+            margin: 1rem;
+        }
+    - quitar restricciones de tiempo - tienes 5 segundos para contestar!
+
+    TOOLS: Lighthouse report, https://www.npmjs.com/package/eslint-plugin-jsx-a11y
+   -->
+   <form id="textForm">
+        <input type="text" id="userInput" placeholder="Enter text here" required>
+        <button type="submit">Save</button>
+    </form>
+
+    <div id="display" aria-live="polite"></div>
+
+    <script>
+        document.querySelector("#textForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            var inputText = document.querySelector("#userInput").value;
+            document.querySelector("#display").textContent = "Datos guardados " + inputText;
+        });
+    </script>
+
+    <hr>
+    <br><br>
+    <a href="#">Haz clic</a> para ver los productos
+
+    <br><br>
+    <div class="button-like" onclick="handleClick()">Click Me</div> 
+    <script>
+        function handleClick() {
+            alert('Div button clicked!');
+        }
+    </script>
+
+    <hr>
+    <button>Uno</button>
+    <div tabindex="0">Dos</div> 
+    <button>Tres</button>
+
+    <hr>
+    Muy pequeño!
+    <input type="checkbox" name="" id="">
+</body>
+</html>

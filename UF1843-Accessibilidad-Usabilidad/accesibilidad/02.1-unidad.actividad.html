@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividad de Unidades Absolutas</title>
+
+
+
+<!--
+  
+Parte 1: Cambiar las unidades absolutas a unidades relativas
+Cambia las unidades de font-size de la clase .header, .container, y .footer de px a rem. Usa el tamaño base de fuente de 16px para calcular los valores en rem (por ejemplo, si el tamaño de fuente es 24px, sería 1.5rem).
+
+Cambia el padding y el margin de las clases .header, .container, .button, y .footer de px a em o rem para hacerlo relativo al tamaño de fuente.
+
+Cambia el width de la clase .container de px a % para que el contenedor se ajuste al 80% del ancho de la pantalla.
+
+Parte 2: Hacer el diseño más responsivo
+Asegúrate de que el contenido sea adaptativo en dispositivos móviles cambiando las unidades px a unidades relativas como % y rem. Si es necesario, ajusta los valores en el código para mejorar la visualización en diferentes tamaños de pantalla.
+
+Añade una consulta de medios (media query) para que la página se ajuste correctamente a pantallas pequeñas (por ejemplo, en dispositivos móviles).
+
+Parte 3: Pruebas
+Prueba el diseño en diferentes tamaños de ventana y dispositivos para asegurarte de que el contenido se ajuste correctamente.
+-->
+
+
+  <style>
+    /* Estilo base con unidades absolutas */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    .header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px; /* 24px */
+    }
+
+    .container {
+      width: 800px; /* 800px */
+      margin: 50px auto; /* 50px */
+      background-color: white;
+      padding: 20px;
+      font-size: 16px; /* 16px */
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #008CBA;
+      color: white;
+      padding: 10px 20px; /* 10px 20px */
+      font-size: 14px; /* 14px */
+      text-align: center;
+      margin-top: 20px; /* 20px */
+      text-decoration: none;
+    }
+
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px; /* 15px */
+      font-size: 12px; /* 12px */
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    Mi Página Web
+  </div>
+
+  <div class="container">
+    <p>Bienvenidos a la actividad. Este es un diseño con unidades absolutas.</p>
+    <a href="#" class="button">Haz clic aquí</a>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Mi Sitio Web
+  </div>
+</body>
+</html>

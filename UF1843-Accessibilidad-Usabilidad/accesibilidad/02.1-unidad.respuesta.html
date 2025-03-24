@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividad de Unidades Relativas</title>
+
+
+
+  <style>
+    /* Estilo base con unidades relativas */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    /* Usamos rem para el tamaño de fuente */
+    .header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1.25rem; /* 20px = 1.25rem */
+      text-align: center;
+      font-size: 1.5rem; /* 24px = 1.5rem */
+    }
+
+    .container {
+      width: 80%; /* 80% del ancho de la pantalla */
+      margin: 3.125rem auto; /* 50px = 3.125rem */
+      background-color: white;
+      padding: 1.25rem; /* 20px = 1.25rem */
+      font-size: 1rem; /* 16px = 1rem */
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #008CBA;
+      color: white;
+      padding: 0.625rem 1.25rem; /* 10px 20px = 0.625rem 1.25rem */
+      font-size: 0.875rem; /* 14px = 0.875rem */
+      text-align: center;
+      margin-top: 1.25rem; /* 20px = 1.25rem */
+      text-decoration: none;
+    }
+
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 0.9375rem; /* 15px = 0.9375rem */
+      font-size: 0.75rem; /* 12px = 0.75rem */
+    }
+
+    /* Media query para pantallas pequeñas */
+    @media (max-width: 600px) {
+      .header {
+        font-size: 1.25rem; /* Reducir tamaño de fuente */
+      }
+
+      .container {
+        width: 90%; /* Ajustar el ancho */
+        margin: 2rem auto;
+      }
+
+      .button {
+        font-size: 1rem; /* Ajustar el tamaño del texto del botón */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    Mi Página Web
+  </div>
+
+  <div class="container">
+    <p>Bienvenidos a la actividad. Este es un diseño con unidades relativas.</p>
+    <a href="#" class="button">Haz clic aquí</a>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Mi Sitio Web
+  </div>
+</body>
+</html>
