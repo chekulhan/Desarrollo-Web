@@ -4,10 +4,7 @@
 [Definición](https://www.w3.org/WAI/)
 
 
-TO DO:
-- https://www.youtube.com/watch?v=2oiBKSjOOFE
--  Chrome tools accessibility console.
-
+https://www.w3.org/WAI/videos/standards-and-benefits/es  (subtitulos en castellano)
 
 
 ## Actividades de introduccion
@@ -15,13 +12,9 @@ TO DO:
 - [Comprar un product](http://www.pnwx.com)
 - [Registrarse](https://sede.educacion.gob.es/informacion-ayuda/registro-electronico.html)
 - [Rellenar el formulario](http://udacity.github.io/ud891/lesson3-semantics-built-in/02-chromevox-lite/)
-
-
 - [Intenta rellenar este formulario sin usar el raton](http://udacity.github.io/ud891/lesson2-focus/01-basic-form/)
 
 ## Accesibilidad en contexto
-
-
 
 ![Accesibilidad](../../x-assets/UF1843/accesibilidad.png)
 
@@ -30,7 +23,6 @@ Pronunciar
 - "A eleven y"
 - "A-one-one-y"
 - "A once i"
-
 
 
 La Web está diseñada fundamentalmente para funcionar para todas las personas, independientemente de su hardware, software, idioma, ubicación o capacidad. Cuando la Web cumple este objetivo, es accesible para personas con diversas capacidades auditivas, motoras, visuales y cognitivas.
