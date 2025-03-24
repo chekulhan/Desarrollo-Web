@@ -34,7 +34,7 @@ https://ai.google.dev/gemini-api/docs/rate-limits?hl=es-419
 
 .env archivo:
 ```bash
-REACT_APP_GEMINI_API_KEY=AIzaSyBxGqqZmpELLqR2SGdwOxNjANPMA7KHRfs
+REACT_APP_GEMINI_API_KEY=abcd
 ```
 
 

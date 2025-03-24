@@ -144,6 +144,8 @@ Impacto: Los criterios de nivel AAA son muy específicos y cubren situaciones mu
 - [Easy checks](https://www.w3.org/WAI/test-evaluate/easy-checks/)
 - [Tips, Pistas](https://www.w3.org/WAI/tips/)
 
+## Demo
+![Chrome Dev Accesibilidad](../../x-assets/UF1843/chrome.dev.accesibilidad.png)
 
 ## Actividades
 
