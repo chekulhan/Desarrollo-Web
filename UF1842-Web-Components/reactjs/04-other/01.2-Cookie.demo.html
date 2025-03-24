@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Demo</title>
+</head>
+<body>
+  <h1>Cookie Test</h1>
+
+  <script>
+    // Crear el cookie
+    document.cookie = "username=JohnDoe; expires=Thu, 31 Dec 2025 23:59:59 UTC;";
+
+    // Comprobar
+    console.log("Cookies:", document.cookie);
+
+    // Optional: Mostrar
+    const cookies = document.cookie;
+    if (cookies) {
+      console.log("Mostrando cookie:", cookies);
+    } else {
+      console.log("No cookies found.");
+    }
+  </script>
+</body>
+</html>
