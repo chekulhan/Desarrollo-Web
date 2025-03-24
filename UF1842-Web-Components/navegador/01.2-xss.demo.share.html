@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS</title>
+</head>
+<body>
+    <input type="text" id="input" name="input" />
+    <button onclick="xss();">XSS Ejemplo</button>
+    <div id="resultado"></div>
+
+    <script>
+        function getQueryParam(name) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+
+        function xss() {
+            const valor = document.getElementById("input").value;
+            window.location.search = `?input=${valor}`;
+        }
+
+        // Cargar el valor de la URL si existe
+        window.onload = function() {
+            const valor = getQueryParam("input");
+            if (valor) {
+                document.getElementById("input").value = valor;
+                document.getElementById("resultado").innerHTML = valor;
+            }
+        };
+    </script>
+</body>
+</html>

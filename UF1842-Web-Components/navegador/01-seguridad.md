@@ -1,4 +1,6 @@
 # Seguridad en el navegador
+## oWASP
+https://owasp.org/www-project-top-ten/
 
 ## Cross-Site Scripting (XSS)
 Cross-Site Scripting (XSS) es un tipo de vulnerabilidad de seguridad en aplicaciones web que permite a los atacantes inyectar scripts maliciosos en las páginas vistas por otros usuarios. Estos scripts pueden ser ejecutados en el navegador de la víctima, lo que les permite realizar diversas acciones maliciosas, como robar cookies, redirigir a los usuarios a sitios falsos o realizar acciones no autorizadas en su nombre.

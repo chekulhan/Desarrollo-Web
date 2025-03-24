@@ -22,6 +22,7 @@
             resultado.innerHTML = valor;
 
             // simular un evento peligroso - introducir en el campo de texto: 
+            //<img src="" onerror="window.alert('hacked');" />
             // alert('hola');
             // document.body.style.backgroundColor = "red";
             eval(valor);
@@ -50,8 +51,15 @@
 
               3. CSP - Content Security Policy
                 <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+              Javascript se ejecuta si esta dentro de <script> tags en el mismo dominio
+              CDN's no funcionan. 
 
+              <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdnjs.cloudflare.com;">
 
+              <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'nonce-abc123';">
+              <script nonce="abc123">
+                console.log("This inline script will work!");
+              </script>
             */
         }
 
