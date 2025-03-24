@@ -35,6 +35,9 @@ Ejemplo de .gitignore:
 .env
 ```
 
+![Git Guard](../../x-assets/UF1843/git.guard.png)
+
+
 ## Consideraciones de Seguridad:
 
 Si bien las claves almacenadas en el .env archivo se procesan y se pueden usar en el código React, estas claves siguen estando expuestas en el navegador cuando se construye la aplicación, por lo que no debes incluir información sensible (como claves privadas) en las aplicaciones cliente. Si es posible, es mejor crear un servidor backend para manejar las claves de API de manera segura.
