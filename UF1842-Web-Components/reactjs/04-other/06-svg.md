@@ -41,3 +41,6 @@ A diferencia de las imágenes vectoriales, que están basadas en fórmulas matem
 ## Actividad - Crear un svg
 
 ![Figma](../../../x-assets/UF1842/figma.png)
+
+## Recursos
+https://www.svgator.com/blog/what-is-svg-interactivity/#2-svg-interactivity-triggered-on-hover-mouse-over

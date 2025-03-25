@@ -37,4 +37,5 @@ https://ai.google.dev/gemini-api/docs/rate-limits?hl=es-419
 REACT_APP_GEMINI_API_KEY=abcd
 ```
 
-
+## Documentación
+https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#javascript
