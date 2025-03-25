@@ -1,5 +1,7 @@
 # Imagenes raster
 
+https://caniuse.com/
+
 ![Raster vs Vectorial](../../../x-assets/UF1842/raster.vect.png)
 
 Una imagen raster (o bitmap) es un tipo de imagen digital que está compuesta por una matriz de píxeles o puntos de color. Cada píxel tiene un valor de color específico, y juntos forman la imagen completa. Las imágenes raster se usan comúnmente en fotografía digital, ilustraciones, y otros tipos de gráficos detallados.
