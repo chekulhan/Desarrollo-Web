@@ -4,6 +4,10 @@
 [Definici√≥n](https://www.w3.org/WAI/)
 
 
+![Stephen Hawking](../../x-assets/UF1843/sh.png)
+
+https://www.youtube.com/watch?v=0X31SgzSdIU (pasar por los diapositivos)
+
 https://www.w3.org/WAI/videos/standards-and-benefits/es  (subtitulos en castellano)
 
 
@@ -37,6 +41,8 @@ Accesibilidad web significa que los sitios web, las herramientas y las tecnolog√
 
 - Percibir, comprender, navegar e interactuar con la Web
 - contribuir a la Web
+
+![Principios](../../x-assets/UF1843/wcag.png)
 
 La accesibilidad web abarca todas las discapacidades que afectan el acceso a la Web, incluidas:
 
