@@ -1,18 +1,23 @@
 Streaming y Carga Progresiva
+
 1. Streaming (Transmisión en Vivo):
 
 El streaming es una técnica utilizada para enviar datos, como audio o video, de forma continua a un dispositivo. En lugar de descargar todo el archivo antes de que pueda ser reproducido, el contenido se envía en fragmentos, permitiendo que el usuario empiece a visualizar o escuchar el contenido casi de inmediato.
 
-Características del Streaming:
-Reproducción Inmediata: El contenido empieza a reproducirse casi de inmediato, sin necesidad de esperar a que todo el archivo sea descargado.
-Requiere Conexión Estable: Dado que los datos se envían de forma continua, es necesario tener una conexión a Internet estable para evitar interrupciones en la transmisión.
+**Características del Streaming:**
+- Reproducción Inmediata: El contenido empieza a reproducirse casi de inmediato, sin necesidad de esperar a que todo el archivo sea descargado.
+- Requiere Conexión Estable: Dado que los datos se envían de forma continua, es necesario tener una conexión a Internet estable para evitar interrupciones en la transmisión.
+
 Ejemplos: Servicios como Netflix, YouTube, Spotify y Twitch utilizan streaming para ofrecer contenido multimedia sin necesidad de descargar todo el archivo.
-Ventajas del Streaming:
-Inmediatez: Los usuarios pueden empezar a consumir contenido sin tener que esperar.
-Bajo Uso de Almacenamiento: Al no requerir una descarga completa, el streaming no ocupa espacio en el dispositivo del usuario.
-Desventajas del Streaming:
-Dependencia de la Conexión: Si la conexión a Internet es lenta o inestable, la calidad de la transmisión puede disminuir, e incluso puede producirse interrupciones (buffering).
-Mayor Uso de Datos: Los servicios de streaming pueden consumir muchos datos, lo cual es relevante si el usuario tiene un plan de datos limitado.
+
+**Ventajas del Streaming:**
+- Inmediatez: Los usuarios pueden empezar a consumir contenido sin tener que esperar.
+- Bajo Uso de Almacenamiento: Al no requerir una descarga completa, el streaming no ocupa espacio en el dispositivo del usuario.
+
+**Desventajas del Streaming:**
+- Dependencia de la Conexión: Si la conexión a Internet es lenta o inestable, la calidad de la transmisión puede disminuir, e incluso puede producirse interrupciones (buffering).
+- Mayor Uso de Datos: Los servicios de streaming pueden consumir muchos datos, lo cual es relevante si el usuario tiene un plan de datos limitado.
+
 Ejemplo de Streaming en React (con un video):
 ```jsx
 const StreamingContent = () => {
@@ -43,7 +48,9 @@ Sin Buffering (en teoría): No hay interrupciones en la reproducción una vez qu
 Desventajas de la Carga Progresiva:
 Requiere Descarga Completa: Aunque el usuario puede comenzar a ver el archivo antes de que se haya descargado por completo, al final necesitará descargar todo el archivo.
 Uso de Espacio: Dado que el archivo se guarda en el dispositivo, puede consumir almacenamiento en el dispositivo del usuario.
-Ejemplo de Carga Progresiva en React (con un video):
+
+Ejemplo de Carga Progresiva en React (con un video): Fijate en el atributo  `preload="auto"`
+
 ```jsx
 
 const ProgressiveDownloadContent = () => {
@@ -60,3 +67,20 @@ const ProgressiveDownloadContent = () => {
 ```
 
 En este caso, el video se descarga progresivamente mientras el usuario lo reproduce, pero la diferencia clave es que el archivo completo se almacena en el dispositivo.
+
+
+## Actividad
+Vamos a crear un componente para dar dos opciones (botones) al usuario. Usar useState para manejar la variable (opcion del usuario)
+
+1. Descargar: Si selecciona este opcion, se presenta el video con la opcion de descargarlo.
+```jsx
+<a href="https://your-server.com/path/to/video.mp4" download="video.mp4">
+  <button>Download Video</button>
+</a> 
+```
+
+2. Streaming: Si selecciona este opcion, el video se presenta el video de forma streaming o progresiva:
+```jsx
+ <video width="600" controls>
+    <source ...
+```
