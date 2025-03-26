@@ -109,6 +109,7 @@ Ejemplos de páginas:
 - https://www.gov.uk/
 - https://webaim.org/
 
+
 ## Nivels de conformidad
 Las Pautas de Accesibilidad para el Contenido Web (WCAG) definen criterios específicos para hacer que los sitios web sean accesibles para personas con discapacidades. Estas pautas se dividen en tres niveles de conformidad: A, AA, y AAA. Cada nivel indica la importancia de las pautas que se deben cumplir.
 
@@ -157,6 +158,15 @@ Impacto: Los criterios de nivel AAA son muy específicos y cubren situaciones mu
 
 
 ## Actividades
+
+## Actividad Intro:
+- Google Docs: Escribir por voz
+- Narrador
+- Tutoriales:
+    - https://web.dev/learn/accessibility
+
+![Narrador](../../x-assets/UF1843/narrador.png)
+
 
 ## Actividad:
 Accesibilidad Actividad - hay que convertir el HTML en ReactJS aplicando técnicas de accesibilidad
