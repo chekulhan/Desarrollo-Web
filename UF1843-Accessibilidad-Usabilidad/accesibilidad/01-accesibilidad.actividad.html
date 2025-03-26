@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de Mala Accesibilidad</title>
+    <style>
+        body {
+            background-color: #444;
+            color: #777;
+            font-size: 14px;
+        }
+        .boton {
+            font-size: 12px;
+            padding: 4px;
+        }
+        .hidden-focus {
+            outline: none;
+        }
+        .auto-play {
+            display: none;
+        }
+        #menu {
+            background-color: #333;
+            padding: 10px;
+            color: white;
+        }
+        #menu a {
+            color: white;
+            margin-right: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .seccion {
+            display: none;
+        }
+        .activo {
+            display: block;
+        }
+        #footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .boton-animado {
+            position: absolute;
+            transition: all 0.3s;
+        }
+    </style>
+    <script>
+        function mostrarSeccion(seccionId) {
+            document.getElementById('inicio').classList.remove('activo');
+            document.getElementById('contacto').classList.remove('activo');
+            document.getElementById('suscripcion').classList.remove('activo');
+            document.getElementById('video').classList.remove('activo');
+            document.getElementById(seccionId).classList.add('activo');
+        }
+        
+        function moverBoton() {
+            let boton = document.getElementById('boton-dificil');
+            boton.style.top = Math.random() * window.innerHeight + 'px';
+            boton.style.left = Math.random() * window.innerWidth + 'px';
+        }
+    </script>
+</head>
+<body>
+    <div id="menu">
+        <a onclick="mostrarSeccion('inicio')">Inicio</a>
+        <a onclick="mostrarSeccion('contacto')">Contacto</a>
+        <a onclick="mostrarSeccion('suscripcion')">Suscribirse</a>
+        <a onclick="mostrarSeccion('video')">Video</a>
+    </div>
+    
+    <div id="inicio" class="seccion activo">
+        <h3>Bienvenido a Nuestra Página</h3>
+        <img src="https://picsum.photos/600/300" alt="Imagen de ejemplo">
+        <p>Esta es una página de ejemplo donde ofrecemos información sobre nuestros productos y servicios. Puedes contactarnos o suscribirte para recibir descuentos exclusivos.</p>
+    </div>
+    
+    <div id="contacto" class="seccion">
+        <h3>Formulario de Contacto</h3>
+        <form>
+            <input type="text" placeholder="Nombre Completo"><br>
+            <input type="email" placeholder="Correo Electrónico"><br>
+            <textarea placeholder="Mensaje"></textarea><br>
+            <button class="boton">Enviar Mensaje</button>
+        </form>
+    </div>
+    
+    <div id="suscripcion" class="seccion">
+        <h3>Formulario de Suscripción</h3>
+        <form>
+            <input type="email" placeholder="Tu correo electrónico"><br>
+            <button class="boton">¡Suscríbete ahora y obtén un descuento en 10 segundos!</button>
+        </form>
+    </div>
+    
+    <div id="video" class="seccion">
+        <h3>Video de Ejemplo</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+    <button id="boton-dificil" class="boton-animado" onmouseover="moverBoton()">Haz clic aquí</button>
+    
+    <div id="visit-count" style="position:fixed; bottom:10px; right:10px;">Visitas: <span id="counter">0</span></div>
+    
+    <div id="footer">
+        &copy; 2025 Nuestra Empresa - Todos los derechos reservados | Términos y Condiciones | Política de Privacidad
+    </div>
+    
+    <script>
+        let count = localStorage.getItem('visitas') || 0;
+        count++;
+        localStorage.setItem('visitas', count);
+        document.getElementById('counter').innerText = count;
+    </script>
+</body>
+</html>

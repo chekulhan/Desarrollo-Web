@@ -6,6 +6,25 @@
 
 ![Stephen Hawking](../../x-assets/UF1843/sh.png)
 
+La accesibilidad web abarca todas las discapacidades que afectan el acceso a la Web, incluidas:
+
+- auditivo
+- cognitivo
+- neurológico
+- físico
+- discurso
+- visual
+
+La accesibilidad web también beneficia a las personas sin discapacidad, por ejemplo:
+
+- Personas que utilizan teléfonos móviles, relojes inteligentes, televisores inteligentes y otros dispositivos con pantallas pequeñas, diferentes modos de entrada, etc.
+- Personas mayores con capacidades cambiantes debido al envejecimiento.
+personas con “discapacidades temporales”, como un brazo roto o la pérdida de gafas
+- Personas con “limitaciones situacionales”, como por ejemplo, en condiciones de luz solar intensa o en un entorno donde no pueden escuchar audio.
+- Personas que utilizan una conexión a Internet lenta o que tienen un ancho de banda limitado o costoso.
+
+![Tipos](../../x-assets/UF1843/lizbrown.png)
+
 https://www.youtube.com/watch?v=0X31SgzSdIU (pasar por los diapositivos)
 
 https://www.w3.org/WAI/videos/standards-and-benefits/es  (subtitulos en castellano)
@@ -44,24 +63,7 @@ Accesibilidad web significa que los sitios web, las herramientas y las tecnolog�
 
 ![Principios](../../x-assets/UF1843/wcag.png)
 
-La accesibilidad web abarca todas las discapacidades que afectan el acceso a la Web, incluidas:
 
-- auditivo
-- cognitivo
-- neurológico
-- físico
-- discurso
-- visual
-
-La accesibilidad web también beneficia a las personas sin discapacidad, por ejemplo:
-
-- Personas que utilizan teléfonos móviles, relojes inteligentes, televisores inteligentes y otros dispositivos con pantallas pequeñas, diferentes modos de entrada, etc.
-- Personas mayores con capacidades cambiantes debido al envejecimiento.
-personas con “discapacidades temporales”, como un brazo roto o la pérdida de gafas
-- Personas con “limitaciones situacionales”, como por ejemplo, en condiciones de luz solar intensa o en un entorno donde no pueden escuchar audio.
-- Personas que utilizan una conexión a Internet lenta o que tienen un ancho de banda limitado o costoso.
-
-![Tipos](../../x-assets/UF1843/lizbrown.png)
 
 ## Principios fundamentales
 Los principios fundamentales de las Pautas de Accesibilidad para el Contenido Web (WCAG) se basan en cuatro conceptos clave, que sirven como la base para hacer que los sitios web sean accesibles para personas con diversas discapacidades. Estos principios son:
@@ -156,8 +158,8 @@ Impacto: Los criterios de nivel AAA son muy específicos y cubren situaciones mu
 
 ## Actividades
 
-## Actividad : DOM Accesibilidad Arbol
-
+## Actividad:
+Accesibilidad Actividad - hay que convertir el HTML en ReactJS aplicando técnicas de accesibilidad
 
 
 ## Actividad - hardware y software
