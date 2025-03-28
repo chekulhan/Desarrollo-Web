@@ -90,7 +90,42 @@ Herramientas:
     - https://www.fluidui.com/
     - Python streamlit
 
-## Actividad de clase
+
+## User Persona para un chatbot
+Basado en la user persona, vamos a crear un chatbot de voiceflow.com
+
+
+Nombre: Sarah
+Edad: 29 años
+Ubicación: Nueva York, EE. UU.
+Ocupación: Profesional de marketing
+
+**Objetivos:**
+
+Compra rápida: Sarah quiere encontrar y comprar ropa de forma rápida, sin perder tiempo navegando por múltiples categorías.
+
+Recomendaciones personalizadas: Sarah está buscando nuevas tendencias de moda, pero no tiene mucho tiempo para explorar. Le gustaría recibir recomendaciones rápidas basadas en su estilo o en sus compras pasadas.
+
+Resolución de problemas: Si tiene problemas con su pedido, como cambios de talla o problemas con el envío, quiere solucionarlos sin tener que llamar a un número de soporte.
+
+
+**Puntos de Dolor:**
+
+Esperas largas en atención al cliente: Se frustra si tiene que esperar mucho tiempo para obtener una respuesta, especialmente si el problema es simple.
+
+Navegación confusa: Se siente perdida cuando la página no es intuitiva o las categorías de productos están mal organizadas.
+
+
+**Comportamiento:**
+Nivel de Habilidad Tecnológica: Sarah es experta en tecnología y usa aplicaciones de compras online de manera frecuente. Está acostumbrada a interactuar con chatbots, pero espera que sean eficientes.
+
+Estilo de Comunicación Preferido: Le gusta que el chatbot sea amigable pero conciso. No tiene tiempo para charlas innecesarias, pero aprecia un tono relajado y útil.
+
+Frecuencia de Uso: Usa el chatbot de ModaExpress varias veces por semana, tanto para hacer compras rápidas como para consultar el estado de sus pedidos o encontrar productos nuevos.
+
+
+## Actividad de clase 
+
 Para este proyecto, creará un prototipo de una aplicación móvil para ayudar a un compañero de clase a aprender algo nuevo. Entrevistar a un compañero de clase e identificar una barrera para su aprendizaje. El primer paso será identificar las preguntas e.g. ¿Qué cosa nueva querías aprender y por qué?
 
 Deberá crear un prototipo de una aplicación que los ayude a superar esta barrera. Siéntase libre de probar nuevos enfoques creativos para el problema que ha identificado, pero sea lo que sea que decida diseñar, asegúrese de empatizar con las necesidades de su usuario. 
