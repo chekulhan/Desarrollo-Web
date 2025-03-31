@@ -35,50 +35,149 @@ https://mui.com/material-ui/all-components/
 # Themes
 https://mui.com/material-ui/customization/theming/?srsltid=AfmBOoqLcIMqnsRbcrgRVKrogr5npCsiUdz5UqQnIXgueuTU-PjBP8jq
 
-App.js file:
+Theme creador: https://zenoo.github.io/mui-theme-creator/
+
+NOTAS: Por ejemplo:
+- ensuring consistency across different browsers
+- Without `<CssBaseline />`, text rendering might look slightly different across browsers.
+- In Chrome, `<body>` has an 8px margin by default, whereas other browsers may have different values. 
+
+**Paso 1:** Crear un theme
+
+Crear un archivo theme.js en el directorio donde esta App.js:
 
 ```jsx
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 
-
-// Paso 1: Crear un theme
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#3f51b5", // Customize the primary color
+      main: "#1976d2", // Blue
     },
     secondary: {
-      main: "#dc004e", // Customize the secondary color
+      main: "#dc004e", // Pink
+    },
+    background: {
+      default: "#f5f5f5", // Light gray background
+      paper: "#ffffff",
     },
   },
   typography: {
+    fontFamily: "'Roboto', sans-serif",
     h1: {
-      fontSize: "2.5rem", // Customize h1 font size
-      fontWeight: "bold", // Customize font weight
+      fontSize: "2rem",
+      fontWeight: 600,
     },
     body1: {
-      fontSize: "1rem", // Customize body text size
+      fontSize: "1rem",
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: "8px",
+          textTransform: "none",
+        },
+      },
     },
   },
 });
 
-// Paso 2: Wrap your app with the ThemeProvider
+export default theme;
+```
 
-function App() {
- 
-  return (
-    <ThemeProvider theme={theme}>
-    {/* <Navbar /> */} 
+**Paso 2:** Wrap your app with the ThemeProvider
 
-      <Routes>
-        <Route path="/" element={<Home />} />
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App.js';
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import theme from "./theme.js"; 
 
-
-      </Routes>
-  
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+   <ThemeProvider theme={theme}>
+      <CssBaseline /> 
+      <App />
     </ThemeProvider>
-  );
-}
+  </React.StrictMode>
+);
+
 
 export default App;
 ```
+
+
+Para acceder el Theme en un componente:
+
+```jsx
+import React from "react";
+import { useTheme } from "@mui/material/styles"; // importar el Hook para usar el theme
+import { Button, Typography, Box } from "@mui/material";
+
+const ThemedComponent = () => {
+  const theme = useTheme(); // Access the theme
+
+  return (
+    <Box
+      sx={{
+        backgroundColor: theme.palette.background.default,
+        padding: theme.spacing(2),
+        borderRadius: theme.shape.borderRadius,
+      }}
+    >
+      <Typography variant="h4" color={theme.palette.primary.main}>
+        Themed Component
+      </Typography>
+      <Button variant="contained" color="secondary">
+        Themed Button
+      </Button>
+    </Box>
+  );
+};
+
+export default ThemedComponent;
+```
+
+## Actividad 1
+
+Empezar con un listado de items:
+
+```javascript
+const items = [
+  { id: 1, name: 'Item 1', description: 'This is a description for item 1', price: '$10' },
+  { id: 2, name: 'Item 2', description: 'This is a description for item 2', price: '$20' },
+  { id: 3, name: 'Item 3', description: 'This is a description for item 3', price: '$30' },
+  { id: 4, name: 'Item 4', description: 'This is a description for item 4', price: '$40' },
+];
+```
+
+Recordar:
+
+- Aplicar un map para mostrar cada elemento de Card (cambiar items por filteredItems)
+```jsx
+{items.map(item => (
+    <Card key={item.id} sx={{ width: 250 }}>
+```
+
+Ejecutar la funcion handleFilter para filtrar los items en el button:
+
+```jsx
+<Button onClick={handleFilter} variant="contained" sx={{ marginBottom: '20px' }}>
+  Filter Items
+</Button>
+```
+
+![Example](../../../x-assets/UF1843/mui.example.png)
+
+## Actividad 2 Productos Dashboard
+
+import { Grid, Card, CardContent, Typography, TextField, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Snackbar, Box, ListItem, ListItemText, List, InputLabel, FormControl, Select, MenuItem } from "@mui/material";
+
+
+![Example](../../../x-assets/UF1843/mui.productos.png)
