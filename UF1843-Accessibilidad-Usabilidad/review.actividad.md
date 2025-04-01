@@ -1,3 +1,41 @@
+
+Python
+
+
+
+from transformers import pipeline
+
+generator = pipeline('text-generation', model='gpt2')
+
+generator = pipeline('text-generation', model='facebook/mbart-large-50-many-to-many-mmt')
+
+
+
+def generate_joke(prompt="Tell me a joke!"):
+    joke = generator(prompt, max_length=50)
+    return joke[0]['generated_text']
+
+joke = generate_joke()
+print("Here's a joke for you:")
+print(joke)
+
+
+# Opcion de generar texto:
+# Frase inicial para la generación de texto
+result = generator("Había una vez en un lugar muy lejano", max_length=100)
+print(result)
+
+# Opcion de chatbot
+# Usamos DialoGPT para chat
+chatbot = pipeline('conversational', model='microsoft/DialoGPT-medium')
+
+result = chatbot("Hola, ¿cómo estás?")
+print(result)
+````
+
+# React JS
+
+```jsx
 import React, { useState } from 'react';
 import { Button, Typography, Card, CardContent } from '@mui/material';
 
@@ -58,3 +96,4 @@ const Motivacion = () => {
 };
 
 export default Motivacion;
+´´´
