@@ -69,3 +69,31 @@
 **Ejemplo**: Buscar inyecciones SQL o pruebas de autenticación de usuarios.  
 
 **Herramientas**: OWASP ZAP, Burp Suite.  
+
+
+
+# 🔹 Metodología TDD (Test-Driven Development)
+El TDD sigue un ciclo de tres pasos clave:
+
+1️⃣ Escribir una prueba 📝
+
+Se define una prueba unitaria basada en los requisitos.
+
+La prueba inicialmente fallará porque la función aún no existe.
+
+2️⃣ Escribir el código mínimo necesario 👨‍💻
+
+Se implementa el código justo para pasar la prueba.
+
+3️⃣ Refactorizar 🔄
+
+Se mejora el código sin cambiar su funcionalidad.
+
+Se optimiza el diseño y se eliminan redundancias.
+
+🔄 Este ciclo se repite hasta completar la funcionalidad.
+
+
+
+## Jest
+https://jestjs.io/
