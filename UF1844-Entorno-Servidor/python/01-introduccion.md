@@ -11,6 +11,7 @@
 - bucles for, while y con listas
 - functions
 - dictionaries
+- archivos, pandas (csv)
 
 ### Tipos de datos
 ![Actividades](../../x-assets/UF1844/python.datatypes.png)
@@ -107,11 +108,100 @@ La fórmula para calcular el volumen de agua en una piscina rectangular es:
 Volumen = Longitud × Ancho × Profundidad
 Volumen=Longitud×Ancho×Profundidad
 
+# Dictionaries
+
+```python
+person = {
+    'name': 'John',
+    'age': 30
+}
+
+print(person["name"])
+person["age"] = 35
+```
 
 
-Aqui hacer comandos basicos como print,if bucles con arrays
+```python
+students = {
+    'Alice': {'age': 20, 'grades': {'Math': 85, 'Science': 90}},
+    'Bob': {'age': 22, 'grades': {'Math': 78, 'Science': 88}},
+    'Charlie': {'age': 21, 'grades': {'Math': 92, 'Science': 87}},
+}
 
-streamlit como herramienta de desarollo de prototipos
+alice = students['Alice']
+
+print(alice["age"])
+alice["age"] = 21
+print(alice["age"])
+```
+
+Podrias terminar este programa usando un diccionario para gestionar los contactos:
+```python
+
+libro_de_contactos = [] # se guardará cada contacto como un diccionario dentro una lista
+
+
+def main():
+    while True:
+        print("\nMenú del Libro de Contactos:")
+        print("1. Agregar Contacto")
+        print("2. Ver Todos los Contactos")
+        print("3. Salir")
+        
+        opcion = input("Elige una opción (1-3): ")
+        
+        if opcion == "1":
+            agregar_contacto()
+            # pista: hay que usar libro_de_contactos.append()
+        elif opcion == "2":
+            ver_todos_los_contactos()
+        elif opcion == "3":
+            print("¡Adiós!")
+            break
+        else:
+            print("Opción no válida, por favor intenta de nuevo.")
+```
+
+
+# Archivos
+
+```python
+# Abrir y leer el archivo
+with open("input.txt", "r") as file:
+    content = file.read()
+
+# Modificar el contenido
+modified_content = content.upper()
+
+# Guardar el contenido en un nuevo archivo
+with open("output.txt", "w") as file:
+    file.write(modified_content)
+
+print("Archivo guardado con éxito.")
+```
+
+
+# Pandas
+```python
+import pandas as pd
+
+# Read CSV file into DataFrame
+df = pd.read_csv('output.csv')
+
+# Display the first few rows of the DataFrame
+print(df.head())
+
+data = {
+    'Name': ['John', 'Alice', 'Bob'],
+    'Age': [28, 34, 25],
+    'City': ['New York', 'Los Angeles', 'Chicago']
+}
+
+df = pd.DataFrame(data)
+
+# Write the DataFrame to a CSV file
+df.to_csv('output.csv', index=False)
+```
 
 ---
 
