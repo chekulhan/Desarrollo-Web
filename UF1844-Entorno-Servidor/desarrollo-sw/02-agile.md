@@ -19,6 +19,8 @@ El enfoque RAD se centra en la creación de prototipos, la retroalimentación co
 ## Extrame Programming
 http://www.extremeprogramming.org/
 
+https://www.youtube.com/watch?v=M_Swss0uxPE
+
 ### Actividad - Peer programming
 
 Vas a trabajar con un conjunto de películas, cada una con su título, género y puntuación. El objetivo es crear un programa que pregunte al usuario por un género y le recomiende las 2 películas mejor puntuadas dentro de ese género.
