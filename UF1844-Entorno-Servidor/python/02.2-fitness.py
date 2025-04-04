@@ -127,3 +127,5 @@ elif page == "💪 Workout Logger":
     workout_logger()
 elif page == "📈 Progress Tracker":
     progress_visualization()
+
+

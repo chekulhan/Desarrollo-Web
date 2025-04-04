@@ -182,6 +182,9 @@ print("Archivo guardado con éxito.")
 
 
 # Pandas
+
+https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
+
 ```python
 import pandas as pd
 
@@ -203,6 +206,59 @@ df = pd.DataFrame(data)
 df.to_csv('output.csv', index=False)
 ```
 
+Operaciones básicas de DataFrame
+```python
+df.head()
+df.tail()
+df["Nombre"]    df[["Nombre", "Edad"]]  # columnas
+df.iloc[1] df.iloc[0:2] # ubicacion por indice
+df.loc[0:1, ["Nombre", "Edad"]]
+
+```
+
+### Actividad de pandas
+```python
+data = {
+    "Producto": ["Laptop", "Camiseta", "Sofá", "Auriculares", "Chaqueta", "Tablet", "Cámara", "Zapatos", "Refrigerador", "Smartphone"],
+    "Categoría": ["Electrónica", "Ropa", "Hogar", "Electrónica", "Ropa", "Electrónica", "Electrónica", "Ropa", "Hogar", "Electrónica"],
+    "Precio": [1200, 25, 700, 100, 150, 500, 300, 80, 1200, 700],
+    "Cantidad vendida": [5, 100, 10, 150, 50, 30, 40, 70, 15, 60],
+    "Fecha de venta": pd.to_datetime([
+        "2023-01-10", "2023-01-11", "2023-01-12", "2023-01-13", "2023-01-14", 
+        "2023-01-15", "2023-01-16", "2023-01-17", "2023-01-18", "2023-01-19"
+    ])
+}
+
+```
+
+El departamento de ventas necesita los siguientes datos:
+
+| Producto    | Precio |
+|-------------|--------|
+| Auriculares | 100    |
+| Chaqueta    | 150    |
+| Tablet      | 500    |
+| Cámara      | 300    |
+
+Fijáte en el precio (filtrar) y en el ordén:
+
+| Producto    | Categoría   | Precio | Cantidad vendida | Fecha de venta |
+|-------------|-------------|--------|------------------|----------------|
+| Sofá        | Hogar       | 700    | 10               | 2023-01-12     |
+| Smartphone  | Electrónica | 700    | 60               | 2023-01-19     |
+| Laptop      | Electrónica | 1200   | 5                | 2023-01-10     |
+| Refrigerador| Hogar       | 1200   | 15               | 2023-01-18     |
+
+Para actualizar un valor, usar `df.loc[condición, 'columna'] = nuevo_valor`
+
+Actualizar el precio de Camisetas a 100 euros.
+
+Encontrar los top 5 vendidas. Usar `df.nlargest`. ¿Y los menos vendidos?
+
+Añadir un nuevo producto. Terminar con los datos necesarios:
+new_row = {"Producto": "Sofá", "Categoría": "Hogar" ... }
+
+usar: `df.loc[len(df)] = new_row`
 ---
 
 ### Demo
@@ -415,4 +471,17 @@ cantidad_vendida = int(input(f"Ingrese la cantidad vendida de {nombre_producto}:
 
 # Calculamos el total generado por este producto
 total_producto = calcular_total_producto(precio, cantidad_vendida)
+```
+
+
+## Pandas
+```python
+df[df["Precio"] > 500].sort_values(by="Precio", ascending=True)
+df.loc[df["Producto"] == "Camiseta", "Precio"] = 100
+df.nlargest(4, "Cantidad vendida")
+df.nsmallest(4, "Cantidad vendida")
+
+new_row = {"Producto": "Sofá", "Categoría": "Hogar", "Precio": 700,  "Cantidad vendida": 200, "Fecha de venta": pd.to_datetime("2025-04-01")}
+
+df.loc[len(df)] = new_row
 ```
