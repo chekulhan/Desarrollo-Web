@@ -216,7 +216,14 @@ df.loc[0:1, ["Nombre", "Edad"]]
 
 ```
 
-### Actividad de pandas
+### Actividades de pandas
+
+**Actividad 1**:
+https://github.com/sivabalanb/Data-Analysis-with-Pandas-and-Python/blob/master/fortune1000.csv
+
+![Actividad 1](../../x-assets/UF1844/python.pandas.ex1.png)
+
+**Actividad 2:**
 ```python
 data = {
     "Producto": ["Laptop", "Camiseta", "Sofá", "Auriculares", "Chaqueta", "Tablet", "Cámara", "Zapatos", "Refrigerador", "Smartphone"],
@@ -259,6 +266,31 @@ Añadir un nuevo producto. Terminar con los datos necesarios:
 new_row = {"Producto": "Sofá", "Categoría": "Hogar" ... }
 
 usar: `df.loc[len(df)] = new_row`
+
+# Python Turtle
+```python
+import turtle
+
+# Set up the screen
+screen = turtle.Screen()
+screen.bgcolor("white")  # Background color of the screen
+
+# Create a turtle object
+t = turtle.Turtle()
+
+# Customize the turtle
+t.shape("turtle")
+t.color("green")
+t.speed(2)  # Set turtle speed (1 - slowest, 10 - fastest)
+
+# Draw a square
+for _ in range(4):
+    t.forward(100)  # Move forward by 100 units
+    t.left(90)      # Turn by 90 degrees
+
+# Finish the drawing
+turtle.done()
+```
 ---
 
 ### Demo
