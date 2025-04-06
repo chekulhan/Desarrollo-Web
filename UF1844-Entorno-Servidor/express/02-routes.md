@@ -144,3 +144,36 @@ const ListaCoches = () => {
 
 export default ListaCoches;
 ```
+
+
+## TO DO
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json()); // to parse JSON request bodies
+
+// Example of chained routes
+app.route('/books')
+  .get((req, res) => {
+    res.send('Get a list of books');
+  })
+  .post((req, res) => {
+    res.send('Add a new book');
+  });
+
+app.route('/books/:id')
+  .get((req, res) => {
+    res.send(`Get details of book with ID ${req.params.id}`);
+  })
+  .put((req, res) => {
+    res.send(`Update book with ID ${req.params.id}`);
+  })
+  .delete((req, res) => {
+    res.send(`Delete book with ID ${req.params.id}`);
+  });
+
+app.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000');
+});
+```

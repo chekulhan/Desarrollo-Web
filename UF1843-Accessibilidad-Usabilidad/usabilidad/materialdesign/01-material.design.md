@@ -87,7 +87,7 @@ const theme = createTheme({
 export default theme;
 ```
 
-**Paso 2:** Wrap your app with the ThemeProvider
+**Paso 2:** Wrap your app with the ThemeProvider en index.js
 
 ```jsx
 import React from 'react';
