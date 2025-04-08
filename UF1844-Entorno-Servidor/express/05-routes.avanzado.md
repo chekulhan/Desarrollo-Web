@@ -1,76 +1,64 @@
-TO DO
+# Cómo separar un servidor Express por rutas usando Express Router
 
-If your server.js file has too many routes, the best way to manage it is by organizing routes into separate files and using Express routers. Here’s how you can do it:
+1. Estructura
+```bash
+project/
+│
+├── server.js          <-- Archivo principal del servidor
+├── routes/            <-- Carpeta donde van las rutas
+│   ├── users.js       <-- Rutas relacionadas con usuarios
+│   └── products.js    <-- Rutas relacionadas con productos
+```
 
-1. Create a routes Directory
-Inside your project, create a routes folder to store route files.
+2. server.js (punto de entrada principal)
 
-2. Move Routes into Separate Files
-For example, if you have user-related routes, create routes/userRoutes.js:
+```javascript
+import express from 'express';
+import usersRouter from './routes/users.js';
+import productsRouter from './routes/products.js';
 
-const express = require("express");
-const router = express.Router();
-
-// Define routes
-router.get("/", (req, res) => {
-  res.send("Get all users");
-});
-
-router.post("/", (req, res) => {
-  res.send("Create a new user");
-});
-
-// Export the router
-module.exports = router;
-Similarly, create other route files like productRoutes.js, orderRoutes.js, etc.
-
-3. Use Routes in server.js
-In server.js, import and use these routes:
-
-const express = require("express");
 const app = express();
-
-// Middleware
 app.use(express.json());
 
-// Import routes
-const userRoutes = require("./routes/userRoutes");
-const productRoutes = require("./routes/productRoutes");
-
-// Use routes
-app.use("/users", userRoutes);
-app.use("/products", productRoutes);
+// Montar rutas
+app.use('/users', usersRouter);
+app.use('/products', productsRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
-4. Optional: Use a Central Route Index
-Instead of importing each route separately in server.js, create an index file inside routes:
 
-routes/index.js
+```
 
-const express = require("express");
-const router = express.Router();
+3. routes/users.js (rutas para usuarios) o productos
 
-router.use("/users", require("./userRoutes"));
-router.use("/products", require("./productRoutes"));
+```javascript
 
-module.exports = router;
-Then, modify server.js:
+import { Router } from 'express';
+const router = Router();
 
-const express = require("express");
-const app = express();
+// GET /users
+router.get('/', (req, res) => {
+  res.send('Lista de usuarios');
+});
 
-app.use(express.json());
-app.use("/", require("./routes")); // Import all routes
+// POST /users
+router.post('/', (req, res) => {
+  res.send('Crear un nuevo usuario');
+});
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-Benefits of This Approach
-✔ Keeps server.js clean and organized
-✔ Makes it easy to add new routes
-✔ Improves maintainability and scalability
+export default router;
 
-Let me know if you need additional improvements!
+```
 
+
+Cuando ejecutas tu servidor, las siguientes URLs funcionarán automáticamente:
+
+- GET /users → responde con "Lista de usuarios"
+
+- POST /users → responde con "Crear un nuevo usuario"
+
+- GET /products → responde con "Lista de productos"
+
+- POST /products → responde con "Crear un nuevo producto"
