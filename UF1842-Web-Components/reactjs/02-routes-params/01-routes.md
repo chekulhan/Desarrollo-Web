@@ -4,8 +4,9 @@ Para más informacion: https://blog.webdevsimplified.com/2022-07/react-router/
 
 ```bash
 npm install react-router-dom
-
+npm install react-router-dom@6
 ```
+Si hay un conflicto o error, usar @6.
 
 *Usando version 6*
 
