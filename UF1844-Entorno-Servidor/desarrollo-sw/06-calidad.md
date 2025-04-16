@@ -15,8 +15,9 @@ https://iso25000.com/index.php/normas-iso-25000/iso-25010
 
 
 **Seguridad**
-Vamos a usar `express-validator` para ayudarnos en proteger las rutas de nuestra aplicacion de express. Ve la documentación en /express/middleware.avanzado.md
+Vamos a usar `express-validator` para ayudarnos en proteger las rutas de nuestra aplicacion de express. Ve la documentación en /express/07-middleware.avanzado.md
 
+Vamos a crear un proyecto para la gestión de usuarios. Ve a la documentación en /express/08-login-state-management
 
 
 
