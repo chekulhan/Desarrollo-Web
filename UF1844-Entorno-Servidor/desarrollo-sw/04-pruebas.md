@@ -297,6 +297,43 @@ describe('Shopping Cart', ()=> {
 })
 ```
 
+## Shopping Cart con una clase
+Ahora, vamos a implementar el Shopping Cart como una class.
+
+```lua
+
++---------------------+
+|    ShoppingCart     |
++---------------------+
+| - items: Item[]     |
+| - currency: string  |
++---------------------+
+| +addItem(item: Item): void         |
+| +removeItem(id: string): void      |
+| +clearCart(): void                 |
+| +getTotal(): number                |
+| +formatTotal(): string             |
+| +getItems(): Item[]                |
+| +getItemCount(): number            |
++---------------------+
+
+         ▲
+         |
+         | contains
+         |
++---------------------+
+|        Item         |
++---------------------+
+| - id: string        |
+| - name: string      |
+| - price: number     |
+| - quantity: number  |
++---------------------+
+
+```
+
+
+TO DO WITH SHoopping cart
 
 
 ## Respuestas
@@ -315,8 +352,22 @@ function formatPrice(value) {
         expect(formatPrice(9.996)).toBe("$10.00");
       });
 
+// version avanzado con error
+function formatPrice(amount) {
+  if (typeof amount !== 'number') {
+    throw new Error('El valor debe ser un número');
+  }
+
+  return `$${amount.toFixed(2)}`;
+}
+
+  test('debería lanzar error si el valor no es un número', () => {
+        expect(() => formatPrice('abc')).toThrow('El valor debe ser un número');
+      });
 
 
+
+// Shopping cart
 var cart = [];
 
 function addItemToCart(item) {
