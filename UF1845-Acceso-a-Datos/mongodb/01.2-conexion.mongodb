@@ -15,11 +15,6 @@ Right-click in the editor and choose "Run All MongoDB Commands".
 
 */
 
-//mongodb+srv://atlas-sample-dataset-load-67fd4bcc7de07b4cf62b6cb9:<db_password>@nzcluster-01.nplheyh.mongodb.net/
-
-
-//mongodb+srv://mongodb:mongodb@nzcluster-01.nplheyh.mongodb.net/
-
 use("sample_mflix")
 //db.help // admin commandos
 
