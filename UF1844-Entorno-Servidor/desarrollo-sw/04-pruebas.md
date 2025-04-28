@@ -191,6 +191,24 @@ Enumera los números de las líneas en el archivo que no están cubiertas por ni
 
 ## Actividades
 
+
+Crear una prueba unitaria para comparar que el nombre devuelto es "Maria Fernandez". Pista: Usar toContain()
+
+```js
+function MiNombre() {
+  return "Maria Fernandez";
+}
+```
+
+Y ahora, usar toContain() para comprobar que 'Maria' esta en la lista / array devuelto.
+
+```js
+function MiNombre() {
+  const arrNombres = ['Maria', 'Jon', 'Juan'];
+  return arrNombres;
+} 
+```
+
 ¿Por que falla este prueba de unidad?
 
 ```js
@@ -201,6 +219,15 @@ test('should return user data from API', async () => {
         expect(data.id).toBe(2);
     });
 ```
+
+Trabajas en un banco. Quieres comprobar que un cliente tiene suficientes fondos antes de llevar a cabo una transferencia. Crear la función getSaldo() que devolverá un valor numerico de su saldo. Usar toBeGreaterThan() para llevar a cabo la prueba unitaria. Comprobar, también, que el valor devuleto es un tipo number.
+
+```js
+expect(typeof getSaldo()).toBe('number');
+```
+
+Ahora, hay un cambio en la funcionalidad. Escribir una funcion para comprobar que el saldo es mayor que el minimo. Por ejemplo, tieneSuficienteSaldo(200, 300) devolverá false, y tieneSuficienteSaldo(500, 300) devolverá true.
+
 
 
 # Test Driven Development
@@ -218,6 +245,12 @@ Desarrollo Guiado por Pruebas (TDD, por sus siglas en inglés: Test-Driven Devel
 
 - Ciclo de retroalimentación rápido: Con TDD, puedes saber rápidamente si una parte del código funciona como se espera, lo que agiliza el proceso de desarrollo.
 
+
+| Color  | Acción | Significado |
+|:------|:-------|:------------|
+| 🔴 **Rojo** | Escribir un test que **falla** | El test falla porque todavía no existe el código o el código no cumple lo esperado. ¡Perfecto! El test demuestra que falta algo. |
+| 🟢 **Verde** | Escribir el **mínimo** de código para que el test pase | El código pasa el test (aunque sea feo o incompleto). El objetivo aquí no es perfección, sino que funcione. |
+| 🛠️ **Refactorizar** | Mejorar el código | Ahora que el test pasa, puedes limpiar, mejorar nombres, optimizar... sin miedo, porque tienes el test que verifica que sigue funcionando. |
 
 
 ## Ejemplo
@@ -250,19 +283,33 @@ function restar(a, b) {
 Una vez que el test pasa, es momento de refactorizar el código para hacerlo más limpio, legible y eficiente sin que cambie el comportamiento. Durante esta fase, no se deben cambiar las interfaces ni la funcionalidad del código, solo la estructura interna.
 
 
+
 ## Actividades
+
 
 ### Price
 
 Crear una función usando TDD y jest para formatear el precio como texto/string.
 Por ejemplo: 
 
-formatPrice(9.5) deberia dar $9.95
-formatPrice(9.999) deberia dar $10.00
-formatPrice(9.994) deberia dar $9.99
-formatPrice(9.995) deberia dar $9.99
-formatPrice(9.996) deberia dar $10.00
+- formatPrice(9.5) deberia dar $9.95
+- formatPrice(9.999) deberia dar $10.00
+- formatPrice(9.994) deberia dar $9.99
+- formatPrice(9.995) deberia dar $9.99
+- formatPrice(9.996) deberia dar $10.00
    
+Puedes usar algo asi en la funcion:
+```jsx
+return `$${price.toFixed(2)}`;
+```
+
+### Duracion
+
+Llevar a cabo la creación de una funcion convertirDuracion usando TDD. Por ejemplo, :
+- convertirDuracion(120, 'segundos', 'minutos') da 2.
+- convertirDuracion(120, 'segundos', 'segundos') da 120.
+- convertirDuracion(2, 'minutos', 'segundos') da 120.
+
 
 ### Shopping Cart
 Implementar un shopping cart con TDD. Tendrás que implementar las funciones basadas en las pruebas unitarias. Por ejemplo, addItemToCart:
@@ -298,7 +345,7 @@ describe('Shopping Cart', ()=> {
 ```
 
 ## Shopping Cart con una clase
-Ahora, vamos a implementar el Shopping Cart como una class.
+Ahora, vamos a implementar el Shopping Cart como una class según OOP.
 
 ```lua
 
@@ -332,11 +379,33 @@ Ahora, vamos a implementar el Shopping Cart como una class.
 
 ```
 
+Colocar los archivos en /models/ carpeta.
 
-TO DO WITH SHoopping cart
+Usar TDD y JEST para comprobar que funciona.
+Cuando hayas realizado las pruebas, ¿podrias incluirlo en un proyecto web con ReactJS?
+
+
 
 
 ## Respuestas
+
+
+```js
+  test('comparar string', () => {
+    expect(MiNombre()).toContain("Marias");
+  });
+
+  test('Cuenta Bancaria', () => {
+    expect(typeof getSaldo()).toBe('number');
+    expect(getSaldo()).toBeGreaterThan(0);
+    expect(tieneSuficienteSaldo(200, 199)).toBe(true);
+  });
+
+  function tieneSuficienteSaldo(saldo, minimo) {
+    return saldo > minimo;
+  }
+
+```
 
 
 ```js
@@ -365,6 +434,36 @@ function formatPrice(amount) {
         expect(() => formatPrice('abc')).toThrow('El valor debe ser un número');
       });
 
+// Duracion
+
+test('Convertir Duracion', () => {
+    expect(typeof convertirDuracion(120, 'segundos', 'minutos')).toBe('number');
+    expect(convertirDuracion(120, 'segundos', 'minutos')).toBe(2);
+    expect(typeof convertirDuracion(3, 'minutos', 'segundos')).toBe('number');
+  });
+
+
+  function convertirDuracion(duracion, de_unidad, a_unidad) {
+
+  switch (de_unidad) {
+    case 'minutos':
+      return 120;
+    case 'segundos':
+      if (a_unidad == 'minutos') {
+        return duracion / 60;
+      }
+      else if (a_unidad == 'segundos') {
+          return duracion;
+      }
+      else {
+        throw new Error('Invalid a_unidad');
+      }
+
+    default:
+      throw new Error('Invalid unit');
+  }
+  
+}
 
 
 // Shopping cart
@@ -382,4 +481,111 @@ function getCart() {
 function resetCart() {
   cart = [];
 }
+```
+
+
+### Shopping cart
+
+```js
+
+class Item {
+    constructor(id, nombre, precio, cantidad = 1) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
+
+    getTotalPrice() {
+        return this.precio * this.cantidad;
+    }
+}
+
+export default Item;
+
+
+
+
+
+import Item from './item.js';
+
+class ShoppingCart {
+    constructor (currency) {
+        this.currency = currency;
+        this.items = [];
+    }
+
+    addItem(item) {
+        this.items.push(item);
+    }
+
+    getItems() {
+        return this.items;
+    }
+
+    clearCart() {
+        this.items = [];
+    }
+
+    getItemCount() {
+        return this.items.length;
+    }
+
+    getTotal() {
+        return this.items.reduce((total, item) => total + item.getTotalPrice(), 0);
+    }
+
+    removeItem(id) {
+        this.items = this.items.filter(item => item.id !== id);
+    }
+
+
+}
+
+export default ShoppingCart;
+
+
+
+
+
+import ShoppingCart from "./models/shoppingcart.js";
+import Item from "./models/item.js";
+
+const cart = new ShoppingCart("USD");
+
+
+console.log(cart.currency);
+
+const compra1 = new Item(1, 'camiseta', 3.4, 1);
+
+cart.addItem(compra1);
+
+
+```
+
+
+```jsx
+
+import React, { useState } from 'react';
+import ShoppingCart from '../models/ShoppingCart.js';
+
+const CartComponent = () => {
+    const [cart] = useState(new ShoppingCart('USD'));  // Initializing ShoppingCart
+
+    const handleAddItem = () => {
+        const newItem = { name: 'Apple', price: 1.50 };
+        cart.addItem(newItem);
+        alert(`Item added: ${newItem.name}`);
+    };
+
+    return (
+        <div>
+            <h1>Your Shopping Cart</h1>
+            <button onClick={handleAddItem}>Add Item</button>
+            <div>Total: {cart.formatTotal()}</div>
+        </div>
+    );
+};
+
+export default CartComponent;
 ```
