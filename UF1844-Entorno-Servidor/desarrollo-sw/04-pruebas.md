@@ -111,6 +111,17 @@ Modify package.js para incluir jest al ejecutar `npm test` y excluir `type:"modu
   },
 ```
 
+En Windows, habrá que modificar el package para que funcione la opcion de **coverage**. Incluir la parte de collectCoverage en jest.
+ 
+```json
+"devDependencies": {
+    "jest": "^29.7.0"
+  },
+"jest" :{
+    "collectCoverage": true
+  }
+```
+
 Crear un archivo *.test.js, como en el ejemplo aqui:
 
 ```bash
@@ -566,26 +577,59 @@ cart.addItem(compra1);
 
 ```jsx
 
-import React, { useState } from 'react';
-import ShoppingCart from '../models/ShoppingCart.js';
+import React, {useState} from 'react';
+import ShoppingCart from '../models/shoppingCart';  
+import Item from '../models/item'; 
 
-const CartComponent = () => {
-    const [cart] = useState(new ShoppingCart('USD'));  // Initializing ShoppingCart
+const ShoppingCartComponent = () => {
+    const [cart, setCart] = useState(new ShoppingCart('USD'));
+
 
     const handleAddItem = () => {
-        const newItem = { name: 'Apple', price: 1.50 };
-        cart.addItem(newItem);
-        alert(`Item added: ${newItem.name}`);
+      // usando json directamente
+        /*const newItem =  {
+            id: Date.now(),
+            nombre: 'Apple',
+            precio: 1.50,
+            cantidad: 1,
+        };*/
+
+      // usando Item class
+        const newItem =  new Item (
+            Date.now(),
+            'Apple',
+            1.50,
+            2,
+        );
+
+
+        const updatedCart = new ShoppingCart(cart.currency);
+        updatedCart.items = [...cart.getItems(), newItem];
+        setCart(updatedCart);
+
+        alert(`Item added: ${newItem.nombre}`);
     };
 
     return (
         <div>
             <h1>Your Shopping Cart</h1>
             <button onClick={handleAddItem}>Add Item</button>
-            <div>Total: {cart.formatTotal()}</div>
+
+            <h2>Items:</h2>
+            <ul>
+                {cart.getItems().map(item => (
+                    <li key={item.id}>
+                        {item.nombre} - ${item.precio} x {item.cantidad}
+                       
+                    </li>
+                ))}
+            </ul>
+
+            <h2>{cart.getTotal()}</h2>
         </div>
     );
 };
 
-export default CartComponent;
+export default ShoppingCartComponent;
+
 ```
