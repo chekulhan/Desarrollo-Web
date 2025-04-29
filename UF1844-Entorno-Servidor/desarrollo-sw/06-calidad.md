@@ -13,6 +13,84 @@ https://iso25000.com/index.php/normas-iso-25000/iso-25010
 | Seguridad                | ¿Protege las rutas? ¿Hay validación de datos?                                         |
 | Compatibilidad           | ¿La API responde bien a distintos clientes (fetch, axios, postman)?                   |
 
+# Idiomas
+
+NO USAR:
+npm uninstall typescript react-scripts fork-ts-checker-webpack-plugin
+npm cache clean --force
+
+
+Instalar:
+```bash
+npm install i18next react-i18next
+```
+
+Colocar el config archivo en /utils.
+```jsx
+// i18n.js (or similar file)
+import i18next from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import enTranslations from './locales/en.json';
+import esTranslations from './locales/es.json';
+
+i18next
+  .use(initReactI18next) // passes i18n down to react-i18next
+  .init({
+    resources: {
+      en: {
+        translation: enTranslations,
+      },
+      es: {
+        translation: esTranslations,
+      },
+    },
+    lng: 'en', // default language
+    fallbackLng: 'en', // fallback language in case of missing translations
+    interpolation: {
+      escapeValue: false, // react already safes from xss
+    },
+  });
+```
+
+En /utiles/locales/, tendrás archivos de diferentes idiomas, como en.json y es.json:
+```json
+{
+    "welcome_message": "Bienvenido a la Aplicación React"
+}
+```
+
+En index.js o App.js, incluir la referencia a i18n.js para poder usarlo en la aplicación:
+```jsx
+import './utils/i18n';  // Path is relative to the current file (index.js)
+```
+
+Finalmente, para usarlo en un componente:
+
+```jsx
+import { useTranslation } from 'react-i18next';
+
+function HomePage = () => {
+
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (lang) => {
+      i18n.changeLanguage(lang);
+    };
+
+    
+  return (
+    <div>
+      <h1>{t('welcome_message')}</h1>
+      
+      <button onClick={() => changeLanguage('en')}>English</button>
+      <button onClick={() => changeLanguage('es')}>Español</button>
+    </div>
+  );
+}
+export default HomePage;
+
+```
+
 
 **Seguridad**
 # Base 64 y Hash de contraseñas
