@@ -2,6 +2,31 @@
 # Seguridad con express.validator
 (requisitos: Deberias haber hecho la clase sobre calidad de software)
 
+El middleware en Express (y en otros frameworks de Node.js) es una función que se ejecuta durante el ciclo de vida de una solicitud HTTP, antes de que la solicitud llegue al manejador de rutas (o controlador). Su propósito principal es procesar la solicitud de alguna manera, ya sea modificando el objeto de la solicitud (req), el objeto de la respuesta (res), o realizando tareas antes de que la solicitud sea manejada por la ruta final.
+
+- Autenticación y autorización
+- Validación de datos
+- Logging (registro de eventos)
+- Manejo de errores
+
+**Repaso:**
+Se puede incluir middleware a través de la opcion next:
+```js
+router.use('/test1/', async(req, res, next) => {
+  console.log("middleware");
+  next();
+});
+
+router.get('/test1/', async (req, res) => {
+
+  const result = {message: "correct"};
+  res.json(result);
+
+});
+
+```
+
+
 ```bash
 npm install express-validator
 ```
