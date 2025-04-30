@@ -15,15 +15,23 @@ https://iso25000.com/index.php/normas-iso-25000/iso-25010
 
 # Idiomas
 
-NO USAR:
-npm uninstall typescript react-scripts fork-ts-checker-webpack-plugin
-npm cache clean --force
-
-
 Instalar:
 ```bash
 npm install i18next react-i18next
 ```
+
+Usar solo en el caso de conflictos de Typescript:
+
+```bash
+npm uninstall typescript react-scripts fork-ts-checker-webpack-plugin
+
+npm cache clean --force
+
+npm install i18next react-i18next
+
+npm install react-scripts
+```
+
 
 Colocar el config archivo en /utils.
 ```jsx
