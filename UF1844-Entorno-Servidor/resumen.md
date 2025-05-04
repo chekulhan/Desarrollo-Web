@@ -43,6 +43,39 @@ Este escenario sigue la estructura Given-When-Then:
 
 Convertir esta función en un RESTAPI endpoint, por ejemplo, /convertir y crear una página de REACTJS para ejecutarlo y mostrar el resultado.
 
+
+# Actividad: Generador de HTML
+
+Aprovecharemos el módulo prompt-sync para generar una página de HTML. El usuario, a través de la linea de comandos, contestará a 3 preguntas (título de la página, autor, contenido) y el programa generará un nuevo archivo index.html. Usar fs.writeFile(), que es asíncrono.
+
+Recibes este información de tu product owner. ¿Cómo se llama cada uno y para que se usen?
+
+1. Como desarrollador frontend,
+  quiero generar rápidamente un archivo HTML básico
+  para que pueda comenzar a prototipar un sitio web estático.
+
+2. Dado que el usuario introduce un título, un autor y un contenido para el cuerpo,
+  Cuando confirma los datos,
+  Entonces el programa debe crear un archivo llamado index.html con esa información en una estructura HTML básica.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Raul">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi primer generador de HTML</title>
+</head>
+<body>
+    <h1>Mi primer generador de HTML</h1>
+    <p>Eso es el contenido que va a aparecer por primera vez</p>
+    <footer><small>Created by Raul</small></footer>
+</body>
+</html>
+```
+
+
 # Actividad: Validación de un Token de Verificación de Correo Electrónico en una Aplicación Web
 
 **Objetivo:**
@@ -222,6 +255,48 @@ else {
 }
 ```
 
+### Generador de HTML
+
+```js
+import prompt from 'prompt-sync';
+import fs from 'fs';
+
+console.log("=== Static Website Generator ===");
+
+
+const input= prompt();
+
+const title = input("Enter the page title: ");
+const author = input("Enter the author name: ");
+const body = input("Enter the body content: ");
+
+const htmlContent = `
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="${author}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title}</title>
+</head>
+<body>
+    <h1>${title}</h1>
+    <p>${body}</p>
+    <footer><small>Created by ${author}</small></footer>
+</body>
+</html>
+`
+
+fs.writeFile("index.html", htmlContent, (err) => {
+    if (err) {
+        console.error("Error al generar un archivo.");
+    }
+    else {
+        console.log("index.html generado. Muchas gracias!")
+    }
+});
+```
 
 ### JWT Tokens
 ```jsx
