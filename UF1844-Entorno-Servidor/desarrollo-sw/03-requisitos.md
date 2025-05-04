@@ -91,3 +91,21 @@ Ejemplo de DoD:
 - Los tests automatizados han pasado exitosamente.
 - La documentación está actualizada.
 
+
+
+## BDD (Behavior Driven Development):
+- BDD pone énfasis en el comportamiento del sistema desde la perspectiva del usuario o del negocio.
+
+- Se enfoca en comunicar claramente el comportamiento esperado del sistema en un lenguaje común y accesible, utilizando escenarios y ejemplos que describen cómo el sistema debería comportarse en situaciones específicas.
+
+- El principal objetivo de BDD es asegurar que los desarrolladores, testers y stakeholders tengan una comprensión común del comportamiento esperado del software.
+
+- Utiliza un lenguaje más cercano al negocio, como el formato Given-When-Then (Dado-Cuando-Entonces).
+
+##TDD (Test Driven Development):
+
+- TDD se enfoca en escribir pruebas antes de escribir el código de producción. El objetivo es asegurar que el código esté cubierto por pruebas desde el principio.
+
+- En TDD, el proceso comienza con la creación de pruebas unitarias que especifican lo que el código debe hacer, luego se escribe el código de producción para hacer que esas pruebas pasen.
+
+- TDD está más centrado en el código y en cómo se comportan las unidades de código individuales (funciones, métodos, clases), mientras que BDD se centra en el comportamiento del sistema en su conjunto.

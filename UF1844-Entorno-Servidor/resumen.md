@@ -1,4 +1,48 @@
 
+# Actividad: bcrypt
+
+Queremos terminar este programa, preguntando al usuario por su contraseña, y mostrando un mensaje con la contraseña codificado usando bcrypt. Por ejemplo, "Hemos registrado el usuario jon. La contraseña es $2b$10$Xh21eJ6osoOMUnzcfpwLK.eKC1tPoa./L.Cz7mweH/EsHyozLcY9S"
+
+```js
+import prompt from 'prompt-sync';
+
+const input= prompt();
+
+const username = input("Introducir un nombre de usuario:");
+```
+
+Puedes extender este ejemplo para guardar los datos en un archivo de texto. Como no es un servidor web, se podria usar la version sincrona del módule fs, writeFileSync o appendFileSync.
+
+
+# Actividad: Criterios de Aceptación
+Los **criterios de aceptación** son condiciones específicas que deben cumplirse para que una funcionalidad o característica del sistema se considere completa y aceptable para el cliente o usuario final.
+
+Las Pruebas de Aceptación del Usuario (UAT) son una parte crucial del proceso de desarrollo de software. Estas pruebas se centran en verificar que la aplicación funcione correctamente desde la perspectiva del usuario final. El objetivo principal es asegurarse de que el software cumpla con los requisitos y expectativas del cliente antes de que se libere para su uso.
+
+En resumen, UAT verifica que el sistema haga lo que el usuario espera y cómo lo espera.
+
+Ambos están conectados, pero los criterios de aceptación son parte de la planificación, mientras que las pruebas de aceptación del usuario son la validación final.
+
+El estándar **Gherkin** utilizado en Behavior Driven Development (BDD), que es un enfoque común para escribir criterios de aceptación. El formato Dado, Cuando, Entonces es utilizado para describir los criterios de aceptación de una manera clara y estructurada.
+
+Crear un programa, usando prompt-sync y nodejs para cumplie los siguientes criterios de acceptación:
+
+```gherkin
+Dado que el usuario ingresa USD de "50",
+Cuando la tasa de conversión es "1 USD = 0.85 EUR",
+Entonces el programa debe mostrar "42.5 EUR."
+
+Cuando el usuario ingresa un valor no numérico,
+Entonces el programa debe mostrarles un mensaje de error.
+```
+
+Este escenario sigue la estructura Given-When-Then:
+- Given (Dado): Establece el contexto inicial, en este caso, el usuario ingresa "50 USD".
+- When (Cuando): Describe la acción o evento, que es la conversión de divisas con una tasa de "1 USD = 0.85 EUR".
+- Then (Entonces): Define el resultado esperado, que es que el sistema devuelva "42.5 EUR".
+
+Convertir esta función en un RESTAPI endpoint, por ejemplo, /convertir y crear una página de REACTJS para ejecutarlo y mostrar el resultado.
+
 # Actividad: Validación de un Token de Verificación de Correo Electrónico en una Aplicación Web
 
 **Objetivo:**
@@ -49,9 +93,135 @@ Token inválido o expirado: Si el token no es válido (por ejemplo, porque la fi
 
 ![Verificar Email](../x-assets/UF1844/emailverificar.png)
 
+
+# Actividad: custom Hooks
+
+Ya sabemos que lo hooks personalizados no son tan complicados para implementar, pero entednder si!
+
+Vas a modificar este ejemplo. Buscar los comentarios con un "TO DO" y actualizar el código para usar un hook que implementa la funcionalidad para verificar una contraseña.
+
+/hooks/usePasswordValidation.jsx
+```jsx
+import {useState} from 'react';
+
+const usePasswordValidation = (initialPassword = "") => {
+
+    const [password, setPassword] = useState(initialPassword);
+    const [error, setError] = useState("");
+
+    const handlePasswordChange = (e) => {
+
+        const existingPassword = e.target.value;
+        setPassword(existingPassword);
+
+        if (!validatePassword(existingPassword)) {
+            setError("La contraseña no es válida");
+        }
+        else {
+            setError("");
+        }
+    }
+
+    // TO DO Crear una funcion para validar la longitud de la contraseña
+    // const validatePassword = (newPassword) => { ....
+    
+    
+    return {
+      password, 
+      handlePasswordChange, 
+      error
+    }
+
+}
+
+export default usePasswordValidation;
+```
+
+Componente que usa el hook usePasswordValidation.
+/components/PasswordForm.jsx:
+
+```jsx
+import React from 'react';
+import usePasswordValidation from '../hooks/usePasswordValidation';
+
+const PasswordForm = () => {
+
+  // TO DO definir los constante para usar el password, error y handlePasswordChange del hook usePasswordValidation
+  
+
+  return (
+    <form>
+      <div>
+        <label>Password</label>
+        <input 
+          type="password" 
+          value={password} 
+          onChange={handlePasswordChange} 
+        />
+        {error && <p>{error}</p>} {/* Display error if exists */}
+      </div>
+      <button type="submit" disabled={!!error}>Submit</button>
+    </form>
+  );
+};
+
+export default PasswordForm;
+
+```
+
 ---
 
 ## Respuestas
+
+### bcrypt
+```js
+import bcrypt from 'bcrypt';
+import prompt from 'prompt-sync';
+
+const input= prompt();
+
+const username = input("Introducir un nombre de usuario:");
+const password = input("Introducir una contraseña:");
+
+
+const saltRounds = 10;
+
+const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+console.log(`Hemos registrado el usuario ${username}. La contraseña es ${hashedPassword}`);
+```
+
+Guardando a un archivo
+
+```js
+import fs from 'fs';
+
+const s = `Hemos registrado en usuario ${username}. La contraseña es ${hashedPassword}`;
+
+//fs.writeFileSync("user.txt", s);
+fs.appendFileSync("users.txt", s + '\n');
+```
+
+### Criterios de Aceptación
+```js
+import prompt from 'prompt-sync';
+
+const input= prompt();
+
+const TASA = 0.85;
+
+const valor = parseFloat(input("Introducir un valor numérico de dólares americanos (USD):"));
+
+if (isNaN(valor)) {
+    console.log("No es un valor numerico");
+}
+else {
+    let resultado = valor * TASA;
+
+    console.log(`El resultado es ${resultado} EUR`);
+}
+```
+
 
 ### JWT Tokens
 ```jsx
@@ -140,4 +310,72 @@ router.get('/verify', (req, res) => {
     });
   }
 });
+```
+
+
+### Hooks
+
+```jsx
+import {useState} from 'react';
+
+
+const usePasswordValidation = (initialPassword = "") => {
+
+    const [password, setPassword] = useState(initialPassword);
+    const [error, setError] = useState("");
+
+    const handlePasswordChange = (e) => {
+        const existingPassword = e.target.value;
+        setPassword(existingPassword);
+
+        if (!validatePassword(existingPassword)) {
+            setError("Validating password with error");
+        }
+        else {
+            setError("");
+        }
+    }
+
+    const validatePassword = (newPassword) => {
+        if (newPassword.length > 5) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+
+    return {password, handlePasswordChange, error}
+}
+
+export default usePasswordValidation;
+```
+
+Componente que usa el hook:
+```jsx
+import React from 'react';
+import usePasswordValidation from '../hooks/usePasswordValidation';
+
+const PasswordForm = () => {
+  const { password, error, handlePasswordChange } = usePasswordValidation('');
+
+  return (
+    <form>
+      <div>
+        <label>Password</label>
+        <input 
+          type="password" 
+          value={password} 
+          onChange={handlePasswordChange} 
+        />
+        {error && <p>{error}</p>} {/* Display error if exists */}
+      </div>
+      <button type="submit" disabled={!!error}>Submit</button>
+    </form>
+  );
+};
+
+export default PasswordForm;
+
 ```
