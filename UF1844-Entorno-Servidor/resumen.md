@@ -1,4 +1,121 @@
 
+# Actividad: ¡Conviértete en Product Owner por un día!
+Vas a usar tu imaginación y ponerte en lugar de un product owner.
+
+Imaginación en marcha: Vas a usar tu imaginación y ponerte en el lugar de un Product Owner, la persona encargada de definir qué necesita el producto para mejorar la experiencia del usuario.
+
+Analiza el producto actual: Observa el sitio web actual (por ejemplo, tu app de gatos rebotando). Piensa:
+
+- ¿Qué hace bien esta app?
+
+- ¿Qué podría hacer para ser más divertida, útil o viral?
+
+**Propón una funcionalidad nueva y implementarla:**
+Escribe una idea clara para una funcionalidad nueva. Explica:
+
+- ¿Qué hace?
+
+- ¿Quién la usaría?
+
+- ¿Cómo mejora la experiencia?
+
+Hay 2 partes a continuación, la página y el CSS:
+
+/pages/CatBouncePage.jsx
+
+```jsx
+import React, { useState } from "react";
+import "./CatBounce.css";
+
+const catUrl = "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif";
+
+export default function CatBouncePage() {
+  const [cats, setCats] = useState(generateCats(5));
+
+  function generateCats(count) {
+    return Array.from({ length: count }, (_, i) => ({
+      id: i,
+      left: Math.random() * 90 + "%",
+      duration: Math.random() * 2 + 1.5 + "s"
+    }));
+  }
+
+  function addCat() {
+    setCats((prev) => [
+      ...prev,
+      {
+        id: prev.length,
+        left: Math.random() * 90 + "%",
+        duration: Math.random() * 2 + 1.5 + "s"
+      }
+    ]);
+  }
+
+  return (
+    <div className="container">
+      {cats.map((cat) => (
+        <img
+          key={cat.id}
+          src={catUrl}
+          alt="bouncing cat"
+          className="cat"
+          style={{ left: cat.left, animationDuration: cat.duration }}
+        />
+      ))}
+      <button onClick={addCat} className="add-button">Add Cat</button>
+    </div>
+  );
+}
+
+```
+
+/pages/CatBounce.css
+
+```css
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #cce4f7;
+  }
+  
+  .cat {
+    position: absolute;
+    width: 80px;
+    animation-name: bounce;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 200px;
+    }
+  }
+  
+  .add-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e75480;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .add-button:hover {
+    background-color: #d03d6b;
+  }
+```
+
 # Actividad: bcrypt
 
 Queremos terminar este programa, preguntando al usuario por su contraseña, y mostrando un mensaje con la contraseña codificado usando bcrypt. Por ejemplo, "Hemos registrado el usuario jon. La contraseña es $2b$10$Xh21eJ6osoOMUnzcfpwLK.eKC1tPoa./L.Cz7mweH/EsHyozLcY9S"

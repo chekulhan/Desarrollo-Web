@@ -1,6 +1,8 @@
 # MVC
 El patrón de diseño MVC (Modelo-Vista-Controlador) es una forma de organizar aplicaciones de manera estructurada, separando las responsabilidades en tres componentes principales:
 
+https://www.youtube.com/watch?v=ev3Yxva4wI4&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&index=4  (minuto 36)
+
 **1. Modelo (Model)**
 El modelo es la capa encargada de gestionar la lógica de los datos de la aplicación. Aquí se manejan las operaciones que interactúan con la base de datos, como crear, leer, actualizar y eliminar (CRUD).
 
@@ -39,7 +41,7 @@ Enviar la información al cliente a través de la vista.
 Ejemplo: Si un usuario quiere ver una lista de usuarios, el controlador recibe esa solicitud, obtiene los usuarios del modelo y luego pasa esos datos a la vista para ser mostrados.
 
 ```
-📦 mi-proyecto/
+📦 mi-proyecto(mvc)/
 ├── 📁 controllers/
 │   └── userController.js        # Lógica de negocio (recibe req/res y usa el modelo)
 ├── 📁 models/
@@ -74,6 +76,10 @@ Crear el controlador: Crear funciones que manejen las solicitudes del usuario, l
 Configurar las rutas: Definir las rutas que el servidor escuchará, y asignarlas a las funciones del controlador correspondientes.
 
 Configurar la vista (si aplica): Si tu aplicación es web, utilizar plantillas para renderizar HTML, o enviar respuestas JSON si es una API.
+
+Pasos:
+
+Copiamos el **db.js** que ya tenemos en el proyecto. Colocarlo en la raiz. Sugerencia: LLamar la base de datos 'mvc'.
 
 Modelo - /models/userModel.js
 
@@ -177,6 +183,33 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 ```
+
+
+No olvides de modificar el package, y hacer npm install para:
+- npm install express
+- npm install --save-dev nodemon
+- npm install pouchdb pouchdb-find
+- npm install cors
+
+```json
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+```
+
+Y finalmente, crear una carpeta /data, donde se colocará la base de datos.
+
+
+Ejecutar el proyecto con un npm run dev, http://localhost:5000/api/v1/users/ y puedes ejecutar un post para añadir un nuevo usuario:
+
+```bash
+curl -X POST http://localhost:5000/api/v1/users  -H "Content-Type: applic
+ation/json"  -d "{\"username\":\"Maria\", \"password\":\"password\"}"
+```
+
+
 
 
 ## Actividad
