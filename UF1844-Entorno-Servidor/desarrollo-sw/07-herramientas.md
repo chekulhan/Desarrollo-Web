@@ -17,4 +17,70 @@ npm install     // Finalmente, instala las nuevas versiones
 
 # Docker
 
+https://www.youtube.com/watch?v=AquOM-ISsnA&list=PLQhxXeq1oc2n7YnjRhq7qVMzZWtDY7Zz0&index=1
 
+
+```bash
+docker pull node:alpine
+
+docker images
+docker inspect node:alpine
+
+docker run -it node:alpine sh
+
+docker ps
+docker ps -a
+
+docker stop <container_id_or_name>
+docker rm <container_id_or_name>
+
+```
+
+Ejecutar un contenedor de nuevo:
+```bash
+docker run -it --name nodejs node:alpine sh     // crear el contenedor con un nombre
+
+docker ps
+docker start <container_id_or_name>
+docker exec -it <container_id_or_name> sh
+
+```
+
+
+
+# Configurar una aplicacion web con express en el contenedor
+
+
+docker run -it -p 3000:3000 --name nodejs node:alpine sh
+docker cp app.js nodejs:/home/node/app/app.js
+
+docker start nodejs
+docker exec -it nodejs sh
+
+
+mkdir home/node/app - go to node dir and add a app folder
+npm init -y
+npm install express
+
+/home/node/app # node app.js
+
+Ahora acceder a  http://localhost:3000/ desde tu ordenador.
+
+
+```js
+// Import the express module
+const express = require('express');
+
+// Create an Express application
+const app = express();
+
+// Define a route for the homepage
+app.get('/', (req, res) => {
+  res.send('Hello, World!'); // Send the "Hello, World!" message as a response
+});
+
+// Set the app to listen on port 3000
+app.listen(3000, () => {
+  console.log('Server is running on http://localhost:3000');
+});
+```

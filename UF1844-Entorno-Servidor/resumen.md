@@ -2,6 +2,9 @@
 # Actividad: ¡Conviértete en Product Owner por un día!
 Vas a usar tu imaginación y ponerte en lugar de un product owner.
 
+Revisar algunas actividades del product owner: https://www.europeanscrum.org/uploads/2/4/5/1/24513648/gui%CC%81a_oficial_product_owner_2024.v1.0_-_europeanscrum.org.pdf
+
+
 Imaginación en marcha: Vas a usar tu imaginación y ponerte en el lugar de un Product Owner, la persona encargada de definir qué necesita el producto para mejorar la experiencia del usuario.
 
 Analiza el producto actual: Observa el sitio web actual (por ejemplo, tu app de gatos rebotando). Piensa:
