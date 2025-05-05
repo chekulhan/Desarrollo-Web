@@ -255,3 +255,67 @@ Ejemplo de un documento en la base de datos
 ```
 
 
+
+
+
+## Otras opciones - OOP
+POO version:
+
+```js
+import db from '../db.js';
+
+class UserModel {
+  static DOC_TYPE = 'user';
+
+  static async create(userData) {
+    const user = {
+      type: this.DOC_TYPE,
+      ...userData,
+    };
+    const response = await db.post(user);
+    return { _id: response.id, _rev: response.rev, ...user };
+  }
+
+  static async getAll() {
+    const result = await db.allDocs({ include_docs: true });
+    return result.rows
+      .map(row => row.doc)
+      .filter(doc => doc.type === this.DOC_TYPE);
+  }
+
+  static async update(_id, updatedData) {
+    const existing = await db.get(_id);
+    const updatedUser = {
+      ...existing,
+      ...updatedData,
+      _rev: existing._rev,
+    };
+    const response = await db.put(updatedUser);
+    return { _id: response.id, _rev: response.rev, ...updatedUser };
+  }
+
+  static async delete(_id) {
+    const doc = await db.get(_id);
+    return await db.remove(doc);
+  }
+}
+
+export default UserModel;
+
+```
+
+y el userControl:
+
+```js
+import UserModel from '../models/userModel.js';
+
+const createUserController = async (req, res) => {
+  try {
+    const user = await UserModel.create(req.body);
+    res.status(201).json(user);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to create user' });
+  }
+};
+
+```
