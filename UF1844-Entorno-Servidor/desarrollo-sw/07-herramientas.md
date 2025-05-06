@@ -84,3 +84,61 @@ app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
 });
 ```
+
+
+
+
+
+
+# Build una aplicacion de express
+
+Crear una aplicacion básica de express llamado *my-express-app* disponible el puerto 3001.
+
+Confirmar antes que todo funciona ejecutando un *npm start*.
+```json
+{
+  "name": "my-express-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"  
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
+
+```
+
+index.js
+```js
+// Import the Express library
+import express from "express";
+
+// Create an Express app
+const app = express();
+
+// Define a route for the root path
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+
+// Start the server on port 3001
+app.listen(3001, () => {
+  console.log('Server is running on http://localhost:3001');
+});
+
+```
+
+Colocar .dockerignore y Dockerfile en el mismo directorio.
+
+```bash
+docker build -t my-express-app .
+
+docker run -d -p 3001:3001 --name my-express-app my-express-app
+```
