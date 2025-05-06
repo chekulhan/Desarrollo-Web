@@ -16,6 +16,90 @@ npm install     // Finalmente, instala las nuevas versiones
 
 
 # Docker
+## BusyBox
+
+https://hub.docker.com/_/busybox
+
+```bash
+docker run -it busybox sh
+
+docker exec -it <name o id> sh
+```
+
+```bash
+# Check current directory
+pwd
+
+# List files (like `ls`)
+ls
+
+# Create a file
+echo "Hello from BusyBox" > hello.txt
+
+# View file contents
+cat hello.txt
+
+# Create a new directory
+mkdir mydir
+
+# Move file into directory
+mv hello.txt mydir/
+
+# Delete file
+rm mydir/hello.txt
+
+# Delete directory
+rmdir mydir
+
+# Sleep (wait for 5 seconds)
+sleep 5
+```
+
+
+🔧 File and Directory Management
+
+ls         # List files
+cd         # Change directory
+cp         # Copy files
+mv         # Move or rename files
+rm         # Remove files
+mkdir      # Make directory
+rmdir      # Remove empty directory
+pwd        # Print current directory
+touch      # Create an empty file
+
+📦 Text Viewing and Editing
+
+cat        # View file contents
+more       # View file contents page-by-page
+head       # Show first lines of a file
+tail       # Show last lines of a file
+echo       # Print text
+vi         # Minimal text editor (if compiled in)
+
+vi: After pressing Esc, enter one of the following commands (all start with :):
+
+Command	Description
+:w	Save (write) the file
+:q	Quit
+:wq or ZZ	Save and quit
+:q!	Quit without saving (force)
+
+Open file: vi myfile.txt
+Press i to start editing
+Type your text
+Press Esc
+Type :wq then press Enter to save and quit
+
+
+
+📂 File Info and Searching
+
+find       # Search for files
+grep       # Search text in files
+stat       # Show file status/info
+
+
 ## Nodejs
 
 https://www.youtube.com/watch?v=AquOM-ISsnA&list=PLQhxXeq1oc2n7YnjRhq7qVMzZWtDY7Zz0&index=1
