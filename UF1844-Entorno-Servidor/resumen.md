@@ -195,6 +195,65 @@ Recibes este información de tu product owner. ¿Cómo se llama cada uno y para 
 </html>
 ```
 
+# Actividad: JEST y JSDOC
+
+Estas trababajando en un proyecto de node.js, y tienes el siguiente código en un archivo llamado userService.js:
+
+```js
+
+import fetch from 'node-fetch';
+
+const fetchUserData = async (userId) => {
+  try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+    if (!response.ok) {
+      throw new Error('Unable to fetch user data');
+    }
+    return response.json();
+  } catch (error) {
+    throw new Error('Unable to fetch user data');
+  }
+};
+
+export const getUserName = async (userId) => {
+  const userData = await fetchUserData(userId);
+  return `${userData.username}`;
+};
+
+```
+
+Llevar a cabo lo siguiente:
+- Aplicar comentarios necesarios sugún JSDOCs
+- Crear un archivo para ejecutar la funcion
+- Añadir dos funciones: getUserEmail y getUserAddress (mostrará toda la direccion completa)
+
+- Necesitas crear un informe con los siguiente datos que puedes sacar desde jsonplaceholder.
+User 1:
+User Name: Bret
+Email: Sincere@april.biz
+---
+User 2:
+User Name: Antonette
+Email: Shanna@melissa.tv
+---
+User 3:
+User Name: Samantha
+Email: Nathan@yesenia.net
+---
+User 4:
+User Name: Karianne
+Email: Julianne.OConner@kory.org
+---
+User 5:
+User Name: Kamren
+Email: Lucio_Hettinger@annie.ca
+
+
+- Llevar a cabo las pruebas unitarias usando jest para getUserName y getUserEmail. Recordar que jest funciona con CommonJS Modules, asi que podemos ejecutarlo con este comando experimental
+
+```bash
+node --experimental-vm-modules node_modules/.bin/jest
+```
 
 # Actividad: Validación de un Token de Verificación de Correo Electrónico en una Aplicación Web
 
@@ -416,6 +475,100 @@ fs.writeFile("index.html", htmlContent, (err) => {
         console.log("index.html generado. Muchas gracias!")
     }
 });
+```
+
+### Jest y JSDocs
+
+```js
+// npm install node-fetch
+
+// userService.js
+import fetch from 'node-fetch';
+
+// Simulate fetching user data from an external API
+const fetchUserData = async (userId) => {
+  try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+    if (!response.ok) {
+      throw new Error('Unable to fetch user data');
+    }
+    return response.json();
+  } catch (error) {
+    throw new Error('Unable to fetch user data');
+  }
+};
+
+// Process the user data and return full name
+export const getUserName = async (userId) => {
+  const userData = await fetchUserData(userId);
+  return `${userData.username}`;
+};
+
+export const getUserEmail = async (userId) => {
+  const userData = await fetchUserData(userId);
+  return userData.email; // Returns the user's email
+};
+
+export const getUserAddress = async (userId) => {
+  const userData = await fetchUserData(userId);
+  const { address } = userData;
+  return `${address.street}, ${address.suite}, ${address.city}, ${address.zipcode}`; // Returns the full address
+};
+
+
+
+import { getUserName } from './userService.js';
+
+const userId = 1; 
+
+getUserName(userId)
+  .then((username) => {
+    console.log(`User's username is: ${username}`);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+
+const userIds = [1, 2, 3, 4, 5]; 
+
+const fetchAndListUsers = async () => {
+  for (const userId of userIds) {
+    try {
+      const name = await getUserName(userId);
+      const email = await getUserEmail(userId);
+
+      console.log(`User ${userId}:`);
+      console.log(`User Name: ${name}`);
+      console.log(`Email: ${email}`);
+      console.log('---');
+    } catch (error) {
+      console.error(`Error retrieving info for user ${userId}:`, error);
+    }
+  }
+};
+
+fetchAndListUsers();
+
+
+
+// Crear un archivo userService.test.js y ejecutarlo con > node --experimental-vm-modules node_modules/.bin/jest 
+import { getUserName, getUserEmail } from './userService.js';
+
+describe('userService functions', () => {
+    
+    test('returns username from getUserName', async () => {
+      const username = await getUserName(1);
+      expect(username).toBe('Bret');
+    });
+  
+    test('returns email from getUserEmail', async () => {
+      const email = await getUserEmail(1);
+      expect(email).toBe('Sincere@april.biz');
+    });
+  
+    
+  });
 ```
 
 ### JWT Tokens

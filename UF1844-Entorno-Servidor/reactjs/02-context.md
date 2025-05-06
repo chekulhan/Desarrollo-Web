@@ -56,7 +56,7 @@ const ParentComponent = ({message}) => {
   );
 }
 
-function HomePage() {
+function PropDrillingHomePage() {
 
     const message = "Hello everyone!";
     
@@ -67,7 +67,7 @@ function HomePage() {
         </div>
     );
 }
-export default HomePage;
+export default PropDrillingHomePage;
 
 
 ```
