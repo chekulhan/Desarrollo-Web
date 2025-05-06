@@ -16,9 +16,11 @@ npm install     // Finalmente, instala las nuevas versiones
 
 
 # Docker
+## Nodejs
 
 https://www.youtube.com/watch?v=AquOM-ISsnA&list=PLQhxXeq1oc2n7YnjRhq7qVMzZWtDY7Zz0&index=1
 
+https://docs.docker.com/get-started/docker_cheatsheet.pdf
 
 ```bash
 docker pull node:alpine
@@ -50,7 +52,7 @@ docker exec -it <container_id_or_name> sh
 
 # Configurar una aplicacion web con express en el contenedor
 
-
+```bash
 docker run -it -p 3000:3000 --name nodejs node:alpine sh
 docker cp app.js nodejs:/home/node/app/app.js
 
@@ -61,6 +63,8 @@ docker exec -it nodejs sh
 mkdir home/node/app - go to node dir and add a app folder
 npm init -y
 npm install express
+
+```
 
 /home/node/app # node app.js
 
@@ -142,3 +146,20 @@ docker build -t my-express-app .
 
 docker run -d -p 3001:3001 --name my-express-app my-express-app
 ```
+
+
+
+## Python
+
+```bash
+docker pull python:3.11-slim
+
+docker run -it python /bin/bash
+
+docker start <container_name>
+docker exec -it  <container_id_or_name> /bin/bash
+```
+
+Vamos a configurar un entorno de desarrollo con la extension "Dev Containers":
+
+![Dev Container](../../x-assets/UF1844/devcontainer.png)
