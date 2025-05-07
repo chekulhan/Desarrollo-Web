@@ -195,6 +195,65 @@ Recibes este información de tu product owner. ¿Cómo se llama cada uno y para 
 </html>
 ```
 
+
+
+### Event Loop
+
+https://dev.to/nodedoctors/an-animated-guide-to-nodejs-event-loop-3g62
+
+### TDD
+
+https://www.youtube.com/watch?v=1gttkO9JKtU
+
+
+### PouchDB
+
+Completar este programa en Node.JS. Fijáte que la opcion 3 todavia no existe en el programa.
+
+```js
+
+import PouchDB from 'pouchdb';
+import prompt from 'prompt-sync';
+
+const input = prompt();
+const db = new PouchDB('tareas');
+
+const main = async () => {
+  
+  console.log('--- Gestor de tareas ---');
+  console.log('1. Agregar una tarea');
+  console.log('2. Listar tareas');
+  console.log('3. Completar tarea'); // completar esta opción
+
+  const choice = input('Elegir una opcion: ');
+
+  if (choice === '1') {
+    const description = input('Enter task description: '); 
+    
+    // guardar la tarea, su estado (completed) y un ID facil de usar en la base de datos
+    
+    console.log('✅ Task saved.');
+    
+  } else if (choice === '2') {
+    try {
+      
+        // mostrando todas las tareas
+        console.log(`${index + 1}. ${task.description} [${task.completed ? '✓' : '✗'}]`);
+       
+    } catch (err) {
+      console.error('❌ Error retrieving tasks:', err);
+    }
+  } else {
+    console.log('❓ Invalid choice.');
+  }
+};
+
+
+main();
+
+```
+
+
 # Actividad: JEST y JSDOC
 
 Estas trababajando en un proyecto de node.js, y tienes el siguiente código en un archivo llamado userService.js:
@@ -475,6 +534,70 @@ fs.writeFile("index.html", htmlContent, (err) => {
         console.log("index.html generado. Muchas gracias!")
     }
 });
+```
+
+### Event Loop
+
+https://dev.to/nodedoctors/an-animated-guide-to-nodejs-event-loop-3g62
+
+### TDD
+
+https://www.youtube.com/watch?v=1gttkO9JKtU
+
+
+### PouchDB
+
+```js
+
+import PouchDB from 'pouchdb';
+import prompt from 'prompt-sync';
+
+const input = prompt();
+const db = new PouchDB('tasks');
+
+const main = async () => {
+  console.log('--- Task Manager ---');
+  console.log('1. Add a task');
+  console.log('2. List tasks');
+  const choice = input('Choose an option: ');
+
+  if (choice === '1') {
+    const description = input('Enter task description: ');
+    const task = {
+      _id: new Date().toISOString(),
+      description,
+      completed: false
+    };
+
+    try {
+      await db.put(task);
+      console.log('✅ Task saved.');
+    } catch (err) {
+      console.error('❌ Error saving task:', err);
+    }
+  } else if (choice === '2') {
+    try {
+      const result = await db.allDocs({ include_docs: true });
+      const tasks = result.rows.map(row => row.doc);
+
+      if (tasks.length === 0) {
+        console.log('📭 No tasks found.');
+      } else {
+        console.log('\n📋 Task List:');
+        tasks.forEach((task, index) => {
+          console.log(`${index + 1}. ${task.description} [${task.completed ? '✓' : '✗'}]`);
+        });
+      }
+    } catch (err) {
+      console.error('❌ Error retrieving tasks:', err);
+    }
+  } else {
+    console.log('❓ Invalid choice.');
+  }
+};
+
+main();
+
 ```
 
 ### Jest y JSDocs
