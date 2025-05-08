@@ -219,7 +219,7 @@ const input = prompt();
 const db = new PouchDB('tareas');
 
 const main = async () => {
-  
+
   console.log('--- Gestor de tareas ---');
   console.log('1. Agregar una tarea');
   console.log('2. Listar tareas');
@@ -287,22 +287,23 @@ Llevar a cabo lo siguiente:
 - Añadir dos funciones: getUserEmail y getUserAddress (mostrará toda la direccion completa)
 
 - Necesitas crear un informe con los siguiente datos que puedes sacar desde jsonplaceholder.
+
 User 1:
 User Name: Bret
 Email: Sincere@april.biz
----
+
 User 2:
 User Name: Antonette
 Email: Shanna@melissa.tv
----
+
 User 3:
 User Name: Samantha
 Email: Nathan@yesenia.net
----
+
 User 4:
 User Name: Karianne
 Email: Julianne.OConner@kory.org
----
+
 User 5:
 User Name: Kamren
 Email: Lucio_Hettinger@annie.ca
@@ -367,7 +368,7 @@ Token inválido o expirado: Si el token no es válido (por ejemplo, porque la fi
 
 # Actividad: custom Hooks
 
-Ya sabemos que lo hooks personalizados no son tan complicados para implementar, pero entednder si!
+Ya sabemos que lo hooks personalizados no son tan complicados para implementar, pero entenderlo si!
 
 Vas a modificar este ejemplo. Buscar los comentarios con un "TO DO" y actualizar el código para usar un hook que implementa la funcionalidad para verificar una contraseña.
 
