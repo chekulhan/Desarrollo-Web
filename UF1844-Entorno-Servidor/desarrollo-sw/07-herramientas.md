@@ -276,6 +276,52 @@ docker run -d -p 3001:3001 --name my-express-app my-express-app
 
 ## Python
 
+
+### Construir un app de Flask con Python 
+
+Crear un entorno virtual
+```bash
+python -m venv .venv
+```
+
+
+```bash
+source .venv/bin/activate  # On macOS/Linux
+# OR
+.venv\Scripts\activate     # On Windows
+```
+
+Instalar flask
+```bash
+pip install flask
+pip install flask-cors
+```
+
+Crear un requirements.txt (equivalente a package.json)
+
+--- 
+
+```bash
+docker build -t flask-app:latest .
+```
+
+```bash
+docker run -p 8000:8000 --name flask flask-app:latest
+```
+
+### Actividad Flask
+
+```python
+# List of emojis you might want to return
+emojis = ["😀", "😎", "😂", "😍", "🥺", "😜", "😇", "🥳", "😈", "😱", "🙃", "🤔", "😏", "🤩"]
+
+@app.route('/random-emoji', methods=['GET'])
+def random_emoji():
+  # continuar ...
+```
+
+## Dev Containner
+
 ```bash
 docker pull python:3.11-slim
 
