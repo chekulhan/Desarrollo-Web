@@ -3,8 +3,9 @@ import {
   createTable,
   addUser,
   listUsers,
-  updateUser,
-  deleteUser,
+  
+  // ¿que funciones faltarán?
+
 } from './models/userModel.js';
 
 const prompt = promptSync();
@@ -15,10 +16,10 @@ async function main() {
 
   while (running) {
     console.log(`\n--- USER MANAGER ---
-1. List users
-2. Add user
-3. Update user
-4. Delete user
+1. Listar users
+2. Agregar user
+3. Actualizar user
+4. Borrrar user
 5. Exit`);
 
     const choice = prompt('Choose an option: ').trim();
@@ -43,16 +44,14 @@ async function main() {
         case '3': {
           const updateId = prompt('Enter user ID to update: ');
           const newName = prompt('Enter new name: ');
-          const changes = await updateUser(updateId, newName);
-          console.log(`Updated ${changes} record(s).`);
-          break;
+          
+          // terminar esta funcionalidad ...
         }
 
         case '4': {
           const deleteId = prompt('Enter user ID to delete: ');
-          const changes = await deleteUser(deleteId);
-          console.log(`Deleted ${changes} record(s).`);
-          break;
+          
+          // terminar esta functionalidad ...
         }
 
         case '5':
