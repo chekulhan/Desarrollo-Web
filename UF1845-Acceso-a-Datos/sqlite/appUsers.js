@@ -5,67 +5,69 @@ import {
   listUsers,
   updateUser,
   deleteUser,
-} from './userModel.js';
+} from './models/userModel.js';
 
 const prompt = promptSync();
 createTable();
 
-function menu() {
-  console.log(`\n--- USER MANAGER ---
+async function main() {
+  let running = true;
+
+  while (running) {
+    console.log(`\n--- USER MANAGER ---
 1. List users
 2. Add user
 3. Update user
 4. Delete user
 5. Exit`);
-}
 
-let running = true;
+    const choice = prompt('Choose an option: ').trim();
 
-while (running) {
-  menu();
-  const choice = prompt('Choose an option: ').trim();
+    try {
+      switch (choice) {
+        case '1': {
+          const users = await listUsers();
+          if (users.length === 0) console.log('No users found.');
+          else users.forEach(u => console.log(`${u.id}: ${u.name} <${u.email}>`));
+          break;
+        }
 
-  switch (choice) {
-    case '1':
-      listUsers((err, users) => {
-        if (err) console.error(err.message);
-        else if (users.length === 0) console.log('No users found.');
-        else users.forEach(u => console.log(`${u.id}: ${u.name} <${u.email}>`));
-      });
-      break;
+        case '2': {
+          const name = prompt('Enter name: ');
+          const email = prompt('Enter email: ');
+          const id = await addUser(name, email);
+          console.log(`User added with ID: ${id}`);
+          break;
+        }
 
-    case '2':
-      const name = prompt('Enter name: ');
-      const email = prompt('Enter email: ');
-      addUser(name, email, (err, id) => {
-        if (err) console.error(err.message);
-        else console.log(`User added with ID: ${id}`);
-      });
-      break;
+        case '3': {
+          const updateId = prompt('Enter user ID to update: ');
+          const newName = prompt('Enter new name: ');
+          const changes = await updateUser(updateId, newName);
+          console.log(`Updated ${changes} record(s).`);
+          break;
+        }
 
-    case '3':
-      const updateId = prompt('Enter user ID to update: ');
-      const newName = prompt('Enter new name: ');
-      updateUser(updateId, newName, (err, changes) => {
-        if (err) console.error(err.message);
-        else console.log(`Updated ${changes} record(s).`);
-      });
-      break;
+        case '4': {
+          const deleteId = prompt('Enter user ID to delete: ');
+          const changes = await deleteUser(deleteId);
+          console.log(`Deleted ${changes} record(s).`);
+          break;
+        }
 
-    case '4':
-      const deleteId = prompt('Enter user ID to delete: ');
-      deleteUser(deleteId, (err, changes) => {
-        if (err) console.error(err.message);
-        else console.log(`Deleted ${changes} record(s).`);
-      });
-      break;
+        case '5':
+          running = false;
+          break;
 
-    case '5':
-      running = false;
-      break;
-
-    default:
-      console.log('Invalid choice.');
+        default:
+          console.log('Invalid choice.');
+      }
+    } catch (err) {
+      console.error('Error:', err.message);
+    }
   }
+
+  console.log('Exiting...');
 }
-console.log('Exiting...');
+
+main();

@@ -1,4 +1,4 @@
-import db from './db.js';
+import db from '../db.js';
 
 export function createTable() {
   db.run(`CREATE TABLE IF NOT EXISTS users (
@@ -8,26 +8,35 @@ export function createTable() {
   )`);
 }
 
-export function addUser(name, email, callback) {
-  db.run(`INSERT INTO users(name, email) VALUES(?, ?)`, [name, email], function (err) {
-    callback(err, this?.lastID);
+export function addUser(name, email) {
+  
+  return new Promise((resolve, reject) => {
+    db.run(`INSERT INTO users(name, email) VALUES(?, ?)`, [name, email], function (err) {
+      if (err) return reject(err);
+      resolve(this.lastID);
+    });
   });
 }
 
-export function listUsers(callback) {
-  db.all(`SELECT * FROM users`, [], (err, rows) => {
-    callback(err, rows);
+export function listUsers() {
+  return new Promise((resolve, reject) => {
+    db.all(`SELECT * FROM users`, [], (err, rows) => {
+      if (err) return reject(err);
+      resolve(rows);
+    });
   });
 }
 
-export function updateUser(id, name, callback) {
-  db.run(`UPDATE users SET name = ? WHERE id = ?`, [name, id], function (err) {
-    callback(err, this?.changes);
-  });
+export function updateUser(id, name) {
+    // completar
+      
+      resolve(this.changes);
+    
 }
 
-export function deleteUser(id, callback) {
-  db.run(`DELETE FROM users WHERE id = ?`, [id], function (err) {
-    callback(err, this?.changes);
-  });
+export function deleteUser(id) {
+  // completar
+
+      resolve(this.changes);
+    
 }
