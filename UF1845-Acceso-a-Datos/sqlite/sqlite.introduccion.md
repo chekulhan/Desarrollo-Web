@@ -10,7 +10,7 @@ SQLite Browser:
 - https://chromewebstore.google.com/detail/visualizador-de-base-de-d/iclckldkfemlnecocpphinnplnmijkol
 - https://workspace.google.com/marketplace/app/sqlite_viewer_with_google_drive/298830041920?hl=es
 
-Docker - to do
+Docker:
 https://hub.docker.com/r/keinos/sqlite3
 
 
@@ -35,18 +35,17 @@ CREATE TABLE miembros (
 
 Crear un sistema para sacar 2 informes usando comandos de SQL a partir de la tabla de miembros.
 
-Reporte de miembros activos e inactivos:
+Informe de miembros activos e inactivos:
 - Mostrar los miembros que están activos y los que están inactivos (según el campo activo).
 
-Reporte de miembros que no han asistido en un mes:
+Informe de miembros que no han asistido en un mes:
 - Mostrar los miembros cuya ultima_asistencia es anterior a un mes (considerando la fecha actual).
 
 
+## Actividad - completa
+Hacer un ReactJS interfaz para la gestion de los informes y los miembros con sqlite.
 
-## Actividad - extra
-Hacer un ReactJS interfaz para la gestion de usuarios con sqlite.
-
-
+---
 
 ## Respuestas
 
