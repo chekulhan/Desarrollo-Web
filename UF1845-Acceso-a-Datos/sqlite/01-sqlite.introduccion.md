@@ -45,6 +45,32 @@ Informe de miembros que no han asistido en un mes:
 ## Actividad - completa
 Hacer un ReactJS interfaz para la gestion de los informes y los miembros con sqlite.
 
+
+## Actividad - IoT con VITE
+
+02-SmartDoor.jsx (plantilla)
+
+La idea es que cada usuario pasa su identidad, y el sistema le da acceso a la puerta del gimnasio. El usuario puede introducir su identidad (numero de miembro) en un formulario, y un RESTAPI comprobará si el usuario tiene acceso o no. Si tiene acceso, se abre la puerta (se enciende un LED verde), y si no tiene acceso, se enciende un LED rojo.  Además, se guardará un registro de la fecha y hora de la apertura de la puerta en una base de datos SQLite en el **navegador**.
+
+Partes:
+- ReactJS (frontend) - VITE (formulario de acceso, botones, LEDs)
+- RESTAPI (backend) - ExpressJS (comprobar acceso, abrir puerta)
+- SQLite (base de datos en el navegador para guardar el registro de acceso (fecha y hora, abrir, cerrar))
+
+Creamos un nuevo proyecto de ReactJS "iot-react-sql" usando vite@latest, que esta más actualizado que CRA (create-react-app).
+
+Seleccionar React, Javascript durante la instalación.
+
+```bash
+npm create vite@latest iot-react-sql --template react
+cd iot-react-sql
+npm install
+npm install sql.js
+npm run dev
+```
+
+
+
 ---
 
 ## Respuestas
@@ -113,4 +139,28 @@ app.listen(port, () => {
 SELECT id, nombre, email, ultima_asistencia
 FROM miembros
 WHERE ultima_asistencia < DATE('now', '-1 month') OR ultima_asistencia IS NULL;
+```
+
+---
+
+
+```js
+
+export function buscarProductos(nombre) {
+  return new Promise((resolve, reject) => {
+    db.all(`SELECT * FROM productos WHERE nombre LIKE ?`, [`%${nombre}%`], (err, rows) => {
+      if (err) return reject(err);
+      resolve(rows);
+    });
+  });
+}
+
+export function productosBajoStock(threshold = 5) {
+  return new Promise((resolve, reject) => {
+    db.all(`SELECT * FROM productos WHERE stock < ?`, [threshold], (err, rows) => {
+      if (err) return reject(err);
+      resolve(rows);
+    });
+  });
+}
 ```
