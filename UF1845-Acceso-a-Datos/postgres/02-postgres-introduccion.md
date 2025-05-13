@@ -2,6 +2,66 @@
 - No hace falta asignar un OID (object ID) => legacy
 - Template1 es por defecto
 
+
+# Creacion de TABLES
+
+
+
+Primero, crear un sequence y despues asignar un default value a la columna:
+```sql
+nextval('table1_seq') 
+```
+
+Tipos de datos (data types):
+https://www.cheat-sheets.org/saved-copy/postgresql-cheat-sheet.pdf
+
+
+Data Types de Arrays:
+```sql
+INSERT INTO table (value, values)
+VALUES ('hello again', ARRAY['hello', 'hola']);
+
+INSERT INTO table (value, values)
+VALUES ('hello again', '{"hello", "hola"}');
+
+SELECT * FROM public.table 
+WHERE values[1] = 'hello';
+-- Access 1st element (PostgreSQL arrays are 1-based)
+
+SELECT value, unnest(values) AS values
+FROM table;
+```
+
+
+
+El equivalente en Oracle es:
+```sql
+CREATE TYPE number_array AS VARRAY(10) OF NUMBER;
+
+CREATE TABLE resultados (
+    id NUMBER,
+    scores number_array
+);
+
+INSERT INTO resultados (id, scores)
+VALUES (1, number_array(10, 20, 30, 12));
+INSERT INTO resultados (id, scores)
+VALUES (2, number_array(6, 4, 1));
+
+SELECT * 
+FROM resultados;
+
+
+```
+
+
+## Actividades
+
+Usando Oracle Live, migrar la base de datos de Scott (emp, dept) a PostgreSQL. Incluir algunos datos.
+![Scott](../../x-assets/UF1845/scott.schema.png)
+
+
+
 **Strategy:**
 WAL (Write-Ahead Logging):
 

@@ -10,9 +10,32 @@ SQLite Browser:
 - https://chromewebstore.google.com/detail/visualizador-de-base-de-d/iclckldkfemlnecocpphinnplnmijkol
 - https://workspace.google.com/marketplace/app/sqlite_viewer_with_google_drive/298830041920?hl=es
 
-Docker:
+## Docker
 https://hub.docker.com/r/keinos/sqlite3
 
+Crear un contenedor interactivo de SQLite:
+
+```bash
+docker run -it --name sqlite keinos/sqlite3 sh 
+```
+
+> sqlite3  // in memory mode
+sqlite> CREATE TABLE demo(id INTEGER, name TEXT);
+sqlite> INSERT INTO demo VALUES (1, 'Jon');
+sqlite> SELECT * FROM demo;
+
+.dot comandos de SQLite (meta-commands):
+sqlite> .mode column    // 	Set output format (e.g., column, csv, json, line, list)
+sqlite> .headers on   / off
+sqlite> SELECT * FROM demo;
+
+sqlite> .help
+sqlite> .tables
+sqlite> .schema demo
+sqlite> SELECT * FROM sqlite_master;
+sqlite> PRAGMA table_info(demo);
+sqlite> PRAGMA journal_mode;   
+sqlite> .quit  //  .exit
 
 ## Actividad - miembros de un gimnasio
 El objectivo de esta tarea es construir unos comandos de SQL (DML) para generar 2 informes para un gimnasio, sobre sus miembros o socios. Al hacerlo, habrá que cargar la base de datos con datos de usuarios (INSERT).
