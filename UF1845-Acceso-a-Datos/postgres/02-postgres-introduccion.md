@@ -57,7 +57,8 @@ FROM resultados;
 
 ## Actividades
 
-Usando Oracle Live, migrar la base de datos de Scott (emp, dept) a PostgreSQL. Incluir algunos datos.
+Usando Oracle Live, migrar la base de datos de Scott (emp, dept) a PostgreSQL. Incluir esquema y algunos datos.
+
 ![Scott](../../x-assets/UF1845/scott.schema.png)
 
 
