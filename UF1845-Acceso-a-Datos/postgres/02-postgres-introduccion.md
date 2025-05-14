@@ -57,9 +57,87 @@ FROM resultados;
 
 ## Actividades
 
+### Actividad 1
+
+
+![Videojuegos](../../x-assets/UF1845/model.videojuegos.png)
+
+```sql
+INSERT INTO videojuegos (titulo, genero, lanzamiento, calificacion) VALUES
+('The Legend of Zelda', 'Aventura', 1986, 9.5),
+('Minecraft', 'Sandbox', 2011, 9.0),
+('Among Us', 'Social', 2018, 8.2),
+('Fortnite', 'Battle Royale', 2017, 7.8),
+('Super Mario Bros', 'Plataforma', 1985, 9.7),
+('Tetris', 'Puzzle', 1984, 9.3);
+```
+
+- Buscar juegos lanzados después del año 2000
+- Ordenar los datos por calificación descendente
+- Filtrar por género de 'Aventura
+- Ver solo los títulos y sus calificaciones
+
+
+### Actividad 2
+
+Estas accediendo a PostgreSQL desde un contenedor Docker. Tienes el siguiente archivo SQL que queieres ejecutar usando la linea de comandos >>psql. Te dicen que puedes copiar el archivo de texto al contenedor, y ejecutar el comando psql desde dentro del contenedor. 
+
+```bash
+docker cp psql.test1.sql postgres-db:/psql.test1.sql   -- copiar el archivo al contenedor
+
+>> psql -U postgres -d erp -f psql.test1.sql       -- ejecutar el archivo SQL desde la linea de comandos   
+
+>> psql -U postgres -d erp -f psql.test1.sql > output.log  -- pipe el output a un archivo
+
+```
+
+```sql
+-- Connectar a la base de datos
+\c demo
+
+-- Mostrar todas las tablas
+\dt
+
+-- Create a table
+CREATE TABLE test1 (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    joined TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Seed data
+INSERT INTO test1 (name) VALUES
+  ('Alice'), ('Bob');
+
+-- Verify the rows
+SELECT * FROM test1;
+
+-- Show tables again
+\dt
+```
+
+Ahora, repetir el proceso pero con un archivo de sql para mostrar todas las columnas de una tabla. Usar INFORMATION_SCHEMA.columns.
+
+
+¿Qué hace el siguiente código? Ejecutarlo.
+```sql
+-- Ask the user for the table name
+\prompt 'Introducir un nombre de una tabla: ' tblname
+
+-- Use the input in a SELECT
+SELECT * FROM :tblname LIMIT 5;
+
+-- Describe the table structure
+\d :tblname
+```
+
+
+
+### Actividad 2
 Usando Oracle Live, migrar la base de datos de Scott (emp, dept) a PostgreSQL. Incluir esquema y algunos datos.
 
 ![Scott](../../x-assets/UF1845/scott.schema.png)
+
 
 
 
