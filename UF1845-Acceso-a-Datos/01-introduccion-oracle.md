@@ -2,6 +2,12 @@
 Introducción a base de datos (SQL y NoSQL)
 https://www.youtube.com/watch?v=8K1PKSqHFRQ
 
+## SGBD
+
+El sistema de gestión de la base de datos (en adelante SGBD) es una aplicación que permite a los usuarios definir, crear y mantener la base de datos, además de proporcionar un acceso controlado a la misma. Se denomina sistema de bases de datos al conjunto formado por la base de datos, el SGBD y los programas de aplicación que dan servicio a la empresa u organización. El modelo seguido con los sistemas de bases de datos, en donde se separa la definición de los datos de los programas de aplicación, es muy similar al modelo que se sigue en la actualidad para el desarrollo de programas con lenguajes orientados a objetos, en donde se da una definición interna de un objeto y una definición externa separada. Los usuarios del objeto sólo ven la definición externa y no se deben preocupar de cómo se define internamente el objeto y ni cómo está implementado. Una ventaja de este modelo, conocido como abstracción de datos, es que se puede cambiar la definición interna de un objeto sin afectar a sus usuarios ya que la definición externa no se ve alterada. Del mismo modo, los sistemas de bases de datos separan la definición de la estructura de los datos, de los programas de aplicación y almacenan esta definición en la base de datos. Si se añaden nuevas estructuras de datos o se modifican las ya existentes, los programas de aplicación no se ven afectados si no dependen directamente de aquello que se ha modificado. Todo esto es gracias a la existencia del SGBD, que se sitúa entre la base de datos y los programas de aplicación.
+
+![SGBD](../x-assets/UF1845/sgbd.png)
+
 ## 🧩 Clasificación de comandos SQL
 1. DDL – Data Definition Language (Lenguaje de definición de datos)
 Se usa para crear o modificar la estructura de las bases de datos (tablas, columnas, índices, etc.)
@@ -317,9 +323,7 @@ V$PARAMETER: Muestra los parámetros de configuración actuales de la base de da
 https://www.youtube.com/watch?v=knVwokXITGI&t=105s (casa)
 
 
-
-
-https://www.youtube.com/watch?v=iRYwDh_o8hE
+https://www.youtube.com/watch?v=iRYwDh_o8hE (Admministrador de base de datos)
 
 https://es.khanacademy.org/computing/computer-programming/sql/relational-queries-in-sql/pt/joining-related-tables
 
