@@ -75,8 +75,15 @@ Llevar a cabo lo siguiente:
 
 ![Funcion](../../x-assets/UF1845/librosprestados.png)
 
+2. 
+Crear este función para sacar el nombre del autor, y pasando un identidad como parametro de entrada (IN): biblioteca.get_autor_by_id(_id_libro integer). Usarlo como se ve en la imagen:
 
-2. Socio 'Ana Lopez' ha vuelto a pedir prestado 'Cien años de soledad'. Insertar este prestamo.
+![Funcion](../../x-assets/UF1845/functionautores.png)
+
+¿Podrias incluir tambien el titulo del libro?
+¿Podrias crear una vista con este consulta?
+
+3. Socio 'Ana Lopez' ha vuelto a pedir prestado 'Cien años de soledad'. Insertar este prestamo.
 Ahora, queremos saber un historial de todos los libros que ha prestado a lo largo de su vida. Mostrar la lista de libros solamente, creando una funcion para ello. Pista: Usar DISTINCT para evitar duplicados.
 
 USAR 'TABLE (id_libro INT, titulo TEXT, autor TEXT)' como return type custom.
@@ -84,10 +91,98 @@ USAR 'TABLE (id_libro INT, titulo TEXT, autor TEXT)' como return type custom.
 ![Funcion](../../x-assets/UF1845/function.returntype.png)
 
 
+
 3. Avanzado
 
 ![Funcion](../../x-assets/UF1845/librosatraso.png)
 
+## PARTE 3 Indices
+
+Nos dice que el correo electronico de los socios tiene que ser único, ya que muchos socios estan registrando con el correo de sus amigos y familiares. Aplicar una restriccion único.
+
+¿Lo ves?
+```sql
+SELECT indexname, indexdef
+FROM pg_indexes
+```
+
+
+En la aplicacion de Python, se suele llevar a cabo los siguientes consultas. ¿Cómo mejorarías estas consultas con indices?
+
+```sql
+SELECT * FROM biblioteca.libros WHERE titulo ILIKE '%cien%';
+SELECT * FROM biblioteca.libros WHERE autor = 'Gabriel García Márquez';
+```
+
+## PARTE 4 Stored Procedures
+
+
+1. Validación de correo electrónico
+Crear un procedimiento almacenado que inserte un nuevo socio en la tabla socios. Agregar lógica de negocio para excluir cualquier correo electrónico que no contenga el dominio @nazaret.eus. Si el correo electrónico no es válido, el procedimiento debe lanzar una excepción (o mensaje) y no insertar el nuevo socio.
+
+PISTA:
+```
+IF _correo NOT ILIKE '%@nazaret.eus' THEN
+```
+
+```sql
+CALL biblioteca.insert_socio_if_valid_email('Laura Martín', 'laura@nazaret.eus'); -- insertado
+CALL biblioteca.insert_socio_if_valid_email('Jon Ibarra', 'jon@gmail.com'); -- no insertado
+```
+
+
+2. Lógica de negocio para préstamos 
+
+Vamos a crear un procedimiento almacenado que:
+
+- Inserta un nuevo préstamo (prestamo) en la tabla biblioteca.prestamos.
+
+- Pero solo si el socio NO tiene más de 1 préstamo activo (es decir, con fecha_devolucion IS NULL y la cuenta es menos de 2). Piensa como vas a contar los préstamos activos. Habrá que usar una variable (SELECT ... INTO) para contar los préstamos activos y luego decidir si se permite el nuevo préstamo o no.
+
+
+
+**AVANZADO**
+
+Ejecutar este codigo, poco a poco, y ver lo que esta haciendo
+```sql
+CREATE TYPE biblioteca.socio_input AS (
+    nombre TEXT,
+    correo TEXT
+);
+
+
+CREATE OR REPLACE PROCEDURE biblioteca.insert_multiple_socios(
+    socios VARIADIC biblioteca.socio_input[]
+)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    socio_record biblioteca.socio_input;
+BEGIN
+    FOREACH socio_record IN ARRAY socios LOOP
+        BEGIN
+            INSERT INTO biblioteca.socios (nombre, correo)
+            VALUES (socio_record.nombre, socio_record.correo);
+            RAISE NOTICE 'Insertado: % (%).', socio_record.nombre, socio_record.correo;
+        EXCEPTION
+            WHEN unique_violation THEN
+                RAISE NOTICE 'Correo ya registrado: %', socio_record.correo;
+        END;
+    END LOOP;
+END;
+$$;
+
+
+CALL biblioteca.insert_multiple_socios(
+    ROW('Ane Etxeberria', 'ane@nazaret.eus'),
+    ROW('Jon Olaizola', 'jon@gmail.com'),
+    ROW('Irati Garmendia', 'irati@hotmail.com')
+);
+
+
+```
+
+¿Podrias aplicar la misma logica para insertar multiples prestamos para un socio?
 
 
 ## Respuestas
@@ -149,4 +244,46 @@ SELECT l.titulo,
     WHERE 
        p.fecha_devolucion IS NULL
       AND CURRENT_DATE - p.fecha_prestamo > 7;
+
+
+
+
+CREATE OR REPLACE PROCEDURE biblioteca.insertar_prestamo_si_permitido(
+    p_id_socio INTEGER,
+    p_id_libro INTEGER,
+    p_fecha_prestamo DATE
+)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    prestamos_activos INTEGER;
+BEGIN
+    -- Contar préstamos activos del socio (sin devolución)
+    SELECT COUNT(*) INTO prestamos_activos
+    FROM biblioteca.prestamos
+    WHERE id_socio = p_id_socio AND fecha_devolucion IS NULL;
+
+    -- Si ya tiene más de 1 préstamo activo, bloquear
+    IF prestamos_activos >= 2 THEN
+        RAISE EXCEPTION 'El socio % ya tiene más de un libro sin devolver.', p_id_socio;
+    END IF;
+
+    -- Insertar nuevo préstamo
+    INSERT INTO biblioteca.prestamos (id_socio, id_libro, fecha_prestamo)
+    VALUES (p_id_socio, p_id_libro, p_fecha_prestamo);
+
+    RAISE NOTICE 'Préstamo registrado correctamente para el socio %', p_id_socio;
+END;
+$$;
+
+
+
+
+
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+
+CREATE INDEX idx_libros_titulo_trgm ON biblioteca.libros
+USING GIN (titulo gin_trgm_ops);
+
+
 ```
