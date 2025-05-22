@@ -130,8 +130,9 @@ CALL biblioteca.insert_socio_if_valid_email('Laura Martín', 'laura@nazaret.eus'
 CALL biblioteca.insert_socio_if_valid_email('Jon Ibarra', 'jon@gmail.com'); -- no insertado
 ```
 
+3. Crear un procedimiento almacenado para eliminar un libro solo si no esta protegido. El libro 'Don Quijote de la Mancha' si esta protegido. ¿Habrá varias formas de llevar este a cabo, no? Piensa en la mejora opcion a largo plazo.
 
-2. Lógica de negocio para préstamos 
+4. Lógica de negocio para préstamos 
 
 Vamos a crear un procedimiento almacenado que:
 
@@ -286,4 +287,28 @@ CREATE INDEX idx_libros_titulo_trgm ON biblioteca.libros
 USING GIN (titulo gin_trgm_ops);
 
 
+
+
+
+DO $$
+DECLARE 
+	_id_libro integer := 3;
+	_titulo text;
+
+BEGIN
+
+	SELECT titulo INTO _titulo
+	FROM biblioteca.libros
+	WHERE id_libro = _id_libro;
+
+	IF _titulo = 'Don Quijote de la Mancha' THEN
+		RAISE EXCEPTION 'El libro % esta protegido', _id_libro;
+	ELSE
+		RAISE NOTICE 'Si puede borrar el libro';
+	END IF;
+	
+	
+
+END;
+$$ LANGUAGE plpgsql;
 ```
