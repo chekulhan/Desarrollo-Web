@@ -59,3 +59,17 @@ def add_employee(empno, ename, job):
     finally:
         # Cerrar la sesión para liberar recursos
         session.close()
+
+
+
+"""
+
+
+session.query(Emp) \
+    .filter(Emp.sal > 50000) \
+    .order_by(Emp.ename) \
+    .limit(10) \
+    .all()
+
+
+"""
