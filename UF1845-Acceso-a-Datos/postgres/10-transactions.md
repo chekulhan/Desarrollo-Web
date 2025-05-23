@@ -1,6 +1,92 @@
 # Transacciones
 
-ACID propiedades
+
+🧾 ¿Qué es ACID?
+ACID es un acrónimo que representa cuatro propiedades fundamentales de las transacciones de bases de datos:
+
+| Letra | Nombre       | Propósito básico                                           |
+|-------|--------------|------------------------------------------------------------|
+| A     | Atomicidad   | Todo o nada: la transacción completa o se revierte.        |
+| C     | Consistencia | La base de datos permanece en un estado válido.            |
+| I     | Aislamiento  | Las transacciones no interfieren entre sí.                 |
+| D     | Durabilidad  | Una vez confirmada, la transacción no se pierde.           |
+
+
+**A — Atomicidad**
+Ejemplo útil: Transferencia de fondos
+
+```sql
+BEGIN;
+
+-- Quitar dinero de la cuenta A
+UPDATE accounts SET balance = balance - 100 WHERE account_id = 1;
+
+-- Agregar dinero a la cuenta B
+UPDATE accounts SET balance = balance + 100 WHERE account_id = 2;
+
+COMMIT;
+```
+🔁 Si algo falla entre esas dos líneas (por ejemplo, la segunda cuenta no existe), la transacción se revierte completamente con ROLLBACK.
+
+✅ Resultado: O se hacen ambas operaciones o ninguna.
+
+**C — Consistencia**
+Ejemplo útil: No permitir que una cuenta quede con saldo negativo
+
+Supón que tienes una restricción CHECK:
+
+```sql
+ALTER TABLE accounts
+ADD CONSTRAINT positive_balance CHECK (balance >= 0);
+Si alguien intenta transferir más dinero del que hay:
+```
+
+```sql
+
+BEGIN;
+UPDATE accounts SET balance = balance - 5000 WHERE account_id = 3;  -- solo hay 1000
+UPDATE accounts SET balance = balance + 5000 WHERE account_id = 4;
+COMMIT;
+```
+💥 Falla en la primera línea por la restricción del saldo.
+
+✅ Resultado: La base de datos nunca entra en un estado inválido.
+
+**I — Aislamiento**
+Ejemplo útil: Dos personas transfieren dinero al mismo tiempo desde la misma cuenta
+
+Usuario A y Usuario B hacen esto simultáneamente:
+
+```sql
+
+-- Usuario A
+BEGIN;
+UPDATE accounts SET balance = balance - 100 WHERE account_id = 5;
+-- Espera...
+COMMIT;
+
+-- Usuario B
+BEGIN;
+UPDATE accounts SET balance = balance - 200 WHERE account_id = 5;
+-- Espera...
+COMMIT;
+```
+Con aislamiento adecuado (por ejemplo, SERIALIZABLE), PostgreSQL asegura que las transacciones se ejecuten como si fueran una tras otra, no mezcladas. Si hay conflicto, una se bloquea o falla.
+
+✅ Resultado: Se evitan errores como saldo negativo por concurrencia.
+
+**D — Durabilidad**
+Ejemplo útil: Después de confirmar una transferencia, el sistema se apaga inesperadamente
+
+```sql
+BEGIN;
+UPDATE accounts SET balance = balance - 200 WHERE account_id = 6;
+UPDATE accounts SET balance = balance + 200 WHERE account_id = 7;
+COMMIT;
+```
+🔌 Incluso si se va la luz justo después del COMMIT, PostgreSQL garantiza que los cambios se guardaron en disco.
+
+✅ Resultado: Lo que se confirma, se conserva. Siempre.
 
 ```sql
 
