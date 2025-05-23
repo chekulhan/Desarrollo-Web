@@ -12,7 +12,7 @@ class Dept(Base):
 
     # incluir aqui las columnas de Dept
 
-    employees = relationship('Emp', back_populates='department')
+    employees = relationship('Emp', back_populates='department', uselist=True)
 
 
 ```
@@ -23,8 +23,8 @@ En el modelo Emp, hay que definir la clave foranea y su relación:
 
     sal = Column(Integer)
     comm = Column(Integer)
+    # agregar la clave foránea y la relación
     deptno = Column(Integer, ForeignKey('scott.dept.deptno'))
-
     department = relationship('Dept', back_populates='employees')
 ```
 
