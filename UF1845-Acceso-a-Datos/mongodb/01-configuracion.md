@@ -13,6 +13,41 @@ Usar Mongodb for VS Code
 mongodb, mongodb
 
 
+# Altas - consultas
+
+Copiar este documento de personas en una colección nueva:
+
+```json
+[
+   {
+      "name": "Andrea Le",
+      "email": "andrea_le@fake-mail.com",
+      "school": {
+         "name": "Northwestern"
+      },
+      "version": 5,
+      "scores": [ 85, 95, 75 ],
+      "dateCreated": { "$date": "2003-03-26" }
+   },
+   {
+      "email": "no_name@fake-mail.com",
+      "version": 4,
+      "scores": [ 90, 90, 70 ],
+      "dateCreated": { "$date": "2001-04-15" }
+   },
+   {
+      "name": "Greg Powell",
+      "email": "greg_powell@fake-mail.com",
+      "version": 1,
+      "scores": [ 65, 75, 80 ],
+      "dateCreated": { "$date": "1999-02-10" }
+   }
+]
+```
+
+Teacher notas: https://www.mongodb.com/docs/compass/current/query/filter/
+
+
 
 # Consultas con MongoDB
 
@@ -75,4 +110,8 @@ db.comments.findOne(
         {$gt: ISODate('2015-02-08T00:00:00Z')} 
     })
 ```
+
+## Sandbox
+https://search-playground.mongodb.com/tools/code-sandbox/snapshots/new
+
 
