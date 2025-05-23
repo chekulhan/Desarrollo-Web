@@ -199,3 +199,56 @@ BEGIN
 END
 $$;
 ```
+
+
+## Proyecto bancaria
+
+Vamos a poner todo junto en un mini proyecto bancaria. Te han contratado para llevar a cabo un proyecto usando Python como interfaz. 
+
+- Diseñar un modelo E/R para los clientes del banco. Los clientes pueden contratar cuentas de transacciones y de ahorros. No es necesario gestionar las transacciones, pero seria útil mantener el saldo en cada unos de los productos bancarias que tienen los clientes. Tomar en cuenta  como vas a gestionar el cierre de una cuenta, los tipos de cuentas, el saldo, ...
+
+- Implantar las tablas y sus relaciones en Postgres:
+1. ¿Qué restricciones podrias implantar a traves de UNIQUE, CHECK, PRIMARY KEY, tipos de datos, ...
+
+
+- Vistas: Diseñar unas vistas para el uso típico de la aplicación. Los usuarios (administración) ha comentado que seria útil:
+1. Mostrar los cliente VIP, con saldo más de 10,000 euros. 
+2. Los clientes que no tengan nada en el saldo
+Por seguridad, el numero de la cuenta deberia mostrar siempre con masked, por ejemplo: 12131*****12171
+
+- Funciones: Diseñar unas funciones para mostrar:
+1. Cuántas cuentas tiene un cliente
+2. Qué saldo en total tiene un cliente. Por ejemplo, si tienen dos cuentas.
+
+
+- Stored Procedures
+Crear un SP para transferir fondos. Agregar los siguientes restricciones:
+1. No puedes transferir desde => a tu propio cuenta
+2. La cantidad tiene que ser 1 euro o más. Dada la ley bacaria, el máximo es 10,000 euros.
+
+```sql
+CREATE OR REPLACE PROCEDURE transferir_fondos(
+    IN sender_account_id INTEGER,
+    IN receiver_account_id INTEGER,
+    IN amount NUMERIC(12,2)
+)
+
+-- Ejemplo de uso
+CALL transferir_fondos(101, 202, 500.00);  -- de cliente 101 a cliente 202
+...
+
+```
+- Triggers
+Cada vez que se ejecuta una transacción en la tabla 'cuentas', hay que registrar la transferencia en una tabla de audit. (AFTER)
+
+- Usuarios
+Crear un usuario para acceder a la base de datos desde Python. Darle acceso a la vista y algunos objectos necesarios
+
+- Crear una interfaz de Python, con opciones para:
+1. Mostrar informes: usuarios VIP, clientes sin saldo, ...
+2. Dar de alta a un cliente
+3. Ejecutar una transferencia
+
+
+
+
