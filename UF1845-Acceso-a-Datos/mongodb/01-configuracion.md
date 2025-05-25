@@ -13,7 +13,49 @@ Usar Mongodb for VS Code
 mongodb, mongodb
 
 
-# Altas - consultas
+## Gestinados colecciones
+
+```json
+[
+  { "prodId": 100, "nombreProducto": "Camiseta", "precio": 20.99, "cantidad": 125 },
+  { "prodId": 101, "nombreProducto": "Pantalón", "precio": 10.50, "cantidad": 234 },
+  { "prodId": 102, "nombreProducto": "Chaqueta", "precio": 15.75, "cantidad": 432 },
+  { "prodId": 103, "nombreProducto": "Zapatos", "precio": 17.30, "cantidad": 320 }
+]
+```
+
+Ejecutamos unas consultas (queries) con la interfaz de Atlas.
+
+```json
+{"nombreProducto": "Camiseta"}
+{"precio": 20.99}
+{"precio": {$gt: 10}}
+```
+
+## Indices
+
+Al ejecutar este consulta, ¿se usa un índice?
+```json
+{ "nombreProducto" : "Chaqueta"}
+```
+
+## Esquemas
+
+Después de aplicar un esquema STRICT, ¿qué ocurre al insertar nuevos documentos?
+
+
+```json
+
+  { "prodId": 103, "nombreProducto": 126215214241, "precio": 17.30, "cantidad": 320 }
+  
+  { "prodId": 103, "nuevoAtributo": "abc", "nombreProducto": "Mi Producto", "precio": 17.30, "cantidad": 320 }
+```
+
+![Schemas](../../x-assets/UF1845/mongodb.schema.png)
+
+
+# Actividades
+## Altas - consultas
 
 Copiar este documento de personas en una colección nueva:
 
@@ -111,7 +153,7 @@ db.comments.findOne(
     })
 ```
 
-## Sandbox
+## Sandbox (Indexes)
 https://search-playground.mongodb.com/tools/code-sandbox/snapshots/new
 
 
