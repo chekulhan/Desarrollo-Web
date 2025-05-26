@@ -1,14 +1,20 @@
+# Data Centers
+https://aws.amazon.com/compliance/data-center/data-centers/
+
+https://www.youtube.com/watch?v=4V91Bx8UzCw&t=318s (para casa)
+
+# MongoDB
+
+https://www.youtube.com/watch?v=-bt_y4Loofg
 
 # Configuración del Clúster
 
-OJO: 
+Al configurar, incluir: 
 - Incluir datos de ejemplo
 - IP desde anywhere
 
 ![Clúster](../../x-assets/UF1845/mongo.cluster.png)
 
-Usar Mongodb for VS Code
-![Conexion](../../x-assets/UF1845/mongo.connection.png)
 
 mongodb, mongodb
 
@@ -89,9 +95,15 @@ Copiar este documento de personas en una colección nueva:
 
 Teacher notas: https://www.mongodb.com/docs/compass/current/query/filter/
 
+# MongoDB Playground
+
+Guardar los archivos con extension '*.mongodb.js'.
+
+![Playground](../../x-assets/UF1845/mongodb.playground.png)
 
 
 # Consultas con MongoDB
+
 
 ![Extension](../../x-assets/UF1845/mongo.extension.png)
 
@@ -157,3 +169,6 @@ db.comments.findOne(
 https://search-playground.mongodb.com/tools/code-sandbox/snapshots/new
 
 
+# Programando con VSCODE 
+
+![Conexion](../../x-assets/UF1845/mongo.connection.png)
