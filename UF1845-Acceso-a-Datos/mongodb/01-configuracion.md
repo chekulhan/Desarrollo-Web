@@ -152,6 +152,42 @@ db.comments.find(
   { name: "Gregor Clegane" },  // Filtro
   { _id: 0, name: 1, text: 1 }  // Proyección: Excluye `_id`, incluye `name` y `text`
 )
+
+// Mas ejemplos
+use('clase');
+
+db.productos.insertOne({
+    prodId: 656,
+    nombreProducto: "Desde VS Code",
+    precio: 111,
+    cantidad: 120
+});
+
+/* Sacar:
+- los productos con pocas cantidades en stock, por ejemplo < 10
+- mostrar el nombre y cantidad solamente del 'Chaqueta'
+- mostrar productos con el precio > 20 AND (y) cantidad > 100
+- mostrar el primer producto en la coleccion, usando ObjectId
+
+*/
+// Qué hacen estos comandos
+use('clase');
+
+// expresiones regulares
+db.productos.find({nombreProducto: /apa/i})
+db.productos.find({nombreProducto: /^C/})
+
+db.productos.updateOne(
+   { _id: ObjectId('68347b7c4ae331876deb9648')},
+   {$set : {cantidad: 20} }
+)
+
+db.productos.deleteOne({nombreProducto: "Desde VS Code"});
+
+
+db.productos.deleteOne({nombreProducto: "Desde VS Code"});
+
+
 ```
 
 ## Fechas
