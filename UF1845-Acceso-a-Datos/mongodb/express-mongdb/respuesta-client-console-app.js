@@ -95,3 +95,67 @@ router.get('/search', async (req, res) =>{
     res.status(500).json({error: 'Failed to search'});
   }
 })
+
+
+
+
+
+[
+  {
+    $group:
+      /**
+       * _id: The id of the group.
+       * fieldN: The first field name.
+       */
+      {
+        _id: null,
+        totalCantidad: {
+          $sum: "$cantidad",
+        },
+      },
+  },
+  {
+    $project:
+      /**
+       * specifications: The fields to
+       *   include or exclude.
+       */
+      {
+        _id: 0,
+      },
+  },
+]
+
+
+
+[
+  {
+    $group:
+      /**
+       * _id: The id of the group.
+       * fieldN: The first field name.
+       */
+      {
+        _id: "$nombreProducto",
+        totalVentas: {
+          $sum: {
+            $multiply: ["$cantidad", "$precio"],
+          },
+        },
+      },
+  },
+  {
+    $project:
+      /**
+       * specifications: The fields to
+       *   include or exclude.
+       */
+      {
+        _id: 0,
+        producto: "$_id",
+        totalVentas: {
+          $round: ["$totalVentas"]
+        },
+      },
+  },
+]

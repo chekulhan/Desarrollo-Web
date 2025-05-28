@@ -69,3 +69,30 @@ async function main() {
 
 // --------------
 main();
+
+
+/* más funcionalidad:
+- operaciones CRUD, por ejemplo, eliminar, actualizar, insert un producto
+- agregaciones de MongoDB:
+  - contar el número de productos (documentos) en la base de datos
+  - contar la cantidad de productos en total que hay en la base de datos. 
+    Usar $group, y añadir un $project para formatear el resultado, quitando la $_id
+
+  {
+    _id: null,
+    totalCantidad: {
+      $sum: '$cantidad'
+    }
+  }
+
+
+  - (avanzado) en lugar de hacer el cálculo de totalInventoryValue() en la aplicacion, 
+   llevarlo a cabo en MongoDB con 'agregaciones', y simplemente mostrar el resultado en el client
+
+*/
+
+
+
+
+
+
