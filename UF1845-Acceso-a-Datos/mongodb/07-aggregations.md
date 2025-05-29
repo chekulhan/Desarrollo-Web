@@ -147,6 +147,32 @@ Queremos conseguir los siguientes resultados en una aplicacion de consola de Nod
 ]
 ```
 
+## Actividades de repaso
+Usando la base de datos movies:
+
+- Contar el número de peliculas con el año 1903 o 1914 (year). 
+
+- Para cada año (year), queremos mostrar el número de películas que han sacado, ordenado por mayor a menor.
+
+- Encontrar los top 5 peliculas (limit: 5) por genero (genres). Seguir los pasos:
+
+1. Empezar con $unwind para producir un documento por cada genre. Fijate en el indice 'genreIndex' añadido al final de cada documento.
+{
+  path: '$genres',
+  includeArrayIndex: 'genreIndex',
+  preserveNullAndEmptyArrays: true
+}
+
+2. Llevar a cabo un $group by en genre, para conseguir la suma de todos los documentos por genero.
+
+3. Ordenar por mayor
+
+4. Sacar los primero 5 ($limit)
+
+¿Podrias llevar a cabo lo mismo en countries para sacar una lista única de valores? Probarlo también con `db.movies.distinct("countries");`
+
+
+
 
 ## Respuestas
 
@@ -178,5 +204,106 @@ Queremos conseguir los siguientes resultados en una aplicacion de consola de Nod
        */
       "totalProductos",
   },
+]
+
+
+
+
+[
+  {
+    $match:
+      /**
+       * query: The query in MQL.
+       */
+      {
+        year: {
+          $in: [1903, 1914]
+        }
+      }
+  },
+  {
+    $count:
+      /**
+       * Provide the field name for the count.
+       */
+      "Resultado"
+  }
+]
+
+
+[
+  {
+    $group:
+      /**
+       * _id: The id of the group.
+       * fieldN: The first field name.
+       */
+      {
+        _id: "$year",
+        numero: {
+          $sum: 1
+        }
+      }
+  },
+  {
+    $sort:
+      /**
+       * Provide any number of field/order pairs.
+       */
+      {
+        numero: -1
+      }
+  }
+]
+
+
+
+
+
+
+[
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$genres",
+        includeArrayIndex: "genreIndex",
+        preserveNullAndEmptyArrays: true
+      }
+  },
+  {
+    $group:
+      /**
+       * _id: The id of the group.
+       * fieldN: The first field name.
+       */
+      {
+        _id: "$genres",
+        result: {
+          $sum: 1
+        }
+      }
+  },
+  {
+    $sort:
+      /**
+       * Provide any number of field/order pairs.
+       */
+      {
+        result: -1
+      }
+  },
+  {
+    $limit:
+      /**
+       * Provide the number of documents to limit.
+       */
+      5
+  }
 ]
 ```
