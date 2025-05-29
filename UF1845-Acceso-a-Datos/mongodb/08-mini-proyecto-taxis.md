@@ -101,3 +101,34 @@ El desarrollado full-stack ha sacado un ejemplo de lo que seria el documento que
   ]
 }
 ```
+
+
+
+---
+
+
+
+## Respuesta
+
+```js
+import { ObjectId } from 'mongodb';
+
+const usersCollection = db.collection('users'); // adjust collection name
+
+const userId = ObjectId("...");  // The user _id you want to update
+
+const newTrip = {
+  id_viaje: new ObjectId(),
+  lugar_recogida: "Plaza Mayor",
+  lugar_destino: "Estación Central",
+  estado: "reservado",
+  costo: 12,
+  fecha_hora: new Date("2025-05-28T10:00:00Z")
+};
+
+async function addTripToUser() {
+  const result = await usersCollection.updateOne(
+    { _id: userId },
+    { $push: { viajes: newTrip } }
+  );
+```
