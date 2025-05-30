@@ -62,5 +62,66 @@ router.use((req, res, next) => {
 
 
 # RBAC 
+RBAC significa Role-Based Access Control — en español, Control de Acceso Basado en Roles.
 
-TO DO
+Es un método para controlar quién puede hacer qué en una aplicación o sistema, asignando permisos a usuarios según su rol.
+
+**¿Cómo funciona?**
+En vez de asignar permisos individualmente a cada usuario, agrupas los permisos en roles.
+
+Luego asignas uno o varios roles a cada usuario.
+
+Cuando un usuario intenta realizar una acción, el sistema verifica si su rol le permite hacerlo.
+
+```jsx
+const roles = {
+  admin: ['read:any', 'write:any'],  // El admin puede leer y escribir todo
+  user: ['read:own'],                 // El usuario sólo puede leer sus propios datos
+};
+```
+Si un usuario tiene rol admin, podrá leer y modificar cualquier dato.
+
+Si un usuario tiene rol user, sólo podrá leer sus propios datos.
+
+## Actividad
+Implementamos una conexion con un usuario de MongoDB, que solo puede acceder a sus datos.
+
+Por ejemplo, al pasar un ObjectId al rest endpoint para obtener sus datos, 
+
+```jsx
+const fetchReadOwn = async () => {
+  try {
+    const response = await fetch('http://localhost:5000/api/v1/users/683536ff702fa24a37aac4f2', {
+      method: 'GET',
+      headers: {
+        'x-api-key': 'abc123',  // Obtender desde .env
+        'Content-Type': 'application/json', // Optional for GET
+        'x-user-role': 'user',  // NO es seguro! Demo solo!
+        'x-user-id': '683536ff702fa24a37aac4f2'  // OJO: deberia ser igual que la /:id de ruta
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    console.log('Success:', result);
+
+  } catch (error) {
+      console.error('Error fetching seguridad:', error.message);
+  }
+}
+```
+
+Empezamos con roles como:
+
+```jsx
+export const roles = {
+  user: ['read:own', 'write:own'],
+};
+```
+
+
+
+
