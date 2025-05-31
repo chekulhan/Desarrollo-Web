@@ -132,37 +132,3 @@ const changeEvent = {
 
 exports(changeEvent);
 ```
-
-
-## Change Event Streams
-
-**¿Qué es un Change Event Stream?**
-Un Change Event Stream (flujo de eventos de cambio) es una funcionalidad de MongoDB que permite escuchar en tiempo real los cambios que ocurren en una colección o base de datos.
-Puedes recibir eventos cuando se inserta, actualiza, elimina o reemplaza un documento.
-
-Internamente, MongoDB usa el *oplog* (registro de operaciones) de los replica sets para generar estos eventos.
-
-Quieres llevar un registro de quién cambió qué y cuándo.
-
-Con un Change Stream, puedes hacer esto automáticamente:
-
-```js
-
-const stream = db.collection("clientes").watch();
-
-stream.on("change", (event) => {
-  db.collection("audit_log").insertOne({
-    tipo: event.operationType,
-    documento: event.fullDocument,
-    fecha: new Date(),
-  });
-});
-Cada vez que alguien inserte, actualice o borre un cliente, se guardará un log con los detalles del cambio.
-```
-
-**Beneficios**
-- Reacción en tiempo real (webhooks, notificaciones).
-
-- No necesitas polling ni cron jobs.
-
-- Perfecto para integraciones, replicación, monitoreo o auditoría.
