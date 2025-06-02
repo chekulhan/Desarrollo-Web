@@ -56,3 +56,13 @@ const Polling = () => {
 }
 
 export default Polling;
+
+{/*
+Actualizar:
+- un efecto, indicador visual para el mensaje de 'Actualizando productos' i.e. circular progress
+- un indicador de colores para la cantidad <5 rojo, < 10 verde, ...
+- dejar que el usuario modifique el intervalo de polling - select onChange
+- habilitar / desabilitar el polling
+- detectar cambios y mostrar un mansaje - 'un nuevo producto ha sido añadido' (avanzado)
+
+*/}
