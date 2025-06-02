@@ -14,10 +14,11 @@ render.com for deployment
 https://dog.ceo/dog-api/documentation/
 
 Vamos a añadir funcionalidad para seleccionar la un perro y mostrar su valor. Hacer los cambios necesarios a la página de ReactJS:
-- usar un <select>
+- usar un `select>`
 - aplicar un event handler onChange del select
 - al final, podrias modificar el código para seleccionar múltiples perros a la vez:
-- ```html
+
+```html
 <select multiple?>
 ```
 
