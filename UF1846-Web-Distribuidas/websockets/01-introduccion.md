@@ -160,6 +160,61 @@ Vite/React
 npm install socket.io-client
 ```
 
+| Acción            | Quién     | Código                        | Propósito                                     |
+|-------------------|-----------|-------------------------------|-----------------------------------------------|
+| Emitir mensaje    | Cliente   | `socket.emit(...)`            | Enviar un mensaje al servidor                 |
+| Escuchar          | Servidor  | `socket.on(...)`              | Recibir el mensaje desde el cliente           |
+| Emitir a todos    | Servidor  | `io.emit(...)`                | Enviar el mensaje a todos los clientes        |
+| Escuchar          | Cliente   | `socket.on(...)`              | Recibir mensajes del servidor                 |
+
+## Ping Pong
+```js
+const io = new Server(server, {
+  pingInterval: 25000, // how often to send pings (default: 25000ms)
+  pingTimeout: 60000   // how long to wait for a pong (default: 5000ms)
+});
+```
+
+
+
+
+
+
 
 ## Actividades
-TO DO
+### MongoDB Productos Socket
+Mejoras:
+- Al lado del cliente (vite), hacer el cálculo de precioTotal para cada uno de los productos, que es precio * cantidad
+- Al lado del servidor (express), hacer lo mismo
+- Incluir un precio con el valor total del producto, incluyendo IVA.
+- Queremos seleccionar solo los productos con un atributo del estado = 'completado'. ¿Dónde podrias incluir este tipo de filtro?
+
+### Chat Message
+
+- Agregar los mensajes mandado por el cliente a una colleción en MongoDB
+
+
+
+
+## Respuestas
+
+```js
+let productos = await productosCollection.find().toArray();
+
+        productos = productos.map((p) => ({
+          ...p,
+          totalPrice: p.precio * p.cantidad
+        }) );
+
+
+const changeStream = productosCollection.watch(
+      [
+        { $match: { operationType: { $in: ["insert", "update", "replace", "delete"] } ,
+          "fullDocument.estado": "completado",
+        },   
+      }
+      ],
+      { fullDocument: "updateLookup" }
+    );
+
+```
