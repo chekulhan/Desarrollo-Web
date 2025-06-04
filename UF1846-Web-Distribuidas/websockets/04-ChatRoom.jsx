@@ -45,7 +45,7 @@ function ChatRoom() {
 
 
   const sendChatRoom = () => {
-    socket.emit('chatRoomMessage', {room: ROOM_NAME, message: input});
+    socket.emit('chatRoomMessage', {room: ROOM_NAME, message: input}); // can pass in more data here
     setInput('');
   }
 

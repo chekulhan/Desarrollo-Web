@@ -167,6 +167,13 @@ npm install socket.io-client
 | Emitir a todos    | Servidor  | `io.emit(...)`                | Enviar el mensaje a todos los clientes        |
 | Escuchar          | Cliente   | `socket.on(...)`              | Recibir mensajes del servidor                 |
 
+| Método                         | Quién recibe el mensaje                                  | Ejemplo de uso                                         |
+|-------------------------------|----------------------------------------------------------|-------------------------------------------------------|
+| `socket.emit(event, data)`      | Solo el cliente conectado en este socket (el remitente) | Enviar un acuse de recibo o datos personales solo al remitente |
+| `socket.broadcast.emit(event, data)` | Todos los clientes conectados excepto el remitente      | Notificar a todos los demás cuando este cliente hace algo (ej. "usuario está escribiendo") |
+| `io.emit(event, data)`          | Todos los clientes conectados, incluido el remitente     | Transmitir un mensaje a todos (ej. "nuevo mensaje en el chat") |
+
+
 ## Ping Pong
 ```js
 const io = new Server(server, {

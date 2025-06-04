@@ -1,3 +1,5 @@
+// Actividad: Escribir el código de React para mostrar el torno de espera...
+
 import express from "express";
 import path from "path";
 import cors from "cors";
@@ -32,28 +34,26 @@ async function startServer() {
       },
     });
 
+    let currentNumber = 10;
+
     io.on("connection", (socket) => {
-      console.log("User connected");
-
-
-      socket.on('chatMessage', (msg) => {
-        console.log("chatting", msg);
-        //io.emit('chatMessage', `Youve just sent me ${msg}`);  // sent to all clients
-        //socket.broadcast.emit - to all , except sender (not used here at moment)
-        socket.emit('chatMessage', `Youve just sent me ${msg}`);
-      });
-
-      socket.on('differentMessage', (msg) => {
-        console.log("this is a different message", msg);
-        
-      });
-
+      
+     
+      socket.emit("currentNumber", currentNumber);
+      
       socket.on("disconnect", (reason) => {
-          console.log(`User disconnected ${socket.id} and ${reason}`)
-
+          console.log(`User disconnected ${socket.id} and ${socket.reason}`)
       })
-    })
+    });
 
+    // Run one interval timer that updates currentNumber and broadcasts it
+    setInterval(() => {
+      currentNumber++;
+      
+      io.emit("currentNumber", currentNumber);
+    }, 5000); // every 5 seconds
+
+  
 
   
   }

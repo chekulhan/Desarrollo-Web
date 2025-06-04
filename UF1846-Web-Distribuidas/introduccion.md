@@ -8,9 +8,11 @@ https://www.youtube.com/watch?v=WnHZ5m4jtWo
 
 
 ## Event-driven
+https://www.youtube.com/watch?v=3cJt3wTaKnk
 
 
 ## Actividades de repaso
+### Actividades 1
 ```js
 const capitals = {
   Spain: "Madrid",
@@ -83,3 +85,55 @@ countries.map((c, index) => (
 ));
 
 ```
+
+### Actividades 2
+```js
+const scores = [65, 80, 90, 45, 70];
+```
+
+- ¿Cómo consigues que este comando devuleve true?
+```js
+scores.every((x)=> x> 71)
+```
+- Quieres saber si cualquier elemento es mayor a 70? Usar any().
+
+```js
+const students = [
+  { name: "Ana", score: 80 },
+  { name: "Jon", score: 45 },
+  { name: "Sofía", score: 90 }
+];
+```
+- ¿Han aprobado todos los alumnos? 
+- Encontrar los alumnos que no han aprobado. Usar filter().
+
+
+Recordar que el ternario operador es igual que un if... then...
+```js
+const num = 7;
+const result = num % 2 === 0 ? "Even" : "Odd";
+console.log(result); // "Odd"
+```
+- Mostrar un mensaje apropriado para la edad
+```js
+const age = 16;
+```
+
+
+```js
+const user = {nombre: 'Jon', edad: 18};
+user?.nombre ?? 'None';
+user?.profile ?? 'None';
+```
+
+- Construir el objeto para que este comando se ejecuta y devuleve un valor de 'jon@gmail.com'.
+
+```js
+user?.profile?.email ?? "Sin email";
+```
+
+| Operador | Qué hace                         | Cuándo usarlo                                             |
+|----------|----------------------------------|-----------------------------------------------------------|
+| `?.`     | Encadenamiento opcional          | Para acceder a datos anidados de forma segura             |
+| `??`     | Fusión nula (nullish coalescing) | Para dar un valor por defecto solo si es `null` o `undefined` |
+
