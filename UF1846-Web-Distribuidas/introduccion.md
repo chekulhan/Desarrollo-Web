@@ -137,3 +137,131 @@ user?.profile?.email ?? "Sin email";
 | `?.`     | Encadenamiento opcional          | Para acceder a datos anidados de forma segura             |
 | `??`     | Fusión nula (nullish coalescing) | Para dar un valor por defecto solo si es `null` o `undefined` |
 
+
+### Actividades 3
+
+```js
+const profile = {email: 'jon@gmail.com', admin: false}
+const user = {nombre: 'Jon', edad: 19 }
+
+
+const userProfile = {...profile, ...user}
+```
+
+- ¿Qué occure si el user contiene {nombre: 'Jon', edad: 19, admin: true } ?
+
+```js
+const defaultFruits = ["apple", "banana", "cherry"];
+const newFruits = ["date", "elderberry"];
+
+const allFruits = [...defaultFruits, ...newFruits];
+```
+
+```js
+const defaultUsers = [
+  { id: 1, name: "Alice", role: "user" },
+  { id: 2, name: "Bob", role: "user" },
+];
+
+const newUsers = [
+  { id: 2, name: "Robert", role: "admin" },  
+  { id: 3, name: "Charlie", role: "user" }, 
+];
+```
+- ¿Qué ocurre con usuario id 2 si combinamos los dos arrays?
+- ¿Qué hace este código a continuación?
+
+```js
+
+const usersMap = new Map();
+
+[...defaultUsers, ...newUsers].forEach(user => {
+    usersMap.set(user.id, { ...usersMap.get(user.id), ...user}); });
+
+const mergedUsers = Array.from(usersMap.values());
+
+```
+
+
+Básico de Map objeto
+```js
+const map = new Map();
+
+// Add a key–value pair
+map.set('name', 'Alice');
+
+console.log(map.get('name')); 
+
+console.log(map.has('name')); 
+
+console.log(map.size);
+
+
+```
+
+Más ejemplos:
+
+```js
+const map = new Map();
+map.set('color', 'red');
+map.set('size', 'large');
+map.set('size', 'medium')
+map.delete('size')
+```
+
+Quitar los duplicados de este array:
+1. instanciar un Map objecto
+2. pasar por todos con un bucle foreach y asignar cada elemento al object Map (usar set(num, true))
+3. Convertir los keys() en un Array - Array.from()
+
+```js
+const numbers = [1, 1, 4, 5, 6, 6, 7]
+```
+
+Repetir con lo siguiente, usando student.id como la clave de Map() y el objecto entero como el valor:
+
+```js
+const students = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" },
+  { id: 1, name: "Alicia" }, // Duplicado!
+  { id: 3, name: "Charlie" }
+];
+```
+
+## Respuestas
+
+```js
+const numbers = [1, 1, 4, 5, 6, 6, 7]
+const numMap = new Map();
+numbers.forEach(num => numMap.set(num, true));
+
+Array.from(numMap.keys());
+
+
+const numbers = [1, 2, 2, 3, 1, 4];
+
+const uniqueNumbers = [...new Set(numbers)];
+
+
+
+
+const students = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" },
+  { id: 1, name: "Alicia" }, 
+  { id: 3, name: "Charlie" }
+];
+
+const studentMap = new Map();
+
+students.forEach(student => {
+  studentMap.set(student.id, student); // If ID already exists, it gets overwritten
+});
+
+const uniqueStudents = Array.from(studentMap.values());
+
+console.log(uniqueStudents);
+
+
+```

@@ -41,6 +41,11 @@ fetch('http://localhost:5000/api/v1/seguridad', {
 ```
 
 **Option 2: Authorization': 'Bearer'**
+
+OAuth: Authorization': 'Bearer token123',
+https://www.youtube.com/watch?v=GeXbsMezj8s
+
+
 ```js
 // la acción GET desde el cliente seria:
 headers: {

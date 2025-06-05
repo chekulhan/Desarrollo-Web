@@ -126,6 +126,10 @@ npm run dev
 
 
 ---
+
+https://graphql.org/
+
+
 # Historia de GraphQL
 GraphQL fue desarrollado en 2012 por ingenieros de Facebook para resolver problemas relacionados con las APIs REST tradicionales. Facebook necesitaba una forma más eficiente y flexible para que sus aplicaciones móviles y web pudieran pedir exactamente los datos que necesitaban sin sobrecargar la red ni hacer múltiples llamadas. En 2015, Facebook liberó GraphQL como un proyecto open source para que la comunidad pudiera beneficiarse de esta tecnología.
 
