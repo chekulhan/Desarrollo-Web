@@ -1,3 +1,6 @@
+# GraphQL
+
+https://www.youtube.com/watch?v=RreRD41qlpw
 
 
 Project Structure – graphql-project/
