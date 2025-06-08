@@ -24,4 +24,4 @@ const run = async () => {
   await producer.disconnect();
 }
 
-run().catch(console.error);
+run();

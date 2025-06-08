@@ -1,8 +1,101 @@
+
+>> docker compose up -d
+>> docker logs kafka
+>> docker compose down
+>> docker exec -it kafka bash
+
+$ kafka-topics --list --bootstrap-server localhost:29092
+$ kafka-topics --create --topic test2-topic --bootstrap-server localhost:29092 --partitions 1 --replication-factor 1
+
+Consola producer:
+$ kafka-console-producer --broker-list localhost:29092 --topic test-topic
+Consola consumer:
+$ kafka-console-consumer --bootstrap-server localhost:29092 --topic test-topic --from-beginning
+
+
+# Actividad 1
+## Simular un chatroom
+
+En Docker Terminal, crear un nuevo topic: orders
+$ kafka-topics --bootstrap-server localhost:29092 --create --topic orders
+$ kafka-topics --bootstrap-server localhost:29092 --list
+
+$ kafka-console-producer --broker-list localhost:29092 --topic orders
+$ kafka-console-consumer --bootstrap-server localhost:29092 --topic orders --from-beginning
+
+>> Mandar los pedidos : 
+- {OrderID: 1235, Item: Monitors, Quantity: 15 }
+- {OrderID: 1234, Item: Laptops, Quantity: 20 }
+
+
+# Actividad 2
+## Gestión de Kafka
+$ kafka-topics --bootstrap-server localhost:29092 --list
+$ kafka-topics --bootstrap-server localhost:29092 --describe --topic orders
+$ kafka-topics --bootstrap-server localhost:29092 --delete --topic orders
+
+
+
+TO DO:
+Explanación: Partitions
+Crear un nuevo topic con particiones:
+$>>  ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic partition-topic  --partitions 2 --replication-factor 1
+
+Ahora vamos a mandar mensajes a cada partición. Fijate en el formato de key:value:
+
+$>> ./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic partition-topic --property "parse.key=true" --property "key.separator=:"
+
+Ahora mandar mensajes en formato key:value, por ejemplo:
+user1:¿Qué tal estas?
+user2:Estoy bien. Y tu?
+user1:Bueno, ni fu ni fa
+user2:Vale. Hasta luego
+
+$>> ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic partition-topic --from-beginning --property print.partition=true
+--property print.partition=true
+Actividad 4: Partitions en el contexto de un banco
+
+Crear un topic con 2 particiones para gestionar los datos de un banco, según el tipo de transacción: 
+Partition 0: para depositar dinero
+Partition 1: para sacar dinero
+
+Al consumir, tendremos un cliente que está consumiendo los ingresos y otro que está consumiendo los gastos.Fijate en el –group atributo.
+
+$>>  ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic partition-topic  --partitions 2 --replication-factor 1
+
+$>> ./kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic banco
+
+
+
+$>> ./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic banco --property "parse.key=true" --property "key.separator=:"
+
+$>> ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic banco --from-beginning --property print.partition=true
+--property print.partition=true
+
+Sacar solo los datos de ingreso (realmente se hace con un cliente usando la programación):
+
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic banco --from-beginning 
+--property print.key=true --property print.partition=true | grep "^ingreso"
+
+# Node
+
 ```bash
 npm install kafkajs
-´´´
+```
+
+# Actividad
+Vamos a generar datos aleatorios de acciones. En el **producer**, simularemos acciones en formato JSON. En el **consumidor**, guardaremos sus datos en una colección en MongoDB.
+
+```js
+const acciones = ['AAPL', 'GOOGL', 'TSLA', 'AMZN', 'MSFT'];
 
 
+  const accionUpdate = {
+    symbol: acciones[Math.floor(Math.random() * acciones.length)],
+    price: (100 + Math.random() * 1000).toFixed(2),  // Random price between 100 and 1100
+    timestamp: new Date().toISOString(),
+  };
+```
 
 
 
