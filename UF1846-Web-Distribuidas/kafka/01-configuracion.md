@@ -1,3 +1,17 @@
+# Kafka
+
+Apache Kafka es un sistema de mensajería distribuido de tipo publish/subscribe, optimizado para el procesamiento de eventos en tiempo real. Permite transmitir, almacenar, procesar y reenviar grandes volúmenes de datos entre sistemas de forma eficiente y segura.
+
+## Ejemplos de uso:
+
+- Procesamiento de eventos en tiempo real (transacciones bancarias, clics en sitios web).
+- Ingesta de datos para análisis o almacenamiento (Big Data).
+- Comunicación entre microservicios.
+- Integración entre sistemas (ETL, pipelines de datos).
+
+https://www.youtube.com/watch?v=wO6DCLU4uxE
+https://www.youtube.com/watch?v=aj9CDZm0Glc
+
 
 >> docker compose up -d
 >> docker logs kafka
@@ -98,7 +112,38 @@ const acciones = ['AAPL', 'GOOGL', 'TSLA', 'AMZN', 'MSFT'];
 ```
 
 
+# Actividad: Web architectura 
+Vamos a montar juntos una arquitectura compleja y escalable para desacoplar los componentes de un sistema moderno de gestión de productos. La idea principal es utilizar Kafka como sistema de mensajería central para transmitir eventos entre diferentes servicios, logrando así una alta disponibilidad, tolerancia a fallos y escalabilidad.
 
+En esta arquitectura:
+
+- El cliente web (ReactJS) envía las peticiones mediante un servidor GraphQL que actúa como productor, publicando eventos en Kafka.
+
+- Kafka funciona como un bus de eventos distribuido que garantiza la entrega y persistencia de mensajes. Este servicio es el productor de eventos (Express con GraphQL)
+
+- Un servicio consumidor (Express con GrpahQL) lee esos eventos de Kafka y actualiza la base de datos MongoDB.
+
+- A su vez, este servicio consumidor expone su propia API GraphQL para que el cliente pueda consultar los datos ya procesados y almacenados.
+
+Este enfoque permite desacoplar la inserción y actualización de datos de su almacenamiento, facilitando la escalabilidad horizontal y la integración con otros sistemas en el futuro.
+
+```pqsql
++----------------+       +---------------------------+       +-------------------------+
+|                |       |                           |       |                         |
+|  ReactJS       | ----> | Kafka + GraphQL Producer  | ----> | MongoDB Consumer +      |
+|  Frontend      |       | Server (localhost:5000)   |       | GraphQL API (localhost:5001) |
+|  (Browser)     |       |                           |       |                         |
++----------------+       +---------------------------+       +-------------------------+
+                              |                                      |
+                              |                                      |
+                              v                                      v
+                   +----------------------+              +----------------------+
+                   |  Kafka Broker in     |              |  MongoDB Atlas Cloud  |
+                   |  Docker Container    |              |  (Cloud Database)     |
+                   +----------------------+              +----------------------+
+
+```
+---
 
 docker ps
 docker exec -it 3ea95e708ac2 /bin/bash
