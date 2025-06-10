@@ -265,3 +265,24 @@ console.log(uniqueStudents);
 
 
 ```
+
+
+### Actividades 4
+Usando comments coleccion de sample_mflix:
+- contar las filas
+- contar los comentarios para cada email. O sea, groupBy email
+- contar los comentarios para cada email, pero solo oona_chaplin@gameofthron.es, amanda_jordan@fakegmail.com y john_bishop@fakegmail.com
+
+
+
+
+
+
+
+
+```json
+{
+  _id: "$email",
+  count: {$sum: 1}
+}
+```
