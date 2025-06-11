@@ -12,7 +12,7 @@ Apache Kafka es un sistema de mensajería distribuido de tipo publish/subscribe,
 https://www.youtube.com/watch?v=wO6DCLU4uxE
 https://www.youtube.com/watch?v=aj9CDZm0Glc
 
-
+```bash
 >> docker compose up -d
 >> docker logs kafka
 >> docker compose down
@@ -21,10 +21,14 @@ https://www.youtube.com/watch?v=aj9CDZm0Glc
 $ kafka-topics --list --bootstrap-server localhost:29092
 $ kafka-topics --create --topic test2-topic --bootstrap-server localhost:29092 --partitions 1 --replication-factor 1
 
-Consola producer:
+# Consola producer:
 $ kafka-console-producer --broker-list localhost:29092 --topic test-topic
-Consola consumer:
+
+# Consola consumer:
 $ kafka-console-consumer --bootstrap-server localhost:29092 --topic test-topic --from-beginning
+
+```
+
 
 
 # Actividad 1
@@ -44,30 +48,116 @@ $ kafka-console-consumer --bootstrap-server localhost:29092 --topic orders --fro
 
 # Actividad 2
 ## Gestión de Kafka
+
+```bash
 $ kafka-topics --bootstrap-server localhost:29092 --list
+
 $ kafka-topics --bootstrap-server localhost:29092 --describe --topic orders
+
 $ kafka-topics --bootstrap-server localhost:29092 --delete --topic orders
 
+```
 
 
-TO DO:
-Explanación: Partitions
+# Particiones
+
 Crear un nuevo topic con particiones:
-$>>  ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic partition-topic  --partitions 2 --replication-factor 1
+```bash
+$>> kafka-topics --bootstrap-server localhost:29092 --create --topic partition-topic --partitions 2 --replication-factor 1
+```
 
 Ahora vamos a mandar mensajes a cada partición. Fijate en el formato de key:value:
 
+```bash
+$>> kafka-console-producer --bootstrap-server localhost:29092 --topic partition-topic --property "parse.key=true" --property "key.separator=:"
+
 $>> ./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic partition-topic --property "parse.key=true" --property "key.separator=:"
+```
 
 Ahora mandar mensajes en formato key:value, por ejemplo:
+
 user1:¿Qué tal estas?
+
 user2:Estoy bien. Y tu?
+
 user1:Bueno, ni fu ni fa
+
 user2:Vale. Hasta luego
 
-$>> ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic partition-topic --from-beginning --property print.partition=true
---property print.partition=true
-Actividad 4: Partitions en el contexto de un banco
+
+```bash
+$>> kafka-console-consumer --bootstrap-server localhost:29092 --topic partition-topic --from-beginning --property print.partition=true 
+
+
+$>> kafka-console-consumer --bootstrap-server localhost:29092 --topic partition-topic --partition 1 --from-beginning
+
+```
+
+
+## Actividad de banco con Node
+Querermos implantar un sistema de deteccion de fraudes, si al sacar dinero, sobrepasa 10,000 euros, indicar al administrador de tecnologias.
+
+
+```js
+import { Kafka } from 'kafkajs';
+
+const kafka = new Kafka({
+  clientId: 'my-app',
+  brokers: ['localhost:29092'],
+});
+
+const producer = kafka.producer();
+
+async function run() {
+  await producer.connect();
+
+  // Send message explicitly to partition 0
+  await producer.send({
+    topic: 'my-topic',
+    messages: [
+      { key: 'user1', value: 'message for partition 0', partition: 0 },
+      { key: 'user2', value: 'message for partition 1', partition: 1 },
+    ],
+  });
+
+  await producer.disconnect();
+}
+
+run().catch(console.error);
+```
+
+```js
+const { Kafka } = require('kafkajs');
+
+const kafka = new Kafka({ clientId: 'my-app', brokers: ['localhost:29092'] });
+const consumer = kafka.consumer({ groupId: 'test-group' });
+
+async function run() {
+  await consumer.connect();
+
+  await consumer.subscribe({ topic: 'my-topic', fromBeginning: true });
+
+  // Assign specific partition
+  await consumer.run({
+    eachMessage: async ({ topic, partition, message }) => {
+      if (partition === 1) {
+        console.log({
+          partition,
+          offset: message.offset,
+          value: message.value.toString(),
+        });
+      }
+    },
+  });
+}
+
+run().catch(console.error);
+```
+
+
+
+
+## Actividad 4: Partitions en el contexto de un banco
 
 Crear un topic con 2 particiones para gestionar los datos de un banco, según el tipo de transacción: 
 Partition 0: para depositar dinero
@@ -78,6 +168,8 @@ Al consumir, tendremos un cliente que está consumiendo los ingresos y otro que 
 $>>  ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic partition-topic  --partitions 2 --replication-factor 1
 
 $>> ./kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic banco
+
+
 
 
 
@@ -248,3 +340,41 @@ Sacar solo los datos de ingreso (realmente se hace con un cliente usando la prog
 
 ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic banco --from-beginning 
 --property print.key=true --property print.partition=true | grep "^ingreso"
+
+
+```js
+import { Kafka } from 'kafkajs';
+
+const kafka = new Kafka({
+  clientId: 'fraud-detector',
+  brokers: ['localhost:9092'],
+});
+
+const consumer = kafka.consumer({ groupId: 'fraud-detection-group' });
+
+async function run() {
+  await consumer.connect();
+
+  // Consumir solo la partición 1 (por ejemplo, la de withdrawals)
+  await consumer.subscribe({ topic: 'banco', fromBeginning: true });
+
+  await consumer.run({
+    eachMessage: async ({ topic, partition, message }) => {
+      // Solo analizar mensajes de la partición de retiradas
+      if (partition === 1) {
+        const value = message.value.toString();
+        const transaction = JSON.parse(value);
+
+        // Ejemplo: detectar retiradas superiores a 10,000
+        if (transaction.tipo === 'withdrawal' && transaction.monto > 10000) {
+          console.log('Alerta de posible fraude: Retirada grande detectada:', transaction);
+          // Aquí podrías agregar lógica para alertar, bloquear, etc.
+        }
+      }
+    },
+  });
+}
+
+run().catch(console.error);
+
+```

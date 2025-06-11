@@ -15,14 +15,14 @@ router.use((req, res, next) => {
 
 // GET /api/v1/seguridad/rbac
 // solo compueba un nivel de acceso a la vez
-router.get('/rbac', authorise('read:any'),  async (req, res) => {
+
+router.get('/users', authorise('read:any'),  async (req, res) => {
 
     try {
-        console.log(req.role);
         res.json({message: "exito", role: req.role});
 
     } catch (error) {
-        console.error("Error fetching seguridad:", error);
+        console.error("Error fetching :", error);
         res.status(500).json({ error: 'Failed to fetch seguridad' });
     }
 });
