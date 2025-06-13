@@ -39,12 +39,15 @@ Puede incluir enlaces a repositorios, vídeos o herramientas colaborativas.
 # 4. Evaluación
 La evaluación del proyecto se basa en los documentos entregados en cada sprint, considerando:
 
-| Criterio                          | Descripción                                                                                  | Puntaje Máximo |
-|----------------------------------|----------------------------------------------------------------------------------------------|---------------:|
-| Calidad y detalle de la documentación diaria | Claridad, profundidad y reflexión en los documentos de actividad diaria.                 |             30 |
-| Calidad del Sprint Showcase       | Claridad en la presentación de avances, objetivos cumplidos y visión para el siguiente sprint.|             20 |
-| Evidencias del trabajo            | Relevancia, cantidad y calidad de las evidencias que demuestran el progreso real.             |             30 |
-| Cumplimiento de la planificación | Entrega puntual y alineada con los objetivos y tareas planeadas para cada sprint.            |             20 |
+| Criterio                          | Descripción                                                                                  | Puntaje Máximo | % del total |
+|----------------------------------|----------------------------------------------------------------------------------------------|---------------:|------------:|
+| Calidad y detalle de la documentación diaria | Claridad, profundidad, reflexión y consistencia en los documentos de actividad diaria, incluyendo explicación de decisiones, dificultades encontradas, aprendizajes obtenidos y seguimiento de la planificación del sprint. |             20 |         20% |
+| Calidad del Sprint Showcase       | Claridad en la presentación de avances, objetivos cumplidos y visión para el siguiente sprint.|             20 |         20% |
+| Evidencias del trabajo            | Relevancia, cantidad y calidad de las evidencias que demuestran el progreso real.             |             20 |         20% |
+| **Subtotal documentación**       |                                                                                              |             60 |         60% |
+| Código y desarrollo               | Funcionalidad, calidad, buenas prácticas y corrección del código desarrollado.                |             40 |         40% |
+| **Total**                        |                                                                                              |            100 |        100% |
+
 
 **Nota final:** La suma ponderada de las evaluaciones de cada sprint.
 
