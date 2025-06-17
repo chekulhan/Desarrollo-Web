@@ -114,3 +114,60 @@ if sli >= slo_target:
 else:
     print("❌ SLO no cumplido. Revisar estabilidad del sistema.")
 ```
+
+
+## Actividad Práctica de SRE
+
+```pip
+pip install pymysql
+pip install cryptography
+```
+
+```python
+import pymysql
+
+# Define your DB connection settings
+config = {
+    'host':'mysql',       # or 'localhost    # or your MySQL container hostname / IP
+    'user': 'user',
+    'password': 'userpass',
+    'database': 'myapp',
+    'port': 3306              # Default MySQL port
+}
+
+try:
+    connection = pymysql.connect(**config)
+    print("Connection successful!")
+
+    # Example query
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT VERSION()")
+        version = cursor.fetchone()
+        print("MySQL version:", version[0])
+
+except pymysql.MySQLError as e:
+    print("Connection failed:", e)
+
+finally:
+    if 'connection' in locals() and connection.open:
+        connection.close()
+        print("Connection closed.")
+```
+
+
+```sh
+#!/bin/sh
+
+trap "echo 'Stopping script'; exit 0" TERM INT
+
+
+while true; do
+    python sre.py
+    sleep 30 # 300 seconds = 5 minutes
+done
+
+```
+
+```bash
+$  sh sre.sh
+```
