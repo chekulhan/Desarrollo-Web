@@ -240,3 +240,65 @@ resource "aws_instance" "node_app" {
 
 
 ```
+
+
+
+# Despliege
+Vamos a crear una aplicacion de NODE disponible en formato EXE.
+
+```js
+console.log("Hola");
+```
+
+2 opciones para instalar pkg:
+
+```bash
+npm install --save-dev pkg
+npm install -g pkg
+```
+
+Recordando que npx nos deja la posibilidad de ejecutar un paquete sin instalacion global.
+
+```bash
+pkg main.js --targets node18-win-x64
+npx pkg main.js --targets node18-macos-x64 --output my-app
+```
+
+NOTA: Archivos dinamicos no se incluye
+
+
+Fijate en "pkg"."assets" para cambiar el nombre y incluir archivos adicionales
+
+```bash
+npx pkg .
+```
+
+
+```json
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+   "output": "my-app",
+    "assets": [
+      "images/**/*"
+    ],
+    "targets": [
+      "node18-macos-x64",
+      "node18-win-x64",
+      "node18-linux-x64"
+    ]
+  }
+}
+```
