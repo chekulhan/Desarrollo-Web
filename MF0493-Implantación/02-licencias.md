@@ -8,3 +8,6 @@
 | Source Available  | SSPL, Elastic License  | Se puede leer, pero no es software libre          |
 
 
+# Actividad
+
+Visitar https://github.com/trending y buscar algunos licencias
