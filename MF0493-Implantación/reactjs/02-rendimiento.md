@@ -104,29 +104,220 @@ const LargeImage = React.lazy(() => import('./LargeImage'));
 # ¿Qué es React Query?
 React Query es una biblioteca para manejar datos remotos (como APIs) en aplicaciones React. Su objetivo principal es facilitar la obtención, almacenamiento en caché, sincronización y actualización de datos que vienen de servidores o servicios externos.
 
+¿Qué es *stale-while-revalidate*?
+
+Es una estrategia para manejar datos en aplicaciones web que:
+
+- Muestra datos almacenados en caché inmediatamente (aunque estén “viejos” o stale).
+
+- Mientras tanto, hace una petición en segundo plano para obtener datos actualizados (revalidate).
+
+- Cuando llegan los datos nuevos, actualiza la caché y la UI automáticamente.
+
+ANTES de useQuery:
+
 ```jsx
-import { useQuery } from '@tanstack/react-query';
+import React, {useState, useEffect} from 'react'
 
-function fetchUsers() {
-  return fetch('https://api.example.com/users').then(res => res.json());
-}
 
-export function UserList() {
-  const { data, isLoading, error } = useQuery(['users'], fetchUsers);
+const Query = () => {
+    const [user, setUser] = useState({});
+    const [fetched, setFetched] = useState(true);
 
-  if (isLoading) return <div>Cargando...</div>;
-  if (error) return <div>Error al cargar usuarios</div>;
+    const fetchUser = async () => {
+        return fetch('https://jsonplaceholder.typicode.com/users/1')
+        .then(result => {
+            return result.json()
+        })
+        .then(result => {
+            return result;
+        });
+    }
+
+    useEffect(() => {
+
+        const loadUser = async () => {
+            const result = await fetchUser();
+            setFetched(true);
+            setUser(result);
+        }
+        
+        loadUser();
+    
+    }, [])
+    
 
   return (
-    <ul>
-      {data.map(user => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
-  );
+    <>
+        {fetched && (
+            <div>{user.id} - {user.name}</div>
+        )}
+    </>
+  )
 }
 
+export default Query
+
 ```
+
+```bash
+npm install @tanstack/react-query
+npm install --save-dev @tanstack/react-query-devtools
+```
+
+QueryClientProvider es un componente React que provee el contexto necesario para que React Query funcione en tu aplicación.
+
+**¿Dónde se coloca normalmente?**
+En el nivel más alto posible, como en index.js o en el componente raíz (App), para que toda la app pueda usar React Query.
+
+Cuando usas un hook como useQuery, React Query accede al contexto creado por QueryClientProvider.
+
+El QueryClient es responsable de:
+
+- Guardar los datos que trae cada consulta.
+
+- Saber cuándo y cómo actualizar esos datos.
+
+- Manejar estados como “cargando”, “error” o “éxito”.
+
+- Coordinar refetch automático y cacheo.
+
+```jsx
+import './App.css'
+
+import Query from './components/Query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+const queryClient = new QueryClient();
+
+function App() {
+
+  return (
+    <>
+       <QueryClientProvider client={queryClient}>
+        <h1>Main</h1>
+        <Query />
+        <ReactQueryDevtools initialIsOpen />
+      </QueryClientProvider>
+    </>
+  )
+}
+
+export default App
+```
+
+
+```js
+import { useQuery } from '@tanstack/react-query';
+
+const fetchUser = async () => {
+    return fetch('https://jsonplaceholder.typicode.com/users/1')
+    .then(result => {
+        return result.json()
+    })
+    .then(result => {
+        return result;
+    });
+}
+
+
+const Query = () => {
+
+    const { data: user, isLoading, error } = useQuery({
+        queryKey: ['user', 1],
+        queryFn: fetchUser,
+    });
+    
+
+    return (
+        <>
+            {isLoading && <div>Cargando...</div>}
+            {error && <div>Error al cargar usuario</div>}
+            {!isLoading && !error && (
+            <div>{user.id} - {user.name}</div>
+            )}
+        </>
+    )
+}
+
+export default Query
+```
+
+
+Version más dinámica
+
+```jsx
+import {useState} from 'react';
+import { useQuery } from '@tanstack/react-query';
+
+const fetchUser = async ({queryKey}) => {
+    console.log(queryKey);
+    const [, id] = queryKey;
+    console.log("Fetching");
+    return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+    .then(result => {
+        return result.json()
+    })
+    .then(result => {
+        return result;
+    });
+}
+
+
+const Query = () => {
+    const [userId, setUserId] = useState(1);
+    const [submittedId, setSubmittedId] = useState(1);
+
+    const { data: user, isLoading, error } = useQuery({
+        queryKey: ['user', Number(submittedId)],
+        queryFn: fetchUser,
+        staleTime: 10000, // 10 seconds
+        //refetchInterval: 60000,
+        onSuccess: () => console.log('Data fetched/refetched'),
+        onError: (err) => console.error('Fetch error:', err),
+    });
+    
+
+    return (
+        <>
+            User Id: <input type="text" value={userId} onChange={(e)=>setUserId(e.target.value)}/>
+            <button onClick={() => setSubmittedId(userId)}>Get</button>
+
+            {isLoading && <div>Cargando...</div>}
+            {error && <div>Error al cargar usuario</div>}
+            {!isLoading && !error && (
+            <div>{user.id} - {user.name}</div>
+            )}
+        </>
+    )
+}
+
+export default Query
+```
+
+
+## Actividad de Query
+
+El API https://dog.ceo/api/breeds/image/random devuelve un mensaje en el siguiente formato:
+
+```json
+{"message":"https:\/\/images.dog.ceo\/breeds\/finnish-lapphund\/mochilamvan.jpg","status":"success"}
+```
+Aprovechar React Query para mostrar una nueva imagen cada 10 segundos. Usar la que esta en el cache mientras tanto.
+
+```jsx
+const fetchDog = async () => {
+  console.log('Fetching dog data...');
+  const res = await fetch('https://dog.ceo/api/breeds/image/random');
+  if (!res.ok) throw new Error('Network response was not ok');
+  const data = await res.json();
+  return data.message; // URL of a random dog image
+};
+```
+
+
+
 
  ## Respuestas
 
