@@ -56,3 +56,11 @@ df[df["status"].isin([500])]
 
 today = pd.Timestamp.today().date()
 past_dates = df[df['time_received_datetimeobj'].dt.date <= today]
+
+
+
+# Otras actividades de SRE
+- escribir un script de Python para verificar que el archivo 'backup.sql' existe en el directorio.
+    PISTA: usar module os (import os) 
+    
+    Podrias comprobar la fecha del archivo tmabién
